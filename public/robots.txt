@@ -1,0 +1,5 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
+
+mongodb+srv://reinajirveg:<db_password>@arcanescores.lmwnh.mongodb.net/?retryWrites=true&w=majority&appName=ArcaneScores

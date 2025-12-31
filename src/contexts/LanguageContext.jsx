@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { coinsImages } from "../components/Ficha/coinsImages";
 import hexa1 from "../images/hexa_azul1.webp";
 import gameOver from "../images/ruleGameComplete.webp";

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from "react";
+
 import clickSound from "../assets/Click FX.mp3";
 import { useTextos } from "../contexts/LanguageContext";
 import "../stylesBack.css";
@@ -107,6 +107,7 @@ const Header = ({ setIsAboutModalOpen, handleLangBtnClick }) => {
               {language}
             </button>
           </li>
+
           <li>
             <button className="about-btn" onClick={handleAboutClick}>
               {about}

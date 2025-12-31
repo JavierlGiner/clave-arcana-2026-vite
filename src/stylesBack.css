@@ -432,7 +432,7 @@ a:hover,
   }
 }
 
-@media (max-width: 480px) and (max-height: 740px) and (orientation: portrait) {
+@media (max-width: 480px) and (max-height: 800px) and (orientation: portrait) {
   .hexagono1,
   .hexagono2 {
     width: 190px; /* Reducir el ancho de los hexágonos */

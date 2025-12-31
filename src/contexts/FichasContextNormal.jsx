@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  createContext,
-  useRef,
-} from "react";
+import { useState, useEffect, createContext, useRef } from "react";
 import isEqual from "lodash/isEqual";
 import selectSound from "../assets/modena_select.mp3";
 import swapSound from "../assets/moneda_change.mp3";
@@ -133,7 +128,7 @@ const FichasProvider = ({ children }) => {
     setFichas(fichasActuales);
     setTimeout(() => {
       setEnEspera(false); // Desactivar la espera después de 20 segundos
-    }, 15000);
+    }, 9000);
   };
 
   const bloquearNuevaFicha = () => {

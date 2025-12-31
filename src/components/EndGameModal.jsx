@@ -75,7 +75,6 @@ const Modal = styled.div`
     justify-content: center;
     border: 4px solid black;
     font-size: 1.5rem;
-
     padding: 10px;
     height: 260px;
     width: 480px;
@@ -108,7 +107,6 @@ const Modal = styled.div`
     .links-msg {
       border-radius: 6px;
       font-size: 1.1rem;
-      font-weight: 700;
       text-align: left;
     }
   }
@@ -120,9 +118,9 @@ const Modal = styled.div`
     align-items: center;
     justify-content: center;
     border: 4px solid black;
-    padding: 8px;
+    padding: 6px;
     height: 370px;
-    width: 95%;
+    width: 96%;
     background-color: var(--instruction-bg);
     gap: 15px;
 
@@ -137,6 +135,7 @@ const Modal = styled.div`
       text-align: justify;
       align-items: center;
       text-transform: uppercase;
+      font-weight: 600;
       width: 100%;
     }
 
@@ -146,6 +145,7 @@ const Modal = styled.div`
       font-size: 18px;
       text-align: center;
       height: auto;
+      width: 100%;
     }
     .premium-container {
       height: 100%;
@@ -332,6 +332,8 @@ const Modal = styled.div`
       height: 240px;
       background-color: var(--instruction-bg);
       gap: 5px;
+      margin: 10px;
+
       p {
         width: 100%;
         font-size: 0.75rem;
@@ -370,9 +372,9 @@ const Modal = styled.div`
         font-size: 0.75rem;
       }
       .donationBtn {
-        height: 35px;
+        height: 30px;
         width: auto;
-        font-size: 1rem;
+        font-size: 10px;
         margin-bottom: 5px;
       }
     }
@@ -417,9 +419,9 @@ const StyledButton = styled.button`
     font-size: 14px;
   }
   @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
-    height: 40px;
-    width: 120px;
-    font-size: 18px;
+    height: 35px;
+    width: 110px;
+    font-size: 16px;
   }
 `;
 // const BlackScreen = styled.div`
@@ -520,7 +522,7 @@ const EndGameModal = ({ formattedTempo }) => {
               <>
                 <div className="score-container-2">
                   <div className="links-msg">
-                    <p className="">
+                    <p>
                       {endGame.text2}
                       <div className="redes-container">
                         <a

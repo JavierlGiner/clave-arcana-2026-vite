@@ -234,7 +234,6 @@ a:hover,
 .home {
   width: 100%;
   height: 100dvh;
-  display: none;
 }
 /*----------------------------------------*/
 @media (max-width: 480px) {
@@ -901,17 +900,6 @@ a:hover,
   }
 }
 
-@media (min-width: 480px) and (max-width: 1600px) and (orientation: portrait) {
-  .tablero {
-    display: none;
-  }
-  .piezas {
-    display: none;
-  }
-  .ficha {
-    display: none;
-  }
-}
 /*-------------------------------------------------------*/
 @media (min-width: 1600px) {
   .board-background {

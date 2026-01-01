@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./screens/Home";
@@ -11,37 +11,37 @@ import InstallButton from "./components/InstallButton";
 import { TextosProvider } from "./contexts/LanguageContext";
 
 function App() {
-  // const [langSelected, setLangSelected] = useState(() => {
-  //   return !!localStorage.getItem("idioma");
-  // });
+  const [langSelected, setLangSelected] = useState(() => {
+    return !!localStorage.getItem("idioma");
+  });
 
-  // const [pwaAccepted, setPwaAccepted] = useState(() => {
-  //   return localStorage.getItem("pwa-gate") === "ok";
-  // });
+  const [pwaAccepted, setPwaAccepted] = useState(() => {
+    return localStorage.getItem("pwa-gate") === "ok";
+  });
 
-  // if (!langSelected) {
-  //   return (
-  //     <TextosProvider>
-  //       <LangSwitchModal
-  //         closeLangModalOpen={() => {
-  //           setLangSelected(true);
-  //         }}
-  //       />
-  //     </TextosProvider>
-  //   );
-  // }
-  // if (!pwaAccepted) {
-  //   return (
-  //     <TextosProvider>
-  //       <InstallButton
-  //         onContinue={() => {
-  //           localStorage.setItem("pwa-gate", "ok");
-  //           setPwaAccepted(true);
-  //         }}
-  //       />
-  //     </TextosProvider>
-  //   );
-  // }
+  if (!langSelected) {
+    return (
+      <TextosProvider>
+        <LangSwitchModal
+          closeLangModalOpen={() => {
+            setLangSelected(true);
+          }}
+        />
+      </TextosProvider>
+    );
+  }
+  if (!pwaAccepted) {
+    return (
+      <TextosProvider>
+        <InstallButton
+          onContinue={() => {
+            localStorage.setItem("pwa-gate", "ok");
+            setPwaAccepted(true);
+          }}
+        />
+      </TextosProvider>
+    );
+  }
 
   return (
     <TextosProvider>

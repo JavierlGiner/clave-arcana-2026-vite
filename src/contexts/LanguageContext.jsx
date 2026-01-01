@@ -504,6 +504,46 @@ export const TextosProvider = ({ children }) => {
     jap: "読み込み中...",
     zh: "加载中...",
   };
+  const installMessage = {
+    es: {
+      title: "Instalar la aplicación",
+      body: "Instalá esta app en tu dispositivo para acceder más rápido y disfrutar de una experiencia completa.",
+      ios: "Para instalar esta app, tocá el botón Compartir y luego seleccioná “Agregar a pantalla de inicio”.",
+      firefox:
+        "Podés instalar esta app desde el menú del navegador seleccionando “Instalar aplicación”.",
+      action: "Instalar ahora",
+      dismiss: "Continuar sin instalar",
+    },
+
+    en: {
+      title: "Install the app",
+      body: "Install this app on your device for faster access and a full experience.",
+      ios: "To install this app, tap the Share button and select “Add to Home Screen”.",
+      firefox:
+        "You can install this app from the browser menu by selecting “Install App”.",
+      action: "Install now",
+      dismiss: "Continue without installing",
+    },
+
+    jap: {
+      title: "アプリをインストール",
+      body: "このアプリをデバイスにインストールして、より快適で完全な体験をお楽しみください。",
+      ios: "このアプリをインストールするには、共有ボタンをタップして「ホーム画面に追加」を選択してください。",
+      firefox:
+        "ブラウザのメニューから「アプリをインストール」を選択してインストールできます。",
+      action: "今すぐインストール",
+      dismiss: "インストールせずに続行",
+    },
+
+    zh: {
+      title: "安装应用",
+      body: "将此应用安装到您的设备上，以获得更快捷的访问和完整的体验。",
+      ios: "要安装此应用，请点击共享按钮，然后选择“添加到主屏幕”。",
+      firefox: "您可以从浏览器菜单中选择“安装应用”来安装此应用。",
+      action: "立即安装",
+      dismiss: "暂不安装，继续",
+    },
+  };
 
   // Cambiar el idioma
   const cambiarIdioma = (nuevoIdioma) => {
@@ -518,6 +558,7 @@ export const TextosProvider = ({ children }) => {
         reglas: textos[idioma],
         instructBtn: instructBtn[idioma],
         instructPrompt: instructPrompt[idioma],
+        installMessage: installMessage[idioma],
         hardBtn: hardBtn[idioma],
         normalBtn: normalBtn[idioma],
         playBtn: playBtn[idioma],

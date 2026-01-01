@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { usePWAInstall } from "../hooks/usePWAInstall";
+import { useTextos } from "../contexts/LanguageContext";
 
 export default function InstallButton({ onContinue }) {
+  const { installMessage } = useTextos();
   const { isInstallable, installApp } = usePWAInstall();
   const [showInfo, setShowInfo] = useState(true);
 
@@ -17,15 +19,22 @@ export default function InstallButton({ onContinue }) {
   // Caso 1: Chromium
   if (isInstallable) {
     return (
-      <button
-        onClick={async () => {
-          await installApp();
-          onContinue?.();
-        }}
-        style={styles.primary}
-      >
-        Instalar aplicación
-      </button>
+      <div style={styles.overlay}>
+        <button style={styles.close} onClick={handleClose}>
+          ✕
+        </button>
+        <div style={styles.content}>
+          <button
+            onClick={async () => {
+              await installApp();
+              onContinue?.();
+            }}
+            style={styles.primary}
+          >
+            {installMessage.title}
+          </button>
+        </div>
+      </div>
     );
   }
 
@@ -37,13 +46,7 @@ export default function InstallButton({ onContinue }) {
           ✕
         </button>
         <div style={styles.content}>
-          <p>
-            Para instalar esta app:
-            <br />
-            tocá <strong>Compartir</strong> y luego
-            <br />
-            <strong>“Agregar a pantalla de inicio”</strong>
-          </p>
+          <p>{installMessage.ios}</p>
         </div>
       </div>
     );
@@ -57,11 +60,7 @@ export default function InstallButton({ onContinue }) {
           ✕
         </button>
         <div style={styles.content}>
-          <p>
-            Podés instalar esta app desde el menú del navegador:
-            <br />
-            <strong>☰ → Instalar aplicación</strong>
-          </p>
+          <p>{installMessage.firefox}</p>
         </div>
       </div>
     );
@@ -84,7 +83,7 @@ const styles = {
     width: "100vw",
     height: "100vh",
     backgroundColor: "black",
-    color: "white",
+    color: "black",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -96,6 +95,7 @@ const styles = {
     textAlign: "center",
     maxWidth: 320,
     lineHeight: 1.5,
+    color: "white",
   },
 
   close: {

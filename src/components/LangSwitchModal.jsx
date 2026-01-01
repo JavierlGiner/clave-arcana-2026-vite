@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useTextos } from "../contexts/LanguageContext";
 import styled from "styled-components";
 import argflag from "../images/argentinaflag.webp";
@@ -123,15 +123,13 @@ const LangSwitchModal = ({ closeLangModalOpen }) => {
   const handleChangeLanguage = (language) => {
     cambiarIdioma(language);
     localStorage.setItem("idioma", language);
+    closeLangModalOpen();
   };
 
   return (
-    <StyledAbout onClick={closeLangModalOpen}>
+    <StyledAbout>
       <Modal>
         <div className="modal-content">
-          <button className="close-button" onClick={closeLangModalOpen}>
-            X
-          </button>
           <div className="modal-info">
             <button
               className="flag-btn"

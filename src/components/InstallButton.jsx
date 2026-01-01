@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from "styled-components";
 import { usePWAInstall } from "../hooks/usePWAInstall";
 import { useTextos } from "../contexts/LanguageContext";
 
@@ -19,93 +20,104 @@ export default function InstallButton({ onContinue }) {
   // Caso 1: Chromium
   if (isInstallable) {
     return (
-      <div style={styles.overlay}>
-        <button style={styles.close} onClick={handleClose}>
-          ✕
-        </button>
-        <div style={styles.content}>
-          <button
+      <Overlay>
+        <CloseButton onClick={handleClose}>✕</CloseButton>
+        <Content>
+          <PrimaryButton
             onClick={async () => {
               await installApp();
               onContinue?.();
             }}
-            style={styles.primary}
           >
             {installMessage.title}
-          </button>
-        </div>
-      </div>
+          </PrimaryButton>
+        </Content>
+      </Overlay>
     );
   }
 
   // Caso 2: iOS Safari
   if (isIOS && showInfo) {
     return (
-      <div style={styles.overlay}>
-        <button style={styles.close} onClick={handleClose}>
-          ✕
-        </button>
-        <div style={styles.content}>
+      <Overlay>
+        <CloseButton onClick={handleClose}>✕</CloseButton>
+        <Content>
           <p>{installMessage.ios}</p>
-        </div>
-      </div>
+        </Content>
+      </Overlay>
     );
   }
 
   // Caso 3: Firefox
   if (isFirefox && showInfo) {
     return (
-      <div style={styles.overlay}>
-        <button style={styles.close} onClick={handleClose}>
-          ✕
-        </button>
-        <div style={styles.content}>
+      <Overlay>
+        <CloseButton onClick={handleClose}>✕</CloseButton>
+        <Content>
           <p>{installMessage.firefox}</p>
-        </div>
-      </div>
+        </Content>
+      </Overlay>
     );
   }
 
   return null;
 }
+const Overlay = styled.div`
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 24px;
+`;
 
-const styles = {
-  primary: {
-    padding: "12px 20px",
-    fontSize: 16,
-    cursor: "pointer",
-  },
+const Content = styled.div`
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 320px;
+  width: 100%;
 
-  overlay: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    width: "100vw",
-    height: "100vh",
-    backgroundColor: "black",
-    color: "black",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: 9999,
-  },
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  content: {
-    fontSize: 18,
-    textAlign: "center",
-    maxWidth: 320,
-    lineHeight: 1.5,
-    color: "white",
-  },
+  @media (max-width: 480px) {
+    font-size: 16px;
+    max-width: 280px;
+  }
+`;
 
-  close: {
-    position: "absolute",
-    top: 16,
-    right: 16,
-    background: "transparent",
-    border: "none",
-    color: "white",
-    fontSize: 24,
-    cursor: "pointer",
-  },
-};
+const PrimaryButton = styled.button`
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    font-size: 15px;
+  }
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+
+  @media (max-width: 480px) {
+    font-size: 22px;
+  }
+`;

@@ -60,7 +60,7 @@ const Modal = styled.div`
     border: 2px solid black;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 760px) {
     .modal-content {
       font-size: 0.9rem;
       padding: 40px;

@@ -111,27 +111,31 @@ const InstructionsBox = styled.div`
     display: none;
   }
   /* Estilos para dispositivos móviles */
-  @media (max-width: 480px) {
-    padding: 5px 10px;
+  @media (max-width: 760px) {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 8px;
     width: 320px;
-    height: 620px;
+    height: 590px;
+    justify-content: center;
     gap: 0;
     h1 {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 700;
     }
     .container-info {
       justify-content: center;
-      gap: 0;
+      gap: 10px;
     }
     .rules-box {
-      height: 220px;
+      margin-bottom: 8px;
+      height: 200px;
       p {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 20px;
       }
       h2 {
-        font-size: 20px;
+        font-size: 18px;
       }
     }
     .image-box {
@@ -140,13 +144,12 @@ const InstructionsBox = styled.div`
       align-items: center;
       justify-content: space-evenly;
       background-color: var(--modal-bg);
-      height: 300px;
       width: 100%;
       border-radius: 8px;
-
+      height: 270px;
       img {
         /* flex-grow: 1; */
-        height: 130px;
+        height: 125px;
         width: auto;
       }
     }

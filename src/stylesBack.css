@@ -235,7 +235,8 @@ a:hover,
   width: 100%;
   height: 100dvh;
 }
-/*----------------------------------------*/
+
+/*MOBILE*/
 @media (max-width: 480px) {
   .reset-btn {
     position: absolute;
@@ -529,8 +530,8 @@ a:hover,
     position: absolute;
     right: 15px;
     bottom: 15px;
-    font-size: 12px;
-    height: 28px;
+    font-size: 10px;
+    height: 22px;
   }
 
   .contador {
@@ -724,6 +725,8 @@ a:hover,
     position: absolute;
     right: 15px;
     bottom: 15px;
+    font-size: 10px;
+    height: 22px;
   }
 
   .contador {
@@ -899,8 +902,369 @@ a:hover,
     bottom: -15%;
   }
 }
+/*-------------TABLET---------------*/
+@media (min-width: 600px) and (max-width: 899px) and (orientation: portrait) {
+  .reset-btn {
+    position: absolute;
+    left: 5px;
+    bottom: 25px;
+  }
 
-/*-------------------------------------------------------*/
+  .contador {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    width: 60px;
+    height: 30px;
+    transform: rotate(90deg);
+    z-index: 2;
+  }
+
+  .ficha {
+    backface-visibility: hidden;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .ficha-img {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    transform: rotate(90deg);
+  }
+
+  .tablero {
+    height: 100dvh;
+    width: 100%;
+  }
+  .piezas {
+    display: flex;
+    flex-direction: column; /* Cambiar la dirección del flexbox a vertical */
+    perspective: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-image: url("./images/fondotableromobile.webp");
+    height: 100svh;
+    width: auto;
+    justify-content: center;
+    gap: 70px;
+    align-items: center;
+  }
+
+  .hexagono1,
+  .hexagono2 {
+    width: 260px; /* Ajusta el ancho para acomodar la orientación horizontal */
+    height: 300px; /* Ajusta la altura para acomodar la orientación horizontal 
+    */
+    padding: 0.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 0.9fr);
+    align-content: stretch; /* Centrar el contenido verticalmente */
+    border: none;
+  }
+
+  .contenido-hexagono1 {
+    position: relative;
+    background-size: cover;
+  }
+
+  .contenido-hexagono2 {
+    position: relative;
+    background-size: cover;
+  }
+
+  .contenido-hexagono1::before {
+    /* Rotar la imagen vertical a horizontal */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("./images/hexa_azul1.webp");
+    background-size: cover;
+    transform: rotate(90deg); /* Puedes ajustar el ángulo según sea necesario */
+    transform-origin: center; /* Asegura que la rotación sea desde el centro */
+  }
+  .contenido-hexagono2::before {
+    /* Rotar la imagen vertical a horizontal */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("./images/hexa_magenta1.webp");
+
+    background-size: cover;
+    transform: rotate(90deg); /* Puedes ajustar el ángulo según sea necesario */
+    transform-origin: center; /* Asegura que la rotación sea desde el centro */
+  }
+  .repeated-face8 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .cara {
+    position: relative;
+  }
+  /* HEXAGONO1///////////////////////
+} */
+
+  /* Ajustar la ubicación de las fichas dentro de los hexágonos */
+  .cara0 .ficha {
+    top: 10%;
+    left: 98%;
+  }
+
+  .cara1 .ficha {
+    left: 95%;
+    top: 65%;
+  }
+
+  .cara2 .ficha {
+    right: 35%;
+    bottom: 96%;
+  }
+
+  .cara3 .ficha {
+    left: 35%;
+    bottom: -25%;
+  }
+
+  .cara4 .ficha {
+    top: 8%;
+    left: -28%;
+  }
+
+  .cara5 .ficha {
+    left: -28%;
+    bottom: 10%;
+  }
+
+  /* Ajustar las ubicaciones para el segundo hexágono */
+  .cara6 .ficha {
+    top: 10%;
+    left: 98%;
+  }
+
+  .cara7 .ficha {
+    left: 95%;
+    top: 65%;
+  }
+
+  .cara8 .ficha {
+    left: 35%;
+    bottom: -22%;
+  }
+
+  .cara9 .ficha {
+    left: -28%;
+    top: 10%;
+  }
+
+  .cara10 .ficha {
+    left: -28%;
+    bottom: 8%;
+  }
+}
+
+/*---------------------DESKTOP----------------------------------*/
+@media (min-width: 950px) and (max-width: 1600px) {
+  .board-background {
+    width: 100%;
+    height: 100dvh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+  }
+
+  .tablero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    max-height: 950px;
+    height: 70%;
+  }
+  .home {
+    width: 100%;
+    height: 100dvh;
+    display: block;
+  }
+  /*CONTADOR*/
+  .contador {
+    position: absolute;
+    top: 50px;
+    display: flex;
+    font-size: 1.25rem;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 40px;
+    z-index: 2; /* Para que esté por encima del contenido de piezas */
+  }
+  .reset-btn {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+  }
+  /*FICHAS*/
+
+  .ficha {
+    backface-visibility: hidden;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    padding: 0;
+    border: none;
+    position: absolute;
+    transform: perspective(1000px);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .ficha:hover {
+    transform: perspective(1000px) rotateY(20deg) scale(1.1);
+    cursor: var(--custom-cursor-2);
+  }
+  .ficha-img {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+  }
+  .rotate {
+    animation: rotate 0.5s linear infinite;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(180deg);
+    }
+  }
+
+  /*TABLERO*/
+  .piezas {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    max-width: 940px;
+    height: 100%;
+    align-items: center;
+    perspective: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 18px;
+    border: 2px solid black;
+    background-image: url("./images/fondotablero1.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: zoomInBackground 30s ease-in-out infinite alternate;
+  } /* Pseudo-elemento para la superposición */
+
+  /*HEXAGONOS*/
+  .hexagono1,
+  .hexagono2 {
+    width: 300px;
+    height: 330px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 0.9fr);
+    align-content: stretch;
+  }
+
+  .repeated-face8 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .carahexa {
+    position: relative;
+  }
+  .contenido-hexagono1 {
+    background-image: url("./images/hexa_azul.webp");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .contenido-hexagono2 {
+    background-image: url("./images/hexa_magenta.webp");
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* HEXAGONO1///////////////////////
+  } */
+
+  /*UBICACION FICHAS HEXAGONO1*/
+  .cara0 .ficha {
+    right: 50%;
+    top: -40%;
+  }
+
+  .cara1 .ficha {
+    left: 55%;
+    top: -35%;
+  }
+
+  .cara2 .ficha {
+    right: 115%;
+    bottom: 15%;
+  }
+
+  .cara3 .ficha {
+    left: 110%;
+    bottom: 15%;
+  }
+  .cara4 .ficha {
+    right: 50%;
+    bottom: -40%;
+  }
+  .cara5 .ficha {
+    left: 55%;
+    bottom: -40%;
+  }
+  /*HEXAGONO 2*/
+  .cara6 .ficha {
+    right: 55%;
+    top: -35%;
+  }
+  .cara7 .ficha {
+    left: 55%;
+    top: -35%;
+  }
+
+  .cara8 .ficha {
+    left: 115%;
+    bottom: 15%;
+  }
+
+  .cara9 .ficha {
+    right: 50%;
+    bottom: -40%;
+  }
+
+  .cara10 .ficha {
+    left: 55%;
+    bottom: -40%;
+  }
+  .reset-btn {
+    font-size: 18px;
+  }
+}
+
 @media (min-width: 1600px) {
   .board-background {
     width: 100%;

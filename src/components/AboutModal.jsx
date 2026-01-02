@@ -160,7 +160,7 @@ const StyledAbout = styled.div`
   /* =========================
      MOBILE
   ========================== */
-  @media (max-width: 480px) {
+  @media (max-width: 760px) {
     .modal-content {
       width: 350px;
       height: 600px;

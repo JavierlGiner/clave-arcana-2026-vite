@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import CustomButton from "./CustomButton";
 import logoArcane from "../images/logoarcane.webp";
@@ -26,7 +26,7 @@ const StartMenu = styled.div`
       opacity: 1;
     }
   }
-  @media (max-width: 480px) {
+  @media (max-width: 799px) {
     justify-content: space-evenly;
 
     .menu-btn {
@@ -58,7 +58,7 @@ const StartMenu = styled.div`
       }
     }
   }
-  @media (min-width: 1500px) {
+  @media (min-width: 800px) {
     margin-block: 20px;
     margin-top: 30px;
     height: 100%;
@@ -125,7 +125,6 @@ const GameMenu = ({
   handleHardBtn,
   handleInstructionClick,
   handleNormalBtn,
-  
 }) => {
   const { normalBtn, hardBtn, instructBtn, playBtn, campainBtn, campainInfo } =
     useTextos();

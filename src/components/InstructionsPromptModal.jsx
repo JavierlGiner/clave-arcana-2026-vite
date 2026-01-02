@@ -59,7 +59,7 @@ const ModalContainer = styled.div`
     flex-direction: column;
     gap: 10px;
   }
-  @media (max-width: 480px) {
+  @media (max-width: 760px) {
     max-width: 360px;
     .titles {
       font-size: 15px;

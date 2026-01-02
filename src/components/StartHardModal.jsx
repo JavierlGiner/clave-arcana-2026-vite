@@ -54,7 +54,7 @@ const StartBtn = styled.button`
   }
 
   /* Ajustes para pantallas móviles en modo vertical */
-  @media (max-width: 480px) and (orientation: portrait) {
+  @media (max-width: 720px) and (orientation: portrait) {
     width: 100px;
     height: 50px;
     font-size: 18px;
@@ -170,7 +170,7 @@ const Modal = styled.div`
   }
 
   /* Estilos para la orientación vertical del móvil */
-  @media (max-width: 480px) and (orientation: portrait) {
+  @media (max-width: 720px) and (orientation: portrait) {
     height: 100vh;
     max-height: 750px;
 

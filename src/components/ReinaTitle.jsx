@@ -29,7 +29,7 @@ const ReinaTitles = styled.div`
     font-size: 2rem;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 760px) {
     img {
       height: 250px;
     }

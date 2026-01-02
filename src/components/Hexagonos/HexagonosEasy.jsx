@@ -37,7 +37,7 @@ const StyledButton = styled.button`
     color: var(--first-color-beta);
     border: 2px solid var(--first-color-beta); /* Borde dorado en hover */
   }
-  @media (max-width: 480px) {
+  @media (max-width: 900px) and (orientation: portrait) {
     position: absolute;
     width: 50px;
     height: 30px;
@@ -64,12 +64,12 @@ const MusicButton = styled.button`
     transform: scale(1.1);
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 900px) and (orientation: portrait) {
     top: 2rem;
     left: 20px;
     width: 30px;
     height: 30px;
-    rotate: calc(90deg);
+    rotate: 90deg;
     box-shadow: none;
     border: none;
   }

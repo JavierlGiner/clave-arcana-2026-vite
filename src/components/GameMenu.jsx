@@ -26,7 +26,7 @@ const StartMenu = styled.div`
       opacity: 1;
     }
   }
-  @media (max-width: 799px) {
+  @media (max-width: 1200px) {
     justify-content: space-evenly;
 
     .menu-btn {
@@ -43,7 +43,7 @@ const StartMenu = styled.div`
       }
     }
   }
-  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
+  @media (max-width: 1024px) and (max-height: 480px) and (orientation: landscape) {
     .menu-btn {
       display: flex;
       gap: 1.5rem;
@@ -58,7 +58,7 @@ const StartMenu = styled.div`
       }
     }
   }
-  @media (min-width: 800px) {
+  @media (min-width: 1200px) {
     margin-block: 20px;
     margin-top: 30px;
     height: 100%;

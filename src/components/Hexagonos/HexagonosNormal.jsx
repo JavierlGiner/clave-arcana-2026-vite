@@ -203,13 +203,13 @@ const Hexagonos = ({ initCount }) => {
             <div className="repeated-face8"></div>
           </div>
         </div>
-      </div>
       <MusicButton onClick={handleMuteToggle}>
         {isMuted ? "🔊" : "🔇"}
       </MusicButton>
       <StyledButton onClick={handleRestartBtnClick} className="reset-btn">
         {exitBtn}
       </StyledButton>
+      </div>
       {gameOver && <EndGameModal formattedTempo={formattedTempo} />}
     </div>
   );

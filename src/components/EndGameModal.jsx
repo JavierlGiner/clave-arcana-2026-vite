@@ -214,7 +214,7 @@ const Modal = styled.div`
     border-radius: 50%;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 760px) {
     width: 350px;
     height: 600px;
     padding: 15px;
@@ -293,7 +293,7 @@ const Modal = styled.div`
     }
   }
 
-  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
+  @media (max-width: 950px) and (orientation: landscape) {
     height: 340px;
     width: 650px;
 
@@ -413,7 +413,7 @@ const StyledButton = styled.button`
     color: var(--first-color-beta);
     border: 2px solid var(--first-color-beta); /* Borde dorado en hover */
   }
-  @media (max-width: 480px) {
+  @media (max-width: 760px) {
     width: 105px;
     height: 40px;
     font-size: 14px;

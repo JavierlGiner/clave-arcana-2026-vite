@@ -215,13 +215,13 @@ const Hexagonos = ({ initCount }) => {
           </div>
         </>
         {/* )} */}
+        <MusicButton onClick={handleMuteToggle}>
+          {isMuted ? "🔊" : "🔇"}
+        </MusicButton>
+        <StyledButton onClick={handleRestartBtnClick} className="reset-btn">
+          {exitBtn}
+        </StyledButton>
       </div>
-      <MusicButton onClick={handleMuteToggle}>
-        {isMuted ? "🔊" : "🔇"}
-      </MusicButton>
-      <StyledButton onClick={handleRestartBtnClick} className="reset-btn">
-        {exitBtn}
-      </StyledButton>
       {gameOver && <EndGameModal formattedTempo={formattedTempo} />}
     </div>
   );

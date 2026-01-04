@@ -216,7 +216,7 @@ const Hexagonos = ({ initCount }) => {
         </>
         {/* )} */}
         <MusicButton onClick={handleMuteToggle}>
-          {isMuted ? "🔊" : "🔇"}
+          {isMuted ? "🔇" : "🔊"}
         </MusicButton>
         <StyledButton onClick={handleRestartBtnClick} className="reset-btn">
           {exitBtn}

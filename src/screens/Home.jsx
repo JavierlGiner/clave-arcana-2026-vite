@@ -20,6 +20,7 @@ import InstructionsPromptModal from "../components/InstructionsPromptModal";
 // import potion from "../images/pink potion logo-1.png";
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,35 +47,46 @@ const Main = styled.div`
   width: 100%;
   padding: 30px;
   height: 100%;
-  margin-bottom: 30px;
+  padding-bottom: 30px;
 `;
 const MusicButton = styled.button`
   position: absolute;
+
   bottom: 25px;
   left: 40px;
+
   width: 50px;
   height: 50px;
+
   border-radius: 50%;
   background-color: transparent;
+
   cursor: pointer;
   font-size: 24px;
+
   box-shadow: 2px 2px 10px rgba(151, 182, 247, 0.3);
+
   transition: all 0.3s ease;
+
   z-index: 1000;
+
   &:hover {
     transform: scale(1.1);
   }
 
-  @media (max-width: 480px) {
-    bottom: 2rem;
-    left: 20px;
+  /* MOBILE PORTRAIT */
+  @media (max-width: 480px) and (orientation: portrait) {
     width: 36px;
     height: 36px;
+
+    bottom: 105px;
+
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  @media (max-width: 920px) and (orientation: landscape) {
-    bottom: 2rem;
-    left: 30px;
+  /* MOBILE LANDSCAPE */
+  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
     width: 40px;
     height: 40px;
   }

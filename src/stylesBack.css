@@ -89,7 +89,9 @@ a:hover,
     rgba(0, 255, 0, 0.2),
     rgba(0, 0, 0, 0.8)
   ); /* Fondo radiante */
-  box-shadow: 0 0 20px 5px rgba(0, 255, 0, 0.6), 0 0 40px rgba(0, 255, 0, 0.4); /* Resplandor dinámico */
+  box-shadow:
+    0 0 20px 5px rgba(0, 255, 0, 0.6),
+    0 0 40px rgba(0, 255, 0, 0.4); /* Resplandor dinámico */
   transform: scale(1.025); /* Amplía ligeramente la ficha */
   animation: selectedGlow 1.5s infinite alternate; /* Efecto de brillo oscilante */
 }
@@ -97,10 +99,14 @@ a:hover,
 /* Animación de brillo oscilante */
 @keyframes selectedGlow {
   from {
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), 0 0 30px rgba(0, 255, 0, 0.3);
+    box-shadow:
+      0 0 15px rgba(0, 255, 0, 0.5),
+      0 0 30px rgba(0, 255, 0, 0.3);
   }
   to {
-    box-shadow: 0 0 25px rgba(0, 255, 0, 0.8), 0 0 50px rgba(0, 255, 0, 0.6);
+    box-shadow:
+      0 0 25px rgba(0, 255, 0, 0.8),
+      0 0 50px rgba(0, 255, 0, 0.6);
   }
 }
 .ficha-images-container {
@@ -128,7 +134,8 @@ a:hover,
     rgba(128, 0, 128, 0.8),
     rgba(0, 0, 0, 0.9)
   ); /* Fondo brillante oscuro */
-  box-shadow: 0 0 15px 5px rgba(255, 0, 255, 0.7),
+  box-shadow:
+    0 0 15px 5px rgba(255, 0, 255, 0.7),
     0 0 30px rgba(255, 0, 255, 0.5); /* Resplandor */
   transform: scale(1.1);
   opacity: 0.8;
@@ -161,31 +168,40 @@ a:hover,
 @keyframes pulse {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.4);
+    box-shadow:
+      0 0 10px rgba(255, 0, 255, 0.5),
+      0 0 20px rgba(255, 0, 255, 0.4);
   }
   50% {
     transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.7), 0 0 40px rgba(255, 0, 255, 0.6);
+    box-shadow:
+      0 0 20px rgba(255, 0, 255, 0.7),
+      0 0 40px rgba(255, 0, 255, 0.6);
   }
   100% {
     transform: scale(1);
-    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.4);
+    box-shadow:
+      0 0 10px rgba(255, 0, 255, 0.5),
+      0 0 20px rgba(255, 0, 255, 0.4);
   }
 }
 @keyframes pulseEnd {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 10px rgba(231, 228, 49, 0.5),
+    box-shadow:
+      0 0 10px rgba(231, 228, 49, 0.5),
       0 0 20px rgba(231, 228, 49, 0.5);
   }
   50% {
     transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(231, 228, 49, 0.5),
+    box-shadow:
+      0 0 20px rgba(231, 228, 49, 0.5),
       0 0 40px rgba(231, 228, 49, 0.5);
   }
   100% {
     transform: scale(1);
-    box-shadow: 0 0 10px rgba(231, 228, 49, 0.5),
+    box-shadow:
+      0 0 10px rgba(231, 228, 49, 0.5),
       0 0 20px rgba(231, 228, 49, 0.5);
   }
 }
@@ -212,7 +228,8 @@ a:hover,
     rgba(229, 90, 123, 0.8),
     rgba(188, 20, 20, 0.9)
   ); /* Fondo brillante oscuro */
-  box-shadow: 0 0 15px 5px rgba(88, 29, 16, 0.7),
+  box-shadow:
+    0 0 15px 5px rgba(88, 29, 16, 0.7),
     0 0 30px rgba(108, 113, 51, 0.936); /* Resplandor */
   transform: scale(1.1);
   opacity: 1;
@@ -263,7 +280,9 @@ a:hover,
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.5s ease;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
   .ficha:hover {
@@ -455,7 +474,9 @@ a:hover,
     backface-visibility: hidden;
     position: absolute;
     border-radius: 50%;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.5s ease;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
   /* Ajustar la ubicación de las fichas dentro de los hexágonos */
@@ -553,7 +574,9 @@ a:hover,
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.5s ease;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
   .ficha:hover {
@@ -748,7 +771,9 @@ a:hover,
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.5s ease;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
   .ficha:hover {
@@ -929,7 +954,9 @@ a:hover,
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.5s ease;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
 
@@ -1128,7 +1155,9 @@ a:hover,
     border: none;
     position: absolute;
     transform: perspective(1000px);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.5s ease;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
 
@@ -1317,7 +1346,9 @@ a:hover,
     border: none;
     position: absolute;
     transform: perspective(1000px);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.5s ease;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
 

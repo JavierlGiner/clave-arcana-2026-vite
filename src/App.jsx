@@ -9,6 +9,8 @@ import LangSwitchModal from "./components/LangSwitchModal";
 import InstallButton from "./components/InstallButton";
 
 import { TextosProvider } from "./contexts/LanguageContext";
+import PoliticayPrivacidad from "./screens/PoliticayPrivacidad";
+import TerminosCondiciones from "./screens/TerminosCondiciones";
 
 function App() {
   // const [langSelected, setLangSelected] = useState(() => {
@@ -51,6 +53,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/hardgame" element={<NormalBoard />} />
           <Route path="/normalgame" element={<EasyBoard />} />
+          <Route path="/privacy" element={<PoliticayPrivacidad />} />
+          <Route path="/terms" element={<TerminosCondiciones />} />
         </Routes>
       </Router>
     </TextosProvider>

@@ -183,7 +183,7 @@ const Modal = styled.div`
       display: flex;
       margin-bottom: 20px;
       color: var(--modal-bg);
-      font-size: 26px;
+      font-size: 20px;
       font-weight: 700;
     }
     p {

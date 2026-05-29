@@ -6,19 +6,24 @@ const FichasContext = createContext();
 
 const FichasProvider = ({ children }) => {
   const [fichas, setFichas] = useState([]);
+  const [isMuted, setIsMuted] = useState(true);
 
   //audios
   const selectAudioRef = useRef(new Audio(selectSound));
   const swapAudioRef = useRef(new Audio(swapSound));
 
   const playSelectSound = () => {
+    if (isMuted) return;
+
     const audio = selectAudioRef.current;
-    audio.pause(); // Detiene el audio actual si está reproduciéndose
-    audio.currentTime = 0; // Reinicia el audio
-    audio.play(); // Reproduce el sonido
+    audio.pause();
+    audio.currentTime = 0;
+    audio.play();
   };
 
   const playSwapSound = () => {
+    if (isMuted) return;
+
     const audio = swapAudioRef.current;
     audio.pause();
     audio.currentTime = 0;
@@ -131,8 +136,8 @@ const FichasProvider = ({ children }) => {
       // Si no hay ninguna ficha seleccionada, seleccionamos la ficha actual
       setFichas((prevFichas) =>
         prevFichas.map((f) =>
-          f.value === ficha.value ? { ...f, isSelected: true } : f
-        )
+          f.value === ficha.value ? { ...f, isSelected: true } : f,
+        ),
       );
       playSelectSound();
     } else {
@@ -150,7 +155,7 @@ const FichasProvider = ({ children }) => {
         ) {
           const fichaEspecial = fichaEspecialIntercambiable(
             selectedFicha,
-            ficha
+            ficha,
           );
 
           if (fichaEspecial) {
@@ -158,10 +163,10 @@ const FichasProvider = ({ children }) => {
             setFichas((prevFichas) => {
               const updatedFichas = [...prevFichas];
               const selectedFichaIndex = updatedFichas.findIndex(
-                (f) => f.isSelected
+                (f) => f.isSelected,
               );
               const fichaIndex = updatedFichas.findIndex(
-                (f) => f.value === ficha.value
+                (f) => f.value === ficha.value,
               );
 
               // Intercambia los índices de las fichas
@@ -203,10 +208,10 @@ const FichasProvider = ({ children }) => {
             setFichas((prevFichas) => {
               const updatedFichas = [...prevFichas];
               const selectedFichaIndex = updatedFichas.findIndex(
-                (f) => f.isSelected
+                (f) => f.isSelected,
               );
               const fichaIndex = updatedFichas.findIndex(
-                (f) => f.value === ficha.value
+                (f) => f.value === ficha.value,
               );
 
               // Intercambiar las posiciones de las fichas
@@ -246,7 +251,7 @@ const FichasProvider = ({ children }) => {
       } else {
         // Si la ficha seleccionada es la misma o no cumple las condiciones, deseleccionamos todo
         setFichas((prevFichas) =>
-          prevFichas.map((f) => ({ ...f, isSelected: false }))
+          prevFichas.map((f) => ({ ...f, isSelected: false })),
         );
       }
     }
@@ -254,7 +259,9 @@ const FichasProvider = ({ children }) => {
 
   // Proporciona el contexto y los valores a los componentes hijos
   return (
-    <FichasContext.Provider value={{ fichas, handleFichaClick }}>
+    <FichasContext.Provider
+      value={{ fichas, handleFichaClick, isMuted, setIsMuted }}
+    >
       {children}
     </FichasContext.Provider>
   );

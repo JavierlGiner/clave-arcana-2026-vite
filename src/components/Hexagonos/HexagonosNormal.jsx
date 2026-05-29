@@ -27,7 +27,10 @@ const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   /* Transición suave para el hover */
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border 0.3s;
 
   /* Estilos para el hover */
   &:hover {
@@ -82,13 +85,13 @@ const MusicButton = styled.button`
   }
 `;
 const Hexagonos = ({ initCount }) => {
-  const { fichas, handleFichaClick } = useContext(FichasContext);
+  const { fichas, handleFichaClick, isMuted, setIsMuted } =
+    useContext(FichasContext);
   const { formattedTempo, stopCounting, startCounting } = useCountContext();
   const { exitBtn } = useTextos();
   const navigate = useNavigate();
 
   const [gameOver, setGameOver] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
 
   const audioRef = useRef(new Audio(arcanemusic));
 
@@ -103,11 +106,11 @@ const Hexagonos = ({ initCount }) => {
 
   /* ---------- FIN DEL JUEGO (estado derivado) ---------- */
   const finishGameHexa1 = hexagono1Fichas.every(
-    (ficha) => ficha.value === ficha.id
+    (ficha) => ficha.value === ficha.id,
   );
 
   const finishGameHexa2 = hexagono2Fichas.every(
-    (ficha) => ficha.value === ficha.id
+    (ficha) => ficha.value === ficha.id,
   );
 
   const endGameAnimation = finishGameHexa1 && finishGameHexa2;

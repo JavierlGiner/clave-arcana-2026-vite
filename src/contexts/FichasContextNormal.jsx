@@ -46,6 +46,7 @@ function shuffleArray(array) {
 const FichasProvider = ({ children }) => {
   const [fichas, setFichas] = useState([]);
   const [fichaBloqueada, setFichaBloqueada] = useState();
+  const [isMuted, setIsMuted] = useState(true);
   const [enEspera, setEnEspera] = useState(false);
   const fichasRef = useRef(fichas);
   const fichasBloqueablesRef = useRef([]);
@@ -54,6 +55,8 @@ const FichasProvider = ({ children }) => {
   const swapAudioRef = useRef(new Audio(swapSound));
 
   const playSelectSound = () => {
+    if (isMuted) return;
+
     const audio = selectAudioRef.current;
     audio.pause();
     audio.currentTime = 0;
@@ -61,11 +64,14 @@ const FichasProvider = ({ children }) => {
   };
 
   const playSwapSound = () => {
+    if (isMuted) return;
+
     const audio = swapAudioRef.current;
     audio.pause();
     audio.currentTime = 0;
     audio.play();
   };
+
   //CREACION DE LAS FICHAS / PRIMER RENDERIZADO
   useEffect(() => {
     const initialFichas = Array.from({ length: 11 }, (_, index) => ({
@@ -96,7 +102,7 @@ const FichasProvider = ({ children }) => {
 
     console.log(
       fichasConOpcionesBloqueables,
-      "fichas con opciones bloqueables"
+      "fichas con opciones bloqueables",
     );
   }, []);
 
@@ -118,7 +124,7 @@ const FichasProvider = ({ children }) => {
   const desbloquearFicha = (fichaActual) => {
     // Actualizar el estado usando la referencia
     const fichasActuales = fichasRef.current.map((ficha) =>
-      ficha.id === fichaActual.id ? { ...ficha, isLocked: false } : ficha
+      ficha.id === fichaActual.id ? { ...ficha, isLocked: false } : ficha,
     );
 
     // Actualizar tanto la referencia como el estado
@@ -133,7 +139,7 @@ const FichasProvider = ({ children }) => {
 
   const bloquearNuevaFicha = () => {
     const hayFichaSeleccionada = fichasRef.current.some(
-      (ficha) => ficha.isSelected
+      (ficha) => ficha.isSelected,
     );
 
     if (hayFichaSeleccionada) {
@@ -142,25 +148,25 @@ const FichasProvider = ({ children }) => {
       const posiblesBloqueables = fichasBloqueablesRef.current.filter(
         (ficha) => {
           const condicion1 = ficha.opcionesBloqueables.every(
-            (opcion) => opcion.id !== ficha.value
+            (opcion) => opcion.id !== ficha.value,
           );
 
           const condicion2 = !ficha.opcionesBloqueables.every(
-            (opcion) => opcion.id === opcion.value
+            (opcion) => opcion.id === opcion.value,
           );
 
           return condicion1 && condicion2;
-        }
+        },
       );
 
       if (posiblesBloqueables.length > 0) {
         const randomIndex = Math.floor(
-          Math.random() * posiblesBloqueables.length
+          Math.random() * posiblesBloqueables.length,
         );
         const fichaABloquear = posiblesBloqueables[randomIndex];
 
         const fichasActuales = fichasRef.current.map((ficha) =>
-          ficha.id === fichaABloquear.id ? { ...ficha, isLocked: true } : ficha
+          ficha.id === fichaABloquear.id ? { ...ficha, isLocked: true } : ficha,
         );
         fichasRef.current = fichasActuales;
 
@@ -181,13 +187,13 @@ const FichasProvider = ({ children }) => {
         const opcionesActualizadas = fichaBloqueada.opcionesBloqueables.map(
           (opcion) => {
             const fichaRelacionada = fichasActuales.find(
-              (ficha) => ficha.id === opcion.id
+              (ficha) => ficha.id === opcion.id,
             );
             return {
               ...opcion,
               value: fichaRelacionada?.value,
             };
-          }
+          },
         );
         return opcionesActualizadas;
       };
@@ -195,7 +201,7 @@ const FichasProvider = ({ children }) => {
       const nuevasOpciones = actualizarOpciones();
       const opcionesHanCambiado = !isEqual(
         nuevasOpciones,
-        fichaBloqueada.opcionesBloqueables
+        fichaBloqueada.opcionesBloqueables,
       );
 
       if (opcionesHanCambiado) {
@@ -205,7 +211,7 @@ const FichasProvider = ({ children }) => {
         });
 
         const coincidencias = nuevasOpciones.every(
-          (opcion) => opcion.id === opcion.value
+          (opcion) => opcion.id === opcion.value,
         );
 
         if (coincidencias) {
@@ -288,8 +294,8 @@ const FichasProvider = ({ children }) => {
         // Si no hay ninguna ficha seleccionada, seleccionamos la ficha actual
         setFichas((prevFichas) =>
           prevFichas.map((f) =>
-            f.value === ficha.value ? { ...f, isSelected: true } : f
-          )
+            f.value === ficha.value ? { ...f, isSelected: true } : f,
+          ),
         );
         playSelectSound();
       } else {
@@ -307,7 +313,7 @@ const FichasProvider = ({ children }) => {
           ) {
             const fichaEspecial = fichaEspecialIntercambiable(
               selectedFicha,
-              ficha
+              ficha,
             );
 
             if (fichaEspecial) {
@@ -315,10 +321,10 @@ const FichasProvider = ({ children }) => {
               setFichas((prevFichas) => {
                 const updatedFichas = [...prevFichas];
                 const selectedFichaIndex = updatedFichas.findIndex(
-                  (f) => f.isSelected
+                  (f) => f.isSelected,
                 );
                 const fichaIndex = updatedFichas.findIndex(
-                  (f) => f.value === ficha.value
+                  (f) => f.value === ficha.value,
                 );
 
                 // Intercambia los índices de las fichas
@@ -360,10 +366,10 @@ const FichasProvider = ({ children }) => {
               setFichas((prevFichas) => {
                 const updatedFichas = [...prevFichas];
                 const selectedFichaIndex = updatedFichas.findIndex(
-                  (f) => f.isSelected
+                  (f) => f.isSelected,
                 );
                 const fichaIndex = updatedFichas.findIndex(
-                  (f) => f.value === ficha.value
+                  (f) => f.value === ficha.value,
                 );
 
                 // Intercambiar las posiciones de las fichas
@@ -403,7 +409,7 @@ const FichasProvider = ({ children }) => {
         } else {
           // Si la ficha seleccionada es la misma o no cumple las condiciones, deseleccionamos todo
           setFichas((prevFichas) =>
-            prevFichas.map((f) => ({ ...f, isSelected: false }))
+            prevFichas.map((f) => ({ ...f, isSelected: false })),
           );
         }
       }
@@ -412,7 +418,9 @@ const FichasProvider = ({ children }) => {
 
   // Proporciona el contexto y los valores a los componentes hijos
   return (
-    <FichasContext.Provider value={{ fichas, handleFichaClick }}>
+    <FichasContext.Provider
+      value={{ fichas, handleFichaClick, isMuted, setIsMuted }}
+    >
       {children}
     </FichasContext.Provider>
   );

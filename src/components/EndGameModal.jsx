@@ -306,18 +306,18 @@ const Modal = styled.div`
   }
 
   @media (max-width: 950px) and (orientation: landscape) {
-    height: 340px;
+    height: 350px;
     width: 650px;
-    padding: 8px;
 
     .title {
-      font-size: 40px;
+      font-size: 30px;
     }
 
     .endgame-modal {
       height: 100%;
       flex-direction: row;
       justify-content: space-around;
+      margin: 0;
     }
     .score-container {
       font-size: 1rem;

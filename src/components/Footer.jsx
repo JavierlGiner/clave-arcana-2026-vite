@@ -9,15 +9,15 @@ const StyledFooter = styled.footer`
   position: relative;
   bottom: 0;
   text-align: center;
-  font-family: var(--font);
+  font-family: "Aubrey", serif;
   color: var(--second-color);
   background-color: var(--first-color);
   width: 100%;
   height: 4rem;
-  font-size: 10px;
+  font-size: 12px;
 
   @media (min-width: 1500px) {
-    font-size: 12px;
+    font-size: 16px;
     height: 4rem;
     margin-top: 40px;
   }
@@ -46,9 +46,7 @@ const LinksContainer = styled.div`
 const Footer = () => {
   return (
     <StyledFooter>
-      <h4>
-        DEVELOPED BY REINA JIRVEG v1.0 | JUNIN, BUENOS AIRES | 2023 - 2024
-      </h4>
+      <h4>DEVELOPED BY REINA JIRVEG | JUNIN, BUENOS AIRES | 2026</h4>
       <LinksContainer>
         <Link to="/terms">Términos y Condiciones</Link>
         <Link to="/privacy">Política de Privacidad</Link>

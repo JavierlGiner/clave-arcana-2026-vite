@@ -126,22 +126,27 @@ const StyledAbout = styled.div`
   }
 
   .donation-text {
-    font-size: 20px;
+    font-size: 18px;
     margin: 10px 0;
     text-align: justify;
   }
-
+  .donation-title {
+    margin-bottom: 4px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+  }
   .donationBtn {
-    margin-top: 10px;
-    width: 200px;
+    margin-top: 6px;
+    width: 190px;
     align-self: center;
-
+    display: flex;
+    justify-content: space-evenly;
     background-color: #c017a4;
     color: white;
-    padding: 10px;
-
+    padding: 8px;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     text-decoration: none;
   }
@@ -150,7 +155,7 @@ const StyledAbout = styled.div`
      LEGAL
   ========================== */
   .legal-info {
-    font-size: 10px;
+    font-size: 8px;
     font-style: italic;
     font-weight: 700;
     text-align: justify;
@@ -167,22 +172,25 @@ const StyledAbout = styled.div`
       font-size: 13px;
       gap: 5px;
     }
+    .donation-title {
+      font-size: 14px;
+    }
 
     .donation-text {
       font-size: 14px;
     }
+    .donationBtn {
+      font-size: 12px;
+      width: 170px;
+    }
 
     .author-box {
-      font-size: 16px;
+      font-size: 14px;
     }
 
     .close-button {
       width: 24px;
       height: 24px;
-    }
-
-    .legal-info {
-      font-size: 9px;
     }
 
     .redes {
@@ -226,11 +234,14 @@ const StyledAbout = styled.div`
       font-size: 11px;
       margin: 2px 0;
     }
+    .donation-title {
+      font-size: 15px;
+    }
 
     .donationBtn {
       width: 180px;
       padding: 8px;
-      font-size: 13px;
+      font-size: 12px;
     }
 
     .author-box {
@@ -259,10 +270,10 @@ const AboutModal = ({ setIsAboutModalOpen }) => {
           <div className="modal-info">
             <div className="author-box">
               <p>{aboutText.text1}</p>
+
               <br />
               <p> {aboutText.text2}</p>
             </div>
-
             <div className="redes">
               <a
                 href="https://www.instagram.com/reinajirveg"
@@ -282,14 +293,14 @@ const AboutModal = ({ setIsAboutModalOpen }) => {
 
             {/* Sección de donaciones */}
             <div className="separador" />
-            <div className="donation-container  aubrey-regular">
-              <p style={{ marginBottom: "8px", textAlign: "center" }}>
+            <div className="donation-container  ">
+              <p className="donation-title">
                 {aboutText.donationTitle}
                 <br />
               </p>
               <p className="donation-text"> {aboutText.donationText}</p>
               <a
-                href="https://ko-fi.com/reinajirveg" // 🔁
+                href="https://reinajirveg.itch.io/arcane-code"
                 target="_blank"
                 rel="noreferrer"
                 className="donationBtn"

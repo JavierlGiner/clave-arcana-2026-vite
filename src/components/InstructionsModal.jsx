@@ -56,7 +56,7 @@ const InstructionsBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: 100%;
     background-color: transparent;
     width: 100%;
@@ -118,14 +118,15 @@ const InstructionsBox = styled.div`
     width: 320px;
     height: 590px;
     justify-content: center;
-    gap: 0;
     h1 {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
+      padding-bottom: 5px;
     }
     .container-info {
+      height: auto;
       justify-content: center;
-      gap: 10px;
+      gap: 5px;
     }
     .rules-box {
       margin-bottom: 8px;
@@ -135,7 +136,7 @@ const InstructionsBox = styled.div`
         line-height: 20px;
       }
       h2 {
-        font-size: 18px;
+        font-size: 16px;
       }
     }
     .image-box {
@@ -159,10 +160,8 @@ const InstructionsBox = styled.div`
       bottom: 5px;
     }
     .close-button {
-      width: 24px;
-      height: 24px;
       font-size: 16px;
-      padding-bottom: 4px;
+      padding: 4px;
     }
     .landscape-message {
       display: none;
@@ -303,13 +302,11 @@ const InstruccionesModal = ({ closeInstructionsModal }) => {
         <button className="close-button" onClick={closeInstructionsModal}>
           X
         </button>
-        <div className="titles aubrey-regular">
+        <div className="titles">
           <h1>{instructBtn.title}</h1>
         </div>
 
-        <p className="landscape-message aubrey-regular">
-          {instructBtn.message}
-        </p>
+        <p className="landscape-message">{instructBtn.message}</p>
         <div className="container-info">
           <div className="image-box">
             {images.map((image, index) => (
@@ -323,7 +320,7 @@ const InstruccionesModal = ({ closeInstructionsModal }) => {
                   ? reglas.reglasPiezas[currentRule].title
                   : reglas.reglasJuego[currentRule].title}
               </h2>
-              <p className=" aubrey-regular">
+              <p className="">
                 {currentSection === "reglasPiezas"
                   ? reglas.reglasPiezas[currentRule].text
                   : reglas.reglasJuego[currentRule].text}

@@ -36,6 +36,7 @@ const StartBtn = styled.button`
   background-color: var(--second-color);
   font-family: var(--font);
   font-size: 1.75rem;
+  font-weight: 600;
   color: var(--first-color);
   border: none;
   /* padding: 16px 20px; */
@@ -43,7 +44,10 @@ const StartBtn = styled.button`
   width: 120px;
   height: 60px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border 0.3s;
   opacity: 0;
   animation: fadeIn 1s 2s forwards;
 
@@ -57,8 +61,7 @@ const StartBtn = styled.button`
   @media (max-width: 720px) and (orientation: portrait) {
     width: 100px;
     height: 50px;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 20px;
   }
 
   /* Ajustes para pantallas móviles en modo horizontal */
@@ -92,6 +95,7 @@ const Modal = styled.div`
   height: 800px;
   width: 900px;
   background-color: transparent;
+  font-family: "Aubrey", serif;
 
   .container {
     display: flex;
@@ -122,7 +126,8 @@ const Modal = styled.div`
         rgba(128, 0, 128, 0.8),
         rgba(0, 0, 0, 0.9)
       ); /* Fondo brillante oscuro */
-      box-shadow: 0 0 15px 5px rgba(255, 0, 255, 0.7),
+      box-shadow:
+        0 0 15px 5px rgba(255, 0, 255, 0.7),
         0 0 30px rgba(255, 0, 255, 0.5); /* Resplandor */
       transform: scale(1.1);
       opacity: 0.8;
@@ -141,7 +146,7 @@ const Modal = styled.div`
     height: 200px;
     opacity: 0;
     animation: fadeIn 1s 1s forwards;
-    font-size: 22px;
+    font-size: 24px;
     background-color: transparent;
     text-align: center;
   }
@@ -151,7 +156,9 @@ const Modal = styled.div`
     font-weight: 700;
     /* white-space: nowrap; */
     letter-spacing: 1px;
-    animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
+    animation:
+      typing 3s steps(30) 1s forwards,
+      blink 0.75s step-end infinite;
   }
 
   @keyframes typing {
@@ -203,7 +210,7 @@ const Modal = styled.div`
       width: 340px;
       text-align: center;
       height: 170px;
-      font-size: 14px;
+      font-size: 22px;
     }
     .desktop-text {
       display: none;
@@ -242,11 +249,13 @@ const Modal = styled.div`
       }
     }
     .dialogue-box p {
-      font-size: 14px;
+      font-size: 15px;
       text-align: center;
     }
     .dialogue-box {
+      padding-top: 20px;
       height: 100px;
+      width: 500px;
     }
   }
 `;

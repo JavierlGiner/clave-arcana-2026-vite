@@ -25,7 +25,9 @@ const StyledContainer = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 9999999;
-  transition: opacity 1s ease, visibility 1s ease;
+  transition:
+    opacity 1s ease,
+    visibility 1s ease;
 `;
 
 const Modal = styled.div`
@@ -33,7 +35,7 @@ const Modal = styled.div`
   flex-direction: column;
   height: 560px;
   width: 900px;
-  padding: 20px 30px;
+  padding: 20px;
   background-color: var(--modal-bg);
   border-radius: 8px;
   align-items: center;
@@ -53,14 +55,14 @@ const Modal = styled.div`
   animation: fadeIn 2.5s forwards;
 
   .title {
-    font-size: 40px;
+    font-size: 48px;
     font-weight: 700;
     text-align: center;
   }
   .endgame-modal {
     display: flex;
     flex-direction: row;
-    gap: 25px;
+    gap: 15px;
     width: 100%;
     height: 100%;
     align-items: center;
@@ -75,7 +77,7 @@ const Modal = styled.div`
     justify-content: center;
     border: 4px solid black;
     font-size: 1.5rem;
-    padding: 10px;
+    padding: 5px;
     height: 260px;
     width: 480px;
     background-color: var(--instruction-bg);
@@ -88,7 +90,7 @@ const Modal = styled.div`
       border-radius: 6px;
       background-color: var(--button-bg-hover);
       height: 100%;
-      padding: 8px;
+      width: 100%;
       text-align: center;
       align-items: center;
       text-transform: uppercase;
@@ -103,6 +105,7 @@ const Modal = styled.div`
       width: 160px;
       font-size: 3.5rem;
       color: var(--first-color);
+      font-family: "Aubrey", serif;
     }
     .links-msg {
       border-radius: 6px;
@@ -119,7 +122,7 @@ const Modal = styled.div`
     justify-content: center;
     border: 4px solid black;
     padding: 6px;
-    height: 370px;
+    height: auto;
     width: 96%;
     background-color: var(--instruction-bg);
     gap: 15px;
@@ -130,7 +133,7 @@ const Modal = styled.div`
       justify-content: center;
       border-radius: 6px;
       background-color: var(--button-bg-hover);
-      height: 100%;
+      height: auto;
       padding: 8px;
       text-align: justify;
       align-items: center;
@@ -148,7 +151,7 @@ const Modal = styled.div`
       width: 100%;
     }
     .premium-container {
-      height: 100%;
+      height: auto;
       background-color: var(--button-bg-hover);
       border-radius: 6px;
       display: flex;
@@ -165,7 +168,7 @@ const Modal = styled.div`
       }
     }
     .donation-text {
-      font-size: 18px;
+      font-size: 16px;
     }
     .donation-title {
       font-size: 18px;
@@ -177,9 +180,9 @@ const Modal = styled.div`
       padding: 10px;
       border-radius: 8px;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 12px;
       text-decoration: none;
-      width: 200px;
+      width: auto;
       margin-bottom: 8px;
     }
   }
@@ -216,20 +219,24 @@ const Modal = styled.div`
 
   @media (max-width: 760px) {
     width: 350px;
-    height: 600px;
+    height: auto;
     padding: 15px;
 
     .title {
-      font-size: 34px;
+      font-size: 40px;
     }
     .endgame-modal {
       flex-direction: column;
+      justify-content: space-around;
       gap: 10px;
-      height: 470px;
+      margin: 20px 0;
+      height: auto;
     }
 
     .donationBtn {
-      width: 120px;
+      width: auto;
+      font-size: 10px;
+      padding: 8px;
     }
     .image-container {
       height: 200px;
@@ -244,12 +251,12 @@ const Modal = styled.div`
       height: auto;
       width: 280px;
       font-size: 14px;
-      padding: 4px;
 
       p {
         height: auto;
         text-transform: uppercase;
         overflow-y: scroll;
+        padding-top: 6px;
       }
       span {
         width: 100px;
@@ -262,14 +269,14 @@ const Modal = styled.div`
     }
 
     .score-container-2 {
-      padding: 5px;
+      padding: 6px;
       background-color: var(--instruction-bg);
       gap: 10px;
-      height: 450px;
+      height: auto;
+
       p {
         height: 100%;
         padding: 8px;
-        font-size: 1rem;
         width: 100%;
       }
       .redes-container img {
@@ -282,13 +289,18 @@ const Modal = styled.div`
         width: 150px;
         align-items: center;
         margin-top: 5px;
+
         justify-content: space-between;
       }
       .donation-text {
-        font-size: 1rem;
+        font-size: 12px;
       }
       .donation-title {
         padding-bottom: 0;
+        font-size: 16px;
+      }
+      .links-msg {
+        font-size: 12px;
       }
     }
   }
@@ -296,24 +308,26 @@ const Modal = styled.div`
   @media (max-width: 950px) and (orientation: landscape) {
     height: 340px;
     width: 650px;
+    padding: 8px;
 
     .title {
-      font-size: 26px;
+      font-size: 40px;
     }
 
     .endgame-modal {
       height: 100%;
+      flex-direction: row;
+      justify-content: space-around;
     }
     .score-container {
-      font-size: 1.25rem;
-      padding: 0 5px;
+      font-size: 1rem;
       height: 180px;
-      width: 420px;
+      width: 360px;
       background-color: var(--instruction-bg);
       gap: 10px;
 
       p {
-        height: 95%;
+        height: 100%;
         padding: 8px;
       }
       span {
@@ -323,20 +337,20 @@ const Modal = styled.div`
       }
       .links-msg {
         border-radius: 6px;
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 700;
       }
     }
 
     .score-container-2 {
-      height: 240px;
+      height: auto;
       background-color: var(--instruction-bg);
       gap: 5px;
-      margin: 10px;
+      margin: 4px 0;
 
       p {
+        font-size: 12px;
         width: 100%;
-        font-size: 0.75rem;
       }
       .redes-container img {
         height: 50px;
@@ -363,13 +377,13 @@ const Modal = styled.div`
           text-align: justify;
         }
         .donation-title {
-          font-size: 1rem;
+          font-size: 14px;
           padding-bottom: 0;
         }
       }
 
       .donation-text {
-        font-size: 0.75rem;
+        font-size: 12px;
       }
       .donationBtn {
         height: 30px;
@@ -394,18 +408,21 @@ const Modal = styled.div`
 
 const StyledButton = styled.button`
   background-color: var(--second-color);
-  font-family: var(--font);
+  font-family: "Aubrey", serif;
   color: var(--first-color);
   border: 2px solid var(--third-color);
   border-radius: 5px;
   height: 60px;
   width: 200px;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 500;
   cursor: pointer;
 
   /* Transición suave para el hover */
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border 0.3s;
 
   /* Estilos para el hover */
   &:hover {
@@ -416,12 +433,12 @@ const StyledButton = styled.button`
   @media (max-width: 760px) {
     width: 105px;
     height: 40px;
-    font-size: 14px;
+    font-size: 18px;
   }
   @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
     height: 35px;
     width: 110px;
-    font-size: 16px;
+    font-size: 18px;
   }
 `;
 // const BlackScreen = styled.div`
@@ -548,7 +565,7 @@ const EndGameModal = ({ formattedTempo }) => {
                     <p className="donation-title">{aboutText.donationTitle}</p>
                     <p className="donation-text"> {aboutText.donationText}</p>
                     <a
-                      href="https://ko-fi.com/reinajirveg" // 🔁
+                      href="https://reinajirveg.itch.io/arcane-code"
                       target="_blank"
                       rel="noreferrer"
                       className="donationBtn"

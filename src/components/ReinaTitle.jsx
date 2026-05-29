@@ -13,7 +13,7 @@ const ReinaTitles = styled.div`
   justify-content: center;
   text-align: center;
   color: var(--second-color);
-  font-family: var(--font);
+  font-family: "Aubrey", serif;
   height: 100%;
   overflow: hidden;
 
@@ -26,7 +26,7 @@ const ReinaTitles = styled.div`
 
   /* Estilo para el texto */
   h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   @media (max-width: 760px) {
@@ -39,7 +39,7 @@ const ReinaTitles = styled.div`
       height: 150px;
     }
     h1 {
-      font-size: 1.25rem;
+      font-size: 1.75rem;
     }
   }
 `;

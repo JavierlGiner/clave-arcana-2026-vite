@@ -359,10 +359,13 @@ export const TextosProvider = ({ children }) => {
       legal:
         "ESTE JUEGO Y SU CONTENIDO ESTÁN PROTEGIDOS POR LAS LEYES DE DERECHOS DE AUTOR Y PROPIEDAD INTELECTUAL. CUALQUIER USO NO AUTORIZADO ESTÁ PROHIBIDO.",
       donationTitle: "¿TE GUSTÓ EL JUEGO?",
+
       donationText:
-        "PODÉS APOYARNOS CON UN CAFECITO EN KO-FI Y AYUDAR A QUE SIGAMOS CREANDO ESTE UNIVERSO. CADA APORTE, POR MÁS PEQUEÑO QUE SEA, HACE UNA GRAN DIFERENCIA. ¡GRACIAS POR SER PARTE!",
-      donationLink: "https://ko-fi.com/reinajirveg",
-      donationBtn: "Apoyanos en Ko-Fi",
+        "PODÉS APOYAR EL DESARROLLO DE CLAVE ARCANA Y AYUDARNOS A SEGUIR EXPANDIENDO ESTE UNIVERSO. CADA APORTE, POR MÁS PEQUEÑO QUE SEA, HACE UNA GRAN DIFERENCIA. ¡GRACIAS POR SER PARTE DE ESTA AVENTURA!",
+
+      donationLink: "https://reinajirveg.itch.io/arcane-code",
+
+      donationBtn: "Apoyar el Proyecto",
     },
     en: {
       text1: `GONZO RA: AUTHOR OF "ARCANE CODE".`,
@@ -370,10 +373,13 @@ export const TextosProvider = ({ children }) => {
       legal:
         "THIS GAME AND ITS CONTENT ARE PROTECTED BY COPYRIGHT AND INTELLECTUAL PROPERTY LAWS. ANY UNAUTHORIZED USE IS PROHIBITED.",
       donationTitle: "DID YOU ENJOY THE GAME?",
+
       donationText:
-        "YOU CAN SUPPORT US WITH A COFFEE ON KO-FI AND HELP US KEEP BUILDING THIS UNIVERSE. EVERY SMALL CONTRIBUTION MAKES A BIG DIFFERENCE. THANK YOU FOR BEING PART OF IT!",
-      donationLink: "https://ko-fi.com/reinajirveg",
-      donationBtn: "Support us on Ko-Fi",
+        "YOU CAN SUPPORT THE DEVELOPMENT OF ARCANE CODE AND HELP US CONTINUE EXPANDING THIS UNIVERSE. EVERY CONTRIBUTION, NO MATTER HOW SMALL, MAKES A BIG DIFFERENCE. THANK YOU FOR BEING PART OF THIS ADVENTURE!",
+
+      donationLink: "https://reinajirveg.itch.io/arcane-code",
+
+      donationBtn: "Support the Project",
     },
     jap: {
       text1: `GONZO RA: "ARCANE CODE"の著者。`,
@@ -381,20 +387,26 @@ export const TextosProvider = ({ children }) => {
       legal:
         "このゲームとそのコンテンツは、著作権および知的財産権法によって保護されています。無断使用は禁止されています。",
       donationTitle: "ゲームを楽しんでいただけましたか？",
+
       donationText:
-        "Ko-fiでコーヒーをご馳走いただければ、この世界を作り続ける力になります。小さなご支援が大きな力になります。参加してくれてありがとう！",
-      donationLink: "https://ko-fi.com/reinajirveg",
-      donationBtn: "Ko-Fiで支援する",
+        "ARCANE CODE の開発を応援していただけると、この世界をさらに広げていく大きな力になります。どんな小さなご支援でも、とても大きな意味があります。この冒険の一員になっていただき、ありがとうございます。",
+
+      donationLink: "https://reinajirveg.itch.io/arcane-code",
+
+      donationBtn: "プロジェクトを応援する",
     },
     zh: {
       text1: `GONZO RA: 《ARCANE CODE》的作者。`,
       text2: `REINA JIRVEG: 音乐、设计和网页开发。`,
       legal: "本游戏及其内容受版权和知识产权法保护。未经授权的使用是被禁止的。",
       donationTitle: "你喜欢这个游戏吗？",
+
       donationText:
-        "欢迎通过 Ko-fi 请我们喝杯咖啡，支持我们继续创造这个世界。哪怕是微小的支持，也会带来巨大的帮助。感谢你成为其中的一部分！",
-      donationLink: "https://ko-fi.com/reinajirveg",
-      donationBtn: "在 Ko-Fi 上支持我们",
+        "你可以支持 ARCANE CODE 的开发，帮助我们继续扩展这个世界。无论支持大小，都会带来巨大的帮助。感谢你成为这场冒险的一部分！",
+
+      donationLink: "https://reinajirveg.itch.io/arcane-code",
+
+      donationBtn: "支持这个项目",
     },
   };
 

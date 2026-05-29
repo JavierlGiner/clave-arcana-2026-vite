@@ -37,12 +37,17 @@ const StartBtn = styled.button`
   font-size: 2rem;
   color: var(--first-color);
   border: none;
-  /* padding: 16px 20px; */
+  font-family: "Aubrey", serif;
+  padding: 16px 20px;
   border-radius: 15px;
   width: 150px;
   height: 70px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border 0.3s;
   opacity: 0;
   animation: fadeIn 1s 2s forwards;
 
@@ -56,22 +61,20 @@ const StartBtn = styled.button`
   @media (max-width: 480px) and (orientation: portrait) {
     width: 100px;
     height: 50px;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 22px;
+    padding: 0px;
   }
 
   /* Ajustes para pantallas móviles en modo horizontal */
   @media (max-width: 480px) and (orientation: landscape) {
-    width: 180px;
-    height: 80px;
     font-size: 22px;
   }
 
   @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
-    width: 110px;
-    height: 60px;
-    font-size: 22px;
-    margin-bottom: 20px;
+    width: 80px;
+    height: 50px;
+    font-size: 24px;
+    padding: 6px;
   }
 
   @keyframes fadeIn {
@@ -92,6 +95,7 @@ const Modal = styled.div`
   height: 700px;
   width: 900px;
   background-color: transparent;
+  font-family: "Aubrey", serif;
 
   .container {
     display: flex;
@@ -133,7 +137,9 @@ const Modal = styled.div`
     white-space: nowrap;
     overflow: hidden;
     letter-spacing: 1px;
-    animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
+    animation:
+      typing 3s steps(30) 1s forwards,
+      blink 0.75s step-end infinite;
   }
 
   .mobile-text {
@@ -177,7 +183,7 @@ const Modal = styled.div`
       display: flex;
       margin-bottom: 20px;
       color: var(--modal-bg);
-      font-size: 18px;
+      font-size: 26px;
       font-weight: 700;
     }
     p {
@@ -232,15 +238,11 @@ const StartGameModal = ({ setIsStartModalOpen }) => {
             <img src={jirgev} alt="heroImg" />
           </div>
           <div className="dialogue-box">
-            <span className="mobile-text aubrey-regular">
-              {startGame.textMobile}
-            </span>
-            <p className="aubrey-regular">{startGame.text1}</p>
+            <span className="mobile-text ">{startGame.textMobile}</span>
+            <p>{startGame.text1}</p>
           </div>
         </div>
-        <StartBtn onClick={handleStartGame} className="aubrey-regular">
-          {playBtn}
-        </StartBtn>
+        <StartBtn onClick={handleStartGame}>{playBtn}</StartBtn>
       </Modal>
     </StartModal>
   );

@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import clickSound from "../assets/Click FX.mp3";
 import { useTextos } from "../contexts/LanguageContext";
+import bgMusic from "../assets/arcane main.mp3";
 import "../stylesBack.css";
+import { useEffect, useRef, useState } from "react";
+import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 
 const HeaderContainer = styled.header`
   position: static;
@@ -35,12 +38,10 @@ const Navbar = styled.nav`
   ul {
     align-items: center;
     text-align: center;
-    font-family: var(--font);
-    font-weight: 400;
+
     color: var(--second-color);
     width: 100%;
     list-style: none;
-    font-size: 1.5rem;
     padding: 0;
     display: flex; /* Hacer que las etiquetas <a> estén en fila */
     justify-content: space-between; /* Espaciado uniforme entre ellas */
@@ -50,16 +51,20 @@ const Navbar = styled.nav`
     /* margin: 5px 0; */
   }
   button {
+    font-size: 1.5rem;
     text-align: center;
-    font-family: var(--font);
-    font-weight: 500;
+    font-family: "Aubrey", serif;
+    font-weight: 600;
     color: var(--second-color);
     background: transparent;
     border: none;
     height: 40px;
-    font-size: 1.25rem;
   }
-
+  .right-controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
   @media (min-width: 1500px) {
     img {
       display: none;
@@ -68,9 +73,8 @@ const Navbar = styled.nav`
       border-radius: 50%;
     }
     button {
-      font-size: 1.5rem;
+      font-size: 2rem;
       text-align: center;
-      font-family: var(--font);
       font-weight: 600;
       color: var(--second-color);
       /* margin-top: 1.5rem; */
@@ -80,15 +84,69 @@ const Navbar = styled.nav`
   @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
     height: 20px;
     justify-content: space-around;
-    button {
-      font-size: 16px;
-    }
+  }
+`;
+const MusicButton = styled.button`
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  background: transparent;
+
+  cursor: pointer;
+
+  font-size: 20px;
+  line-height: 1;
+
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.08);
+  }
+
+  @media (max-width: 760px) {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
   }
 `;
 
 const Header = ({ setIsAboutModalOpen, handleLangBtnClick }) => {
+  const bgAudioRef = useRef(new Audio(bgMusic));
+  const [isMuted, setIsMuted] = useState(false);
   const { language, about } = useTextos();
   const playAudio = new Audio(clickSound);
+
+  useEffect(() => {
+    const bgAudio = bgAudioRef.current; // Guardamos el valor de la referencia en una variable
+
+    bgAudio.loop = true;
+    bgAudio.volume = 0.7;
+
+    // Función de limpieza
+    return () => {
+      if (bgAudio) {
+        bgAudio.pause();
+        bgAudio.currentTime = 0;
+      }
+    };
+  }, []);
+
+  const handlePlayMusic = () => {
+    if (!isMuted) {
+      bgAudioRef.current
+        .play()
+        .catch((err) => console.error("Error al reproducir audio:", err));
+    } else {
+      bgAudioRef.current.pause();
+      bgAudioRef.current.currentTime = 0;
+    }
+    setIsMuted(!isMuted);
+  };
 
   const playClickSound = () => {
     playAudio.play();
@@ -106,12 +164,16 @@ const Header = ({ setIsAboutModalOpen, handleLangBtnClick }) => {
               {language}
             </button>
           </li>
-          <li></li>
-          <li>
+
+          <div className="right-controls">
+            <MusicButton onClick={handlePlayMusic}>
+              {isMuted ? <HiSpeakerWave /> : <HiSpeakerXMark />}
+            </MusicButton>
+
             <button className="about-btn" onClick={handleAboutClick}>
               {about}
             </button>
-          </li>
+          </div>
         </ul>
       </Navbar>
     </HeaderContainer>

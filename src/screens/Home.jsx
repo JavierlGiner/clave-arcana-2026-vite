@@ -12,7 +12,6 @@ import InstruccionesModal from "../components/InstructionsModal";
 import playSound from "../assets/RumblePlay.mp3";
 import instruSound from "../assets/Instruction Click.mp3";
 import langSound from "../assets/Click FX.mp3";
-import bgMusic from "../assets/arcane main.mp3";
 import InstructionsPromptModal from "../components/InstructionsPromptModal";
 
 // import Loader from "../components/Loader";
@@ -49,81 +48,10 @@ const Main = styled.div`
   height: 100%;
   padding-bottom: 30px;
 `;
-const MusicButton = styled.button`
-  position: absolute;
-
-  bottom: 25px;
-  left: 40px;
-
-  width: 50px;
-  height: 50px;
-
-  border-radius: 50%;
-  background-color: transparent;
-
-  cursor: pointer;
-  font-size: 24px;
-
-  box-shadow: 2px 2px 10px rgba(151, 182, 247, 0.3);
-
-  transition: all 0.3s ease;
-
-  z-index: 1000;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-
-  /* MOBILE PORTRAIT */
-  @media (max-width: 480px) and (orientation: portrait) {
-    width: 36px;
-    height: 36px;
-
-    bottom: 105px;
-
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  /* MOBILE LANDSCAPE */
-  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
-    width: 40px;
-    height: 40px;
-  }
-`;
 
 const Home = () => {
   const navigate = useNavigate();
   // const [isLoading, setIsLoading] = useState(true);
-  const bgAudioRef = useRef(new Audio(bgMusic));
-  const [isMuted, setIsMuted] = useState(false);
-
-  useEffect(() => {
-    const bgAudio = bgAudioRef.current; // Guardamos el valor de la referencia en una variable
-
-    bgAudio.loop = true;
-    bgAudio.volume = 0.7;
-
-    // Función de limpieza
-    return () => {
-      if (bgAudio) {
-        bgAudio.pause();
-        bgAudio.currentTime = 0;
-      }
-    };
-  }, []);
-
-  const handlePlayMusic = () => {
-    if (!isMuted) {
-      bgAudioRef.current
-        .play()
-        .catch((err) => console.error("Error al reproducir audio:", err));
-    } else {
-      bgAudioRef.current.pause();
-      bgAudioRef.current.currentTime = 0;
-    }
-    setIsMuted(!isMuted);
-  };
 
   /****EFECTO LOADER */
   // useEffect(() => {
@@ -281,6 +209,7 @@ const Home = () => {
             setIsAboutModalOpen={setIsAboutModalOpen}
             handleLangBtnClick={handleLangBtnClick}
           />
+
           <Main>
             {showReinaTitle && <ReinaTitle />}
             {!showReinaTitle && (
@@ -297,9 +226,6 @@ const Home = () => {
                 showPlayBtn={showPlayBtn}
               />
             )}
-            <MusicButton onClick={handlePlayMusic}>
-              {isMuted ? "🔊" : "🔇"}
-            </MusicButton>
           </Main>
           {/* <Loader /> */}
           <Footer />

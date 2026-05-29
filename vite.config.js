@@ -14,9 +14,9 @@ export default defineConfig({
         "pwa-512x512-maskable.png",
       ],
       manifest: {
-        name: "Clave Arcana",
-        short_name: "Clave Arcana",
-        description: "Juego Clave Arcana",
+        name: "Arcane Code",
+        short_name: "Arcane Code",
+        description: "Arcane Code Game",
         theme_color: "#000000",
         background_color: "#000000",
         display: "standalone",

@@ -7,7 +7,7 @@ import EasyBoard from "./screens/EasyBoard";
 
 import LangSwitchModal from "./components/LangSwitchModal";
 import InstallButton from "./components/InstallButton";
-
+import "./stylesBack.css";
 import { TextosProvider } from "./contexts/LanguageContext";
 import PoliticayPrivacidad from "./screens/PoliticayPrivacidad";
 import TerminosCondiciones from "./screens/TerminosCondiciones";

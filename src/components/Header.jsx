@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import clickSound from "../assets/Click FX.mp3";
 import { useTextos } from "../contexts/LanguageContext";
-import bgMusic from "../assets/arcane main.mp3";
+import bgMusic from "../assets/arcane_main.mp3";
 import "../stylesBack.css";
 import { useEffect, useRef, useState } from "react";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";

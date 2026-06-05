@@ -33,9 +33,6 @@ const StyledContainer = styled.div`
 const Modal = styled.div`
   display: flex;
   flex-direction: column;
-  height: 560px;
-  width: 900px;
-  padding: 20px;
   background-color: var(--modal-bg);
   border-radius: 8px;
   align-items: center;
@@ -217,98 +214,183 @@ const Modal = styled.div`
     border-radius: 50%;
   }
 
-  @media (max-width: 760px) {
-    width: 350px;
-    height: auto;
-    padding: 15px;
+  @media (min-width: 1024px) {
+    display: flex;
+    background-color: var(--modal-bg);
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    height: 560px;
+    width: 800px;
+    padding: 20px;
 
     .title {
-      font-size: 40px;
+      font-size: 48px;
+      font-weight: 700;
+      text-align: center;
     }
     .endgame-modal {
-      flex-direction: column;
-      justify-content: space-around;
-      gap: 10px;
-      margin: 20px 0;
-      height: auto;
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
     }
-
-    .donationBtn {
-      width: auto;
-      font-size: 10px;
-      padding: 8px;
-    }
-    .image-container {
-      height: 200px;
-      width: 200px;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
     .score-container {
-      height: auto;
-      width: 280px;
-      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      border-style: double;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid black;
+      font-size: 1.5rem;
+      padding: 5px;
+      height: 260px;
+      width: 480px;
+      background-color: var(--instruction-bg);
+      gap: 15px;
 
       p {
-        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 6px;
+        background-color: var(--button-bg-hover);
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        align-items: center;
         text-transform: uppercase;
-        overflow-y: scroll;
-        padding-top: 6px;
       }
       span {
-        width: 100px;
-        font-size: 2.25rem;
+        margin: 15px 0;
+        display: flex;
+        justify-content: center;
+        border-radius: 6px;
+        background-color: var(--second-color);
+        height: auto;
+        width: 160px;
+        font-size: 3.5rem;
+        color: var(--first-color);
+        font-family: "Aubrey", serif;
       }
       .links-msg {
-        font-size: 14px;
-        height: 160px;
+        border-radius: 6px;
+        font-size: 1.1rem;
+        text-align: left;
       }
     }
-
     .score-container-2 {
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      border-style: double;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid black;
       padding: 6px;
-      background-color: var(--instruction-bg);
-      gap: 10px;
       height: auto;
+      width: 96%;
+      background-color: var(--instruction-bg);
+      gap: 15px;
 
       p {
-        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 6px;
+        background-color: var(--button-bg-hover);
+        height: auto;
         padding: 8px;
+        text-align: justify;
+        align-items: center;
+        text-transform: uppercase;
+        font-weight: 600;
         width: 100%;
       }
-      .redes-container img {
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-      }
-      .redes-container {
-        display: flex;
-        width: 150px;
-        align-items: center;
-        margin-top: 5px;
 
-        justify-content: space-between;
+      .links-msg {
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 18px;
+        text-align: center;
+        height: auto;
+        width: 100%;
+      }
+      .premium-container {
+        height: auto;
+        background-color: var(--button-bg-hover);
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        p {
+          display: flex;
+          flex-direction: column;
+          height: auto;
+          border-radius: 6px;
+          background-color: var(--button-bg-hover);
+          text-align: justify;
+        }
       }
       .donation-text {
-        font-size: 12px;
-      }
-      .donation-title {
-        padding-bottom: 0;
         font-size: 16px;
       }
-      .links-msg {
+      .donation-title {
+        font-size: 18px;
+      }
+
+      .donationBtn {
+        background-color: #c017a4;
+        color: white;
+        padding: 10px;
+        border-radius: 8px;
+        font-weight: bold;
         font-size: 12px;
+        text-decoration: none;
+        width: auto;
+        margin-bottom: 8px;
       }
     }
-  }
+    .image-container {
+      border-radius: 8px;
+      height: auto;
+      width: 260px;
+      border: 4px solid black;
+      background-color: var(--instruction-bg);
 
-  @media (max-width: 950px) and (orientation: landscape) {
+      img {
+        border-radius: 8px;
+        width: 100%;
+        height: auto;
+      }
+    }
+    .buttons-container {
+      display: flex;
+      width: 95%;
+      justify-content: space-between;
+    }
+    .redes-container {
+      display: flex;
+      width: 180px;
+      align-items: center;
+      margin-top: 5px;
+      justify-content: space-between;
+    }
+    .redes-container img {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+    }
+  }
+  @media (max-width: 1024px) {
     height: 350px;
     width: 650px;
-
+    padding: 10px;
     .title {
       font-size: 30px;
     }
@@ -404,6 +486,94 @@ const Modal = styled.div`
       }
     }
   }
+
+  @media (max-width: 720px) and (orientation: portrait) {
+    width: 350px;
+    height: auto;
+    padding: 15px;
+
+    .title {
+      font-size: 40px;
+    }
+    .endgame-modal {
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 10px;
+      margin: 20px 0;
+      height: auto;
+    }
+
+    .donationBtn {
+      width: auto;
+      font-size: 10px;
+      padding: 8px;
+    }
+    .image-container {
+      height: 200px;
+      width: 200px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .score-container {
+      height: auto;
+      width: 280px;
+      font-size: 14px;
+
+      p {
+        height: auto;
+        text-transform: uppercase;
+
+        padding-top: 6px;
+      }
+      span {
+        width: 100px;
+        font-size: 2.25rem;
+      }
+      .links-msg {
+        font-size: 14px;
+        height: 160px;
+      }
+    }
+
+    .score-container-2 {
+      padding: 6px;
+      background-color: var(--instruction-bg);
+      gap: 10px;
+      height: auto;
+
+      p {
+        height: 100%;
+        padding: 8px;
+        width: 100%;
+      }
+      .redes-container img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+      }
+      .redes-container {
+        display: flex;
+        width: 150px;
+        align-items: center;
+        margin-top: 5px;
+
+        justify-content: space-between;
+      }
+      .donation-text {
+        font-size: 12px;
+      }
+      .donation-title {
+        padding-bottom: 0;
+        font-size: 16px;
+      }
+      .links-msg {
+        font-size: 12px;
+      }
+    }
+  }
 `;
 
 const StyledButton = styled.button`
@@ -430,12 +600,12 @@ const StyledButton = styled.button`
     color: var(--first-color-beta);
     border: 2px solid var(--first-color-beta); /* Borde dorado en hover */
   }
-  @media (max-width: 760px) {
+  @media (max-width: 720px) {
     width: 105px;
     height: 40px;
     font-size: 18px;
   }
-  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
+  @media (min-width: 720px) and (max-width: 1024px) {
     height: 35px;
     width: 110px;
     font-size: 18px;

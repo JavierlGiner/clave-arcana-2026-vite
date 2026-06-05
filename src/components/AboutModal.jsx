@@ -78,6 +78,8 @@ const StyledAbout = styled.div`
 
   .author-box {
     text-align: justify;
+    font-family: "Aubrey", serif;
+    font-size: 30px;
   }
 
   /* =========================
@@ -156,16 +158,15 @@ const StyledAbout = styled.div`
   ========================== */
   .legal-info {
     font-size: 8px;
-    font-style: italic;
     font-weight: 700;
-    text-align: justify;
+    text-align: center;
     padding: 0 8px;
   }
 
   /* =========================
      MOBILE
   ========================== */
-  @media (max-width: 760px) {
+  @media (max-width: 720px) {
     .modal-content {
       width: 350px;
       height: 600px;
@@ -185,7 +186,7 @@ const StyledAbout = styled.div`
     }
 
     .author-box {
-      font-size: 14px;
+      font-size: 18px;
     }
 
     .close-button {
@@ -206,7 +207,7 @@ const StyledAbout = styled.div`
   /* =========================
      LANDSCAPE SMALL HEIGHT
   ========================== */
-  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
+  @media (max-width: 1024px) and (max-height: 640px) and (orientation: landscape) {
     .modal-content {
       width: 600px;
       height: 340px;
@@ -245,7 +246,7 @@ const StyledAbout = styled.div`
     }
 
     .author-box {
-      font-size: 13px;
+      font-size: 18px;
       margin: 5px;
     }
     .legal-info {

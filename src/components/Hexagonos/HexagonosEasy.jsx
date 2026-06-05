@@ -7,7 +7,7 @@ import Ficha from "../Ficha/Ficha";
 import Contador from "../Contador";
 import styled from "styled-components";
 import EndGameModal from "../EndGameModal";
-import "../../stylesBack.css";
+import "../../styles.css";
 // import Loader from "../Loader";
 import arcanemusic from "../../assets/arcanegame.mp3";
 
@@ -18,11 +18,11 @@ const StyledButton = styled.button`
   display: flex;
   /* Estilos básicos del botón */
   background-color: var(--second-color);
-  font-family: var(--font);
-  font-weight: 500;
+  font-family: "Aubrey", serif;
+  font-weight: 600;
   color: var(--first-color);
   border: none;
-  padding: 6px 10px;
+  padding: 6px 8px;
   border-radius: 8px;
   width: auto;
   cursor: pointer;
@@ -40,22 +40,9 @@ const StyledButton = styled.button`
     color: var(--first-color-beta);
     border: 2px solid var(--first-color-beta); /* Borde dorado en hover */
   }
-  @media (max-width: 900px) and (orientation: portrait) {
-    position: absolute;
-    width: 50px;
-    height: 30px;
-    font-size: 12px;
-    /* top: 20px; */
-    padding-left: 8px;
-    transform: rotate(90deg);
-  }
 `;
 const MusicButton = styled.button`
   position: absolute;
-  bottom: 25px;
-  left: 40px;
-  width: 50px;
-  height: 50px;
   border-radius: 50%;
   background-color: transparent;
   cursor: pointer;
@@ -65,25 +52,6 @@ const MusicButton = styled.button`
   z-index: 1000;
   &:hover {
     transform: scale(1.1);
-  }
-
-  @media (max-width: 900px) and (orientation: portrait) {
-    top: 2rem;
-    left: 20px;
-    width: 30px;
-    height: 30px;
-    rotate: 90deg;
-    box-shadow: none;
-    border: none;
-  }
-
-  @media (max-width: 920px) and (orientation: landscape) {
-    bottom: 1rem;
-    left: 20px;
-    width: 22px;
-    height: 22px;
-    box-shadow: none;
-    border: none;
   }
 `;
 
@@ -220,7 +188,7 @@ const Hexagonos = ({ initCount }) => {
           </div>
         </>
         {/* )} */}
-        <MusicButton onClick={handleMuteToggle}>
+        <MusicButton onClick={handleMuteToggle} className="music-board-btn">
           {isMuted ? "🔇" : "🔊"}
         </MusicButton>
         <StyledButton onClick={handleRestartBtnClick} className="reset-btn">

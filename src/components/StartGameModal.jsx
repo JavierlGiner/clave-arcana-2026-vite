@@ -65,15 +65,10 @@ const StartBtn = styled.button`
     padding: 0px;
   }
 
-  /* Ajustes para pantallas móviles en modo horizontal */
-  @media (max-width: 480px) and (orientation: landscape) {
-    font-size: 22px;
-  }
-
-  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
+  @media (max-width: 950px) and (max-height: 580px) and (orientation: landscape) {
     width: 80px;
     height: 50px;
-    font-size: 24px;
+    font-size: 22px;
     padding: 6px;
   }
 
@@ -169,10 +164,11 @@ const Modal = styled.div`
       gap: 20px;
     }
     .img-box {
-      margin-bottom: 10px;
+      width: 200px;
+      height: 200px;
     }
     .dialogue-box {
-      width: 340px;
+      width: 320px;
       font-size: 30px;
       text-align: center;
     }
@@ -181,9 +177,9 @@ const Modal = styled.div`
     }
     .mobile-text {
       display: flex;
-      margin-bottom: 20px;
+      margin-bottom: 0px;
       color: var(--modal-bg);
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
     }
     p {
@@ -192,7 +188,7 @@ const Modal = styled.div`
   }
 
   /* Estilos para la orientación horizontal del móvil */
-  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
+  @media (max-width: 950px) and (max-height: 580px) and (orientation: landscape) {
     height: 360px;
     width: 600px;
     justify-content: center;

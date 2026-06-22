@@ -207,7 +207,7 @@ const Modal = styled.div`
     }
 
     .dialogue-box {
-      width: 340px;
+      width: 308px;
       text-align: center;
       height: 170px;
       font-size: 16px;

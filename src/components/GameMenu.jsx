@@ -79,7 +79,7 @@ const StartMenu = styled.div`
   }
   @media (min-width: 1024px) {
     margin-block: 20px;
-    margin-top: 30px;
+    margin-top: 10px;
     height: 100%;
     h1 {
       font-size: 6.5rem;
@@ -94,7 +94,7 @@ const StartMenu = styled.div`
     .game-title {
       img {
         height: auto;
-        width: 800px;
+        width: 750px;
       }
     }
     .author-title h3 {
@@ -110,7 +110,7 @@ const StartMenu = styled.div`
       margin-top: 20px;
     }
   }
-  @media (max-width: 1024px) and (max-height: 480px) and (orientation: landscape) {
+  @media (max-width: 1024px) and (max-height: 550px) and (orientation: landscape) {
     .menu-btn {
       display: flex;
       gap: 1.5rem;

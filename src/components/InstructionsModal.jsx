@@ -117,12 +117,13 @@ const InstructionsBox = styled.div`
     flex-direction: column;
     padding: 5px 8px;
     width: 320px;
-    height: 540px;
+    height: 520px;
     justify-content: center;
     h1 {
       font-size: 20px;
       font-weight: 700;
-      padding-bottom: 5px;
+
+      padding: 0px;
     }
     .container-info {
       height: auto;
@@ -130,7 +131,7 @@ const InstructionsBox = styled.div`
       gap: 5px;
     }
     .rules-box {
-      margin-bottom: 8px;
+      margin-bottom: 22px;
       height: 200px;
       scrollbar-width: auto;
 
@@ -165,7 +166,7 @@ const InstructionsBox = styled.div`
     }
   }
 
-  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
+  @media (max-width: 950px) and (max-height: 500px) and (orientation: landscape) {
     position: relative;
     align-items: center;
     /* justify-content: center; */
@@ -234,8 +235,8 @@ const Dot = styled.div`
     background-color: var(--second-color);
   }
   @media (max-width: 480px) {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
   }
   @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
     display: none;

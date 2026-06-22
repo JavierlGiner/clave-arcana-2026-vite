@@ -248,6 +248,7 @@ const Modal = styled.div`
       justify-content: center;
       border: 4px solid black;
       font-size: 1.5rem;
+      font-weight: 600;
       padding: 5px;
       height: 260px;
       width: 480px;
@@ -490,14 +491,27 @@ const Modal = styled.div`
       }
     }
   }
+  @media (max-width: 1024px) and (max-height: 480px) and (orientation: landscape) {
+    max-width: 520px;
+    padding: 4px;
+    gap: 4px;
+    .title {
+      font-size: 22px;
+    }
+    .score-container-2 {
+      p {
+        padding: 4px;
+      }
+    }
+  }
 
   @media (max-width: 720px) and (orientation: portrait) {
     width: 350px;
     height: auto;
-    padding: 15px;
+    padding: 5px;
 
     .title {
-      font-size: 40px;
+      font-size: 34px;
     }
     .endgame-modal {
       flex-direction: column;
@@ -611,6 +625,12 @@ const StyledButton = styled.button`
     width: 110px;
     font-size: 18px;
   }
+  @media (max-width: 1024px) and (max-height: 480px) and (orientation: landscape) {
+    height: 26px;
+    width: 54px;
+    font-size: 16px;
+  }
+
   @media (max-width: 720px) {
     width: 80px;
     height: 30px;

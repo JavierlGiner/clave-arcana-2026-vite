@@ -1,7 +1,7 @@
 import { FichasProvider } from "../contexts/FichasContextEasy";
 import Hexagonos from "../components/Hexagonos/HexagonosEasy";
 import StartGameModal from "../components/StartGameModal";
-import "../stylesBack.css";
+import "../styles.css";
 import { useState } from "react";
 import CountProvider from "../contexts/CountProvider";
 

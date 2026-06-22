@@ -21,6 +21,8 @@ const ReinaTitles = styled.div`
     width: auto;
     margin: 20px auto;
     display: block;
+    user-select: none;
+    pointer-events: none;
   }
 
   h1 {
@@ -51,7 +53,24 @@ const MotionContainer = styled(motion.div)`
   align-items: center;
 `;
 
+const preloadImage = async (src) => {
+  const img = new Image();
+  img.src = src;
+
+  try {
+    await img.decode();
+  } catch {
+    await new Promise((resolve, reject) => {
+      img.onload = resolve;
+      img.onerror = reject;
+    });
+  }
+
+  return img;
+};
+
 const ReinaTitle = () => {
+  const [assetsReady, setAssetsReady] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const sequence = useMemo(
@@ -59,13 +78,45 @@ const ReinaTitle = () => {
     [],
   );
 
+  // Precargar imágenes antes de iniciar la secuencia
   useEffect(() => {
+    let mounted = true;
+
+    const preloadAssets = async () => {
+      try {
+        await Promise.all([preloadImage(reina), preloadImage(potion)]);
+
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+
+        if (mounted) {
+          setAssetsReady(true);
+        }
+      } catch (error) {
+        console.error("Error cargando assets:", error);
+
+        if (mounted) {
+          setAssetsReady(true);
+        }
+      }
+    };
+
+    preloadAssets();
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  // Iniciar secuencia únicamente cuando todo esté listo
+  useEffect(() => {
+    if (!assetsReady) return;
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % sequence.length);
     }, 1800);
 
     return () => clearInterval(interval);
-  }, [sequence.length]);
+  }, [assetsReady, sequence.length]);
 
   const renderContent = () => {
     switch (sequence[currentIndex]) {
@@ -82,6 +133,11 @@ const ReinaTitle = () => {
         return null;
     }
   };
+
+  // Mientras se cargan las imágenes no se muestra la animación
+  if (!assetsReady) {
+    return <ReinaTitles />;
+  }
 
   return (
     <ReinaTitles>

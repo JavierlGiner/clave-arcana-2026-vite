@@ -41,16 +41,17 @@ const InstructionsBox = styled.div`
   }
   .close-button {
     position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+
     width: 30px;
     height: 30px;
-    text-align: center;
-    font-size: 20px;
-    top: 10px;
-    right: 5px;
-    margin: 0.5rem;
+
     background-color: var(--first-color);
-    border-radius: 25%;
     color: var(--second-color);
+    font-weight: bold;
+
+    border-radius: 25%;
   }
   .container-info {
     display: flex;
@@ -116,7 +117,7 @@ const InstructionsBox = styled.div`
     flex-direction: column;
     padding: 5px 8px;
     width: 320px;
-    height: 590px;
+    height: 540px;
     justify-content: center;
     h1 {
       font-size: 20px;
@@ -131,6 +132,8 @@ const InstructionsBox = styled.div`
     .rules-box {
       margin-bottom: 8px;
       height: 200px;
+      scrollbar-width: auto;
+
       p {
         font-size: 16px;
         line-height: 20px;
@@ -140,16 +143,10 @@ const InstructionsBox = styled.div`
       }
     }
     .image-box {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-evenly;
-      background-color: var(--modal-bg);
-      width: 100%;
-      border-radius: 8px;
-      height: 270px;
+      position: relative;
+      overflow: hidden;
+      height: 200px;
       img {
-        /* flex-grow: 1; */
         height: 125px;
         width: auto;
       }
@@ -244,9 +241,29 @@ const Dot = styled.div`
     display: none;
   }
 `;
+const ImageDotsContainer = styled.div`
+  display: none;
+
+  @media (max-width: 760px) {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 5px;
+  }
+`;
+
+const ImageDot = styled.div`
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: ${(props) =>
+    props.$active ? "var(--first-color)" : "#999"};
+`;
 
 const InstruccionesModal = ({ closeInstructionsModal }) => {
   const { reglas, instructBtn, moreInfoBtn } = useTextos();
+  const [currentImage, setCurrentImage] = useState(0);
   const [currentRule, setCurrentRule] = useState(0);
   const [currentSection, setCurrentSection] = useState("reglasPiezas");
   // const [loading, setLoading] = useState(true);
@@ -281,16 +298,43 @@ const InstruccionesModal = ({ closeInstructionsModal }) => {
 
   const handleDotClick = (index) => {
     setCurrentRule(index);
+    setCurrentImage(0);
   };
+
   const handleNext = () => {
+    setCurrentImage(0);
+
     if (currentSection === "reglasPiezas") {
       setCurrentSection("reglasJuego");
       setCurrentRule(0);
-    } else if (currentSection === "reglasJuego") {
+    } else {
       setCurrentSection("reglasPiezas");
       setCurrentRule(0);
     }
   };
+  const [touchStart, setTouchStart] = useState(null);
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (!touchStart) return;
+
+    const touchEnd = e.changedTouches[0].clientX;
+    const distance = touchStart - touchEnd;
+
+    if (distance > 50 && currentImage < images.length - 1) {
+      setCurrentImage((prev) => prev + 1);
+    }
+
+    if (distance < -50 && currentImage > 0) {
+      setCurrentImage((prev) => prev - 1);
+    }
+
+    setTouchStart(null);
+  };
+
   const images =
     currentSection === "reglasPiezas"
       ? reglas.reglasPiezas[currentRule].img
@@ -309,10 +353,35 @@ const InstruccionesModal = ({ closeInstructionsModal }) => {
         <p className="landscape-message">{instructBtn.message}</p>
         <div className="container-info">
           <div className="image-box">
-            {images.map((image, index) => (
-              <img src={image} alt={index} key={index} loading="lazy" />
-            ))}
+            {window.innerWidth <= 760 ? (
+              <img
+                src={images[currentImage]}
+                alt={`instruction-${currentImage}`}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              />
+            ) : (
+              images.map((image, index) => (
+                <img
+                  src={images[currentImage]}
+                  alt={`instruction-${currentImage}`}
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={handleTouchEnd}
+                />
+              ))
+            )}
           </div>
+          {images.length > 1 && (
+            <ImageDotsContainer>
+              {images.map((_, index) => (
+                <ImageDot
+                  key={index}
+                  $active={currentImage === index}
+                  onClick={() => setCurrentImage(index)}
+                />
+              ))}
+            </ImageDotsContainer>
+          )}
           <div className="rules-box">
             <div>
               <h2>

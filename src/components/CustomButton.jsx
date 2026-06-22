@@ -32,7 +32,7 @@ const StyledButton = styled.button`
     font-size: 30px;
     font-weight: 600;
   }
-  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
+  @media (max-width: 1024px) and (max-height: 480px) and (orientation: landscape) {
     height: 40px;
     width: 120px;
     font-size: 20px;

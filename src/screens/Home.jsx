@@ -5,7 +5,7 @@ import AboutModal from "../components/AboutModal";
 import ReinaTitle from "../components/ReinaTitle";
 import GameMenu from "../components/GameMenu";
 import Footer from "../components/Footer";
-import "../stylesBack.css";
+import "../styles.css";
 import { useNavigate } from "react-router-dom";
 import LangSwitchModal from "../components/LangSwitchModal";
 import InstruccionesModal from "../components/InstructionsModal";

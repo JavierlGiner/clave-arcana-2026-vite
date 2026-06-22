@@ -8,7 +8,7 @@ import { useTextos } from "../contexts/LanguageContext";
 const StartMenu = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   font-family: var(--font);
   text-align: center;
   align-items: center;

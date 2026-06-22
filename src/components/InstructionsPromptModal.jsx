@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import "../styles.css";
 
 import { useTextos } from "../contexts/LanguageContext";
 
@@ -23,89 +24,152 @@ const ModalBackground = styled.div`
 
 const ModalContainer = styled.div`
   position: relative;
+
+  width: min(500px, 92vw);
+  font-weight: 700;
   display: flex;
   flex-direction: column;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  border: 4px solid var(--second-color);
-  max-width: 600px;
-  text-align: center;
+  gap: 24px;
+
+  padding: 24px;
+
   background-color: var(--modal-bg);
-  .info-box {
-    margin: 20px 0px;
+
+  border-radius: 16px;
+  border: 2px solid var(--second-color);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(255, 215, 0, 0.15);
+
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 12px;
   }
-  .close-button {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    font: var(--font) bold;
-    top: 0;
-    right: 0;
-    margin: 0.5rem;
-    background-color: var(--first-color);
-    border-radius: 25%;
-    color: var(--second-color);
-  }
-  .continue-button {
-    background: none;
-    border: none;
-    font: var(--font) bold;
-    font-size: 15px;
-  }
+
   .titles {
     display: flex;
     flex-direction: column;
     gap: 10px;
-  }
-  @media (max-width: 760px) {
-    max-width: 360px;
-    .titles {
-      font-size: 15px;
-      h3 {
-        font-size: 16px;
-      }
+
+    h3 {
+      margin: 0;
+      color: var(--first-color-beta);
+      font-size: 1.8rem;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.5;
+      font-size: 1rem;
     }
   }
-  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
-    max-width: 420px;
-    height: 220px;
+
+  .close-button {
+    top: 0.5rem;
+    right: 0.5rem;
+
+    width: 30px;
+    height: 30px;
+
+    background-color: var(--first-color);
+    color: var(--second-color);
+    font-weight: bold;
+
+    border-radius: 25%;
+  }
+
+  .info-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .continue-button {
+    background: transparent;
+    border: none;
+
+    color: var(--first-color-beta);
+
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+      transform: translateY(-1px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 18px;
+    gap: 18px;
 
     .titles {
-      font-size: 12px;
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
+    .close-button {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
+    width: min(500px, 90vw);
+
+    .titles {
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 0.85rem;
+      }
     }
   }
 `;
 const StyledButton = styled.button`
-  background-color: var(--second-color);
+  width: 230px;
+  height: 55px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #ff0000, #c50000);
+
+  color: white;
+
   font-family: var(--font);
-  color: var(--first-color);
-  border: 2px solid var(--third-color);
-  border-radius: 5px;
-  height: 50px;
-  width: 180px;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 700;
+
   cursor: pointer;
 
-  /* Transición suave para el hover */
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  transition: 0.25s ease;
 
-  /* Estilos para el hover */
   &:hover {
-    background-color: var(--modal-bg);
-    color: var(--first-color-beta);
-    border: 2px solid var(--first-color-beta); /* Borde dorado en hover */
+    transform: translateY(-2px);
+    filter: brightness(1.1);
   }
+
+  &:active {
+    transform: translateY(0);
+  }
+
   @media (max-width: 480px) {
-    width: 105px;
-    height: 40px;
-    font-size: 14px;
-  }
-  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
-    height: 40px;
-    width: 110px;
+    width: 200px;
+    height: 48px;
     font-size: 15px;
   }
 `;
@@ -114,11 +178,17 @@ const InstructionsPromptModal = ({ onContinue, onClose }) => {
   const { instructPrompt } = useTextos();
 
   return (
-    <ModalBackground>
+    <ModalBackground onClick={onClose}>
       <ModalContainer>
-        <div className="titles">
-          <h3>{instructPrompt.title}</h3>
-          <p>{instructPrompt.text1}</p>
+        <div className="header">
+          <div className="titles">
+            <h3>{instructPrompt.title}</h3>
+            <p>{instructPrompt.text1}</p>
+          </div>
+
+          <button className="close-button" onClick={onClose}>
+            ✕
+          </button>
         </div>
         <div className="info-box">
           <StyledButton
@@ -126,14 +196,11 @@ const InstructionsPromptModal = ({ onContinue, onClose }) => {
               window.open("https://youtu.be/p_GXOmm7zjw", "_blank")
             }
           >
-            {instructPrompt.text3}
+            ▶ {instructPrompt.text3}
           </StyledButton>
         </div>
         <button className="continue-button" onClick={onContinue}>
           {instructPrompt.text2}
-        </button>
-        <button className="close-button" onClick={onClose}>
-          X
         </button>
       </ModalContainer>
     </ModalBackground>

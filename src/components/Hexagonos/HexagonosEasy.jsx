@@ -43,15 +43,18 @@ const StyledButton = styled.button`
 `;
 const MusicButton = styled.button`
   position: absolute;
-  border-radius: 50%;
+
   background-color: transparent;
   cursor: pointer;
-  font-size: 24px;
-  box-shadow: 2px 2px 10px rgba(151, 182, 247, 0.3);
+  border: none;
+  font-size: 28px;
   transition: all 0.3s ease;
   z-index: 1000;
   &:hover {
     transform: scale(1.1);
+  }
+  @media (max-width: 720px) {
+    font-size: 20px;
   }
 `;
 

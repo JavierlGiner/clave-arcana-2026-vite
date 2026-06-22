@@ -3,7 +3,7 @@ import jirgev from "../images/youngJirveg.webp";
 import reina from "../images/reina Jirgev.webp";
 import potion from "../images/pink potion logo-1.webp";
 import styled from "styled-components";
-import "../stylesBack.css";
+import "../styles.css";
 import { useNavigate } from "react-router-dom";
 import { useTextos } from "../contexts/LanguageContext";
 import { useState } from "react";
@@ -220,9 +220,10 @@ const Modal = styled.div`
     border-radius: 8px;
     align-items: center;
     justify-content: center;
-    height: 560px;
+    height: auto;
     width: 800px;
     padding: 20px;
+    gap: 25px;
 
     .title {
       font-size: 48px;
@@ -388,11 +389,13 @@ const Modal = styled.div`
     }
   }
   @media (max-width: 1024px) {
-    height: 350px;
-    width: 650px;
-    padding: 10px;
+    height: auto;
+    width: auto;
+    max-width: 520px;
+    padding: 4px 8px;
+    gap: 10px;
     .title {
-      font-size: 30px;
+      font-size: 26px;
     }
 
     .endgame-modal {
@@ -403,8 +406,9 @@ const Modal = styled.div`
     }
     .score-container {
       font-size: 1rem;
+      font-weight: 600;
       height: 180px;
-      width: 360px;
+      width: 320px;
       background-color: var(--instruction-bg);
       gap: 10px;
 
@@ -585,7 +589,8 @@ const StyledButton = styled.button`
   height: 60px;
   width: 200px;
   font-size: 26px;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 1px;
   cursor: pointer;
 
   /* Transición suave para el hover */
@@ -600,15 +605,16 @@ const StyledButton = styled.button`
     color: var(--first-color-beta);
     border: 2px solid var(--first-color-beta); /* Borde dorado en hover */
   }
-  @media (max-width: 720px) {
-    width: 105px;
-    height: 40px;
-    font-size: 18px;
-  }
+
   @media (min-width: 720px) and (max-width: 1024px) {
     height: 35px;
     width: 110px;
     font-size: 18px;
+  }
+  @media (max-width: 720px) {
+    width: 80px;
+    height: 30px;
+    font-size: 16px;
   }
 `;
 // const BlackScreen = styled.div`

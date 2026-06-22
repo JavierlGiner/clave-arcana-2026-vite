@@ -2,7 +2,7 @@ import styled from "styled-components";
 import reina from "../images/reina Jirgev.webp";
 import pink from "../images/pink potion logo-1.webp";
 import { useTextos } from "../contexts/LanguageContext";
-import "../stylesBack.css";
+import "../styles.css";
 
 const StyledAbout = styled.div`
   /* =========================
@@ -29,17 +29,18 @@ const StyledAbout = styled.div`
   ========================== */
   .modal-content {
     position: relative;
-    width: 660px;
-    height: 600px;
+    width: 600px;
+    height: 550px;
     padding: 30px;
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 12px;
     background-color: var(--modal-bg);
     color: var(--first-color);
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     text-align: justify;
 
@@ -79,7 +80,7 @@ const StyledAbout = styled.div`
   .author-box {
     text-align: justify;
     font-family: "Aubrey", serif;
-    font-size: 30px;
+    font-size: 26px;
   }
 
   /* =========================
@@ -123,12 +124,12 @@ const StyledAbout = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 24px;
+    font-size: 22px;
     padding: 0 10px;
   }
 
   .donation-text {
-    font-size: 18px;
+    font-size: 16px;
     margin: 10px 0;
     text-align: justify;
   }
@@ -148,7 +149,7 @@ const StyledAbout = styled.div`
     color: white;
     padding: 8px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     text-decoration: none;
   }
@@ -169,7 +170,7 @@ const StyledAbout = styled.div`
   @media (max-width: 720px) {
     .modal-content {
       width: 350px;
-      height: 600px;
+      height: auto;
       font-size: 13px;
       gap: 5px;
     }
@@ -201,6 +202,9 @@ const StyledAbout = styled.div`
         width: 60px;
         height: 60px;
       }
+    }
+    .separador {
+      margin: 12px 0;
     }
   }
 

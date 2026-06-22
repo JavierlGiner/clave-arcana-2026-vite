@@ -3,7 +3,7 @@ import ficha8 from "../images/Ficha-8-false.webp";
 import hardlvl from "../assets/hardlvl.mp4";
 import { useTextos } from "../contexts/LanguageContext";
 import styled from "styled-components";
-import "../stylesBack.css";
+import "../styles.css";
 
 const StartHardModal = styled.div`
   position: fixed;
@@ -59,9 +59,9 @@ const StartBtn = styled.button`
 
   /* Ajustes para pantallas móviles en modo vertical */
   @media (max-width: 720px) and (orientation: portrait) {
-    width: 100px;
-    height: 50px;
-    font-size: 20px;
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
   }
 
   /* Ajustes para pantallas móviles en modo horizontal */
@@ -71,7 +71,7 @@ const StartBtn = styled.button`
     font-size: 22px;
   }
 
-  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
+  @media (max-width: 950px) and (max-height: 520px) and (orientation: landscape) {
     width: 80px;
     height: 40px;
     font-size: 16px;
@@ -178,11 +178,10 @@ const Modal = styled.div`
 
   /* Estilos para la orientación vertical del móvil */
   @media (max-width: 720px) and (orientation: portrait) {
-    height: 100vh;
-    max-height: 750px;
+    height: auto;
 
     .container {
-      gap: 20px;
+      gap: 0px;
       justify-content: space-evenly;
     }
     .img-box {
@@ -194,7 +193,8 @@ const Modal = styled.div`
       height: 300px;
       opacity: 0;
       animation: fadeIn 1s 0.5s forwards;
-      gap: 40px;
+      gap: 25px;
+
       .coin {
         width: 100px;
         height: auto;
@@ -210,7 +210,7 @@ const Modal = styled.div`
       width: 340px;
       text-align: center;
       height: 170px;
-      font-size: 22px;
+      font-size: 16px;
     }
     .desktop-text {
       display: none;
@@ -233,9 +233,10 @@ const Modal = styled.div`
     }
     .img-box {
       display: flex;
-      justify-content: space-around;
-      width: 550px;
+      justify-content: space-between;
+      width: auto;
       height: 160px;
+      gap: 40px;
       opacity: 0;
       animation: fadeIn 1s 0.5s forwards;
       .coin {
@@ -249,11 +250,11 @@ const Modal = styled.div`
       }
     }
     .dialogue-box p {
-      font-size: 15px;
+      font-size: 14px;
       text-align: center;
     }
     .dialogue-box {
-      padding-top: 20px;
+      padding-top: 0px;
       height: 100px;
       width: 500px;
     }

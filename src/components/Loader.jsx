@@ -127,7 +127,7 @@ const Loader = ({ progress = 0 }) => {
         </div>
       </CoinLoader>
 
-      <LoadingText>Cargando Clave Arcana...</LoadingText>
+      <LoadingText>...</LoadingText>
 
       <ProgressContainer>
         <ProgressFill progress={progress} />

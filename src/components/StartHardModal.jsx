@@ -59,8 +59,8 @@ const StartBtn = styled.button`
 
   /* Ajustes para pantallas móviles en modo vertical */
   @media (max-width: 720px) and (orientation: portrait) {
-    width: 80px;
-    height: 40px;
+    width: 70px;
+    height: 35px;
     font-size: 16px;
   }
 
@@ -189,28 +189,30 @@ const Modal = styled.div`
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
-      width: 350px;
-      height: 300px;
+      width: auto;
+      height: auto;
       opacity: 0;
       animation: fadeIn 1s 0.5s forwards;
-      gap: 25px;
+      gap: 30px;
 
       .coin {
-        width: 100px;
+        width: 80px;
         height: auto;
       }
 
       .gif {
-        width: 240px;
-        height: 150px;
+        width: auto;
+        height: 135px;
       }
     }
 
     .dialogue-box {
-      width: 308px;
+      width: auto;
+      max-width: 320px;
       text-align: center;
-      height: 170px;
+      height: auto;
       font-size: 16px;
+      padding-bottom: 15px;
     }
     .desktop-text {
       display: none;
@@ -219,10 +221,10 @@ const Modal = styled.div`
 
   /* Estilos para la orientación horizontal del móvil */
   @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
-    height: 100vh;
-    width: 640px;
+    height: 100%;
+    width: auto;
     justify-content: space-evenly;
-    padding: 20px 10px;
+    padding: 10px;
 
     .container {
       flex-direction: column;
@@ -235,8 +237,8 @@ const Modal = styled.div`
       display: flex;
       justify-content: space-between;
       width: auto;
-      height: 160px;
-      gap: 40px;
+      height: auto;
+      gap: 30px;
       opacity: 0;
       animation: fadeIn 1s 0.5s forwards;
       .coin {
@@ -245,8 +247,8 @@ const Modal = styled.div`
       }
 
       .gif {
-        width: 240px;
-        height: 150px;
+        width: auto;
+        height: 120px;
       }
     }
     .dialogue-box p {
@@ -255,8 +257,8 @@ const Modal = styled.div`
     }
     .dialogue-box {
       padding-top: 0px;
-      height: 100px;
-      width: 500px;
+      height: auto;
+      width: 460px;
     }
   }
 `;

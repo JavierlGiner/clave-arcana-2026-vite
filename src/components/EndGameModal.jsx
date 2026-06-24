@@ -503,21 +503,34 @@ const Modal = styled.div`
         padding: 4px;
       }
     }
+    .image-container {
+      border-radius: 8px;
+      height: auto;
+      width: auto;
+      border: 4px solid black;
+      background-color: var(--instruction-bg);
+
+      img {
+        border-radius: 8px;
+        width: 160px;
+        height: 160px;
+      }
+    }
   }
 
   @media (max-width: 720px) and (orientation: portrait) {
     width: 350px;
     height: auto;
     padding: 5px;
-
+    gap: 0px;
     .title {
-      font-size: 34px;
+      font-size: 30px;
     }
     .endgame-modal {
       flex-direction: column;
       justify-content: space-around;
       gap: 10px;
-      margin: 20px 0;
+      margin: 15px 0;
       height: auto;
     }
 

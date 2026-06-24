@@ -26,7 +26,7 @@ const Container = styled.div`
   justify-content: space-between;
   height: 100dvh;
   background-color: var(--first-color);
-  padding: 50px;
+  padding: 30px;
 
   /* Estilos para dispositivos móviles */
   @media (max-width: 480px) {

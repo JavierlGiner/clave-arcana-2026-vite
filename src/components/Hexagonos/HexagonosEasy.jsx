@@ -48,11 +48,8 @@ const MusicButton = styled.button`
   cursor: pointer;
   border: none;
   font-size: 28px;
-  transition: all 0.3s ease;
   z-index: 1000;
-  &:hover {
-    transform: scale(1.1);
-  }
+
   @media (max-width: 720px) {
     font-size: 20px;
   }

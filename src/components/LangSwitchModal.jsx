@@ -31,6 +31,7 @@ const Modal = styled.div`
     align-items: center;
     width: 100%;
     height: 200px;
+    gap: 20px;
   }
 
   .close-button {
@@ -48,7 +49,7 @@ const Modal = styled.div`
   }
   .flag-btn {
     width: 100px;
-    height: 70px;
+    height: 65px;
     border: none;
 
     img {
@@ -72,11 +73,32 @@ const Modal = styled.div`
       height: 360px;
     }
   }
-  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
+  @media (max-width: 480px) {
+    .flag-btn {
+      width: 90px;
+      height: 60px;
+      border: none;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
     .modal-content {
       font-size: 0.9rem;
       padding: 40px;
-      width: 480px;
+      width: 250px;
+    }
+    .modal-info {
+      flex-direction: column;
+      gap: 20px;
+      height: 300px;
+    }
+  }
+  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
+    .modal-content {
+      padding: 20px;
+      width: 400px;
       height: 180px;
     }
     .modal-info {
@@ -87,7 +109,8 @@ const Modal = styled.div`
       gap: 20px;
     }
     .flag-btn {
-      height: 65px;
+      height: 50px;
+      width: 90px;
     }
   }
 `;

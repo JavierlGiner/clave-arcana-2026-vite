@@ -26,6 +26,7 @@ const StartMenu = styled.div`
       opacity: 1;
     }
   }
+
   @media (max-width: 720px) {
     justify-content: space-evenly;
 
@@ -39,7 +40,7 @@ const StartMenu = styled.div`
     .game-title {
       img {
         height: auto;
-        width: 330px;
+        width: 360px;
       }
     }
   }
@@ -122,6 +123,14 @@ const StartMenu = styled.div`
       img {
         height: auto;
         width: 360px;
+      }
+    }
+  }
+  @media (max-width: 480px) {
+    .game-title {
+      img {
+        height: auto;
+        width: 290px;
       }
     }
   }

@@ -712,8 +712,8 @@ a:hover,
   .music-board-btn {
     bottom: 15px;
     left: 30px;
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
   }
 
   /*FICHAS*/
@@ -1062,8 +1062,8 @@ a:hover,
   }
   .music-board-btn {
     left: 30px;
-    width: 22px;
-    height: 22px;
+    width: 40px;
+    height: 40px;
     top: 15px;
     transform: rotate(90deg);
   }
@@ -1263,10 +1263,10 @@ a:hover,
   }
   .music-board-btn {
     left: 15px;
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
     top: unset;
-    bottom: 15px;
+    bottom: 8px;
     transform: rotate(0deg);
   }
   .contador {
@@ -1377,7 +1377,7 @@ a:hover,
   }
 
   .cara3 .ficha {
-    left: 105%;
+    left: 104%;
     bottom: 38%;
   }
 
@@ -1428,6 +1428,22 @@ a:hover,
     height: 100dvh;
     width: 100%;
     gap: 30px;
+  }
+  .reset-btn {
+    font-size: 13px;
+    height: 22px;
+  }
+  .contador {
+    font-size: 0.8rem;
+    width: 48px;
+    height: 26px;
+
+    z-index: 2;
+  }
+  .music-board-btn {
+    left: 15px;
+    width: 40px;
+    height: 40px;
   }
 
   .contenido-hexagono1 {
@@ -1496,7 +1512,7 @@ a:hover,
   }
 
   .cara3 .ficha {
-    left: 35%;
+    left: 36%;
     bottom: -19%;
   }
 

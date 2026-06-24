@@ -33,9 +33,18 @@ const StyledButton = styled.button`
     font-weight: 600;
   }
   @media (max-width: 1024px) and (max-height: 480px) and (orientation: landscape) {
-    height: 40px;
-    width: 120px;
-    font-size: 20px;
+    height: 35px;
+    width: 105px;
+
+    font-size: 18px;
+    font-weight: 600;
+  }
+  @media (max-width: 480px) {
+    height: 35px;
+    width: 105px;
+
+    font-size: 18px;
+    font-weight: 600;
   }
 `;
 const CustomButton = ({ onClick, label }) => {

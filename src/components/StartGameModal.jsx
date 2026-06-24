@@ -66,9 +66,9 @@ const StartBtn = styled.button`
   }
 
   @media (max-width: 950px) and (max-height: 580px) and (orientation: landscape) {
-    width: 80px;
-    height: 50px;
-    font-size: 22px;
+    width: 70px;
+    height: 40px;
+    font-size: 20px;
     padding: 6px;
   }
 

@@ -14,8 +14,8 @@ export default defineConfig({
         "pwa-512x512-maskable.png",
       ],
       manifest: {
-        name: "Arcane Code",
-        short_name: "Arcane Code",
+        name: "ARCANE CODE",
+        short_name: "ARCANE CODE",
         description: "Arcane Code Game",
         theme_color: "#000000",
         background_color: "#000000",

@@ -351,7 +351,18 @@ export const TextosProvider = ({ children }) => {
       text3: "观看视频",
     },
   };
-
+  const instructNav1 = {
+    es: "Anterior",
+    en: "Previous",
+    jap: "前へ",
+    zh: "上一步",
+  };
+  const instructNav2 = {
+    es: "Siguiente",
+    en: "Next",
+    jap: "次へ",
+    zh: "下一步",
+  };
   const aboutText = {
     es: {
       text1: `GONZO RA: AUTOR DE "ARCANE CODE".`,
@@ -570,6 +581,8 @@ export const TextosProvider = ({ children }) => {
         reglas: textos[idioma],
         instructBtn: instructBtn[idioma],
         instructPrompt: instructPrompt[idioma],
+        instructNav1: instructNav1[idioma],
+        instructNav2: instructNav2[idioma],
         installMessage: installMessage[idioma],
         hardBtn: hardBtn[idioma],
         normalBtn: normalBtn[idioma],

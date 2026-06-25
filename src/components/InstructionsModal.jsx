@@ -21,7 +21,43 @@ const Container = styled.div`
   align-items: center;
   z-index: 9999;
 `;
+const NavigationContainer = styled.div`
+  position: absolute;
+  bottom: 5px;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+  width: 100%;
+  @media (max-width: 760px) {
+    gap: 10px;
+  }
+`;
+
+const ArrowButton = styled.button`
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--second-color);
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  @media (max-width: 760px) {
+    font-size: 12px;
+  }
+`;
+
+const Counter = styled.span`
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--second-color);
+`;
 const InstructionsBox = styled.div`
   display: flex;
   position: relative;
@@ -155,7 +191,7 @@ const InstructionsBox = styled.div`
     .next-btn {
       font-size: 12px;
       right: 15px;
-      bottom: 5px;
+      bottom: 7px;
     }
     .close-button {
       font-size: 16px;
@@ -263,7 +299,8 @@ const ImageDot = styled.div`
 `;
 
 const InstruccionesModal = ({ closeInstructionsModal }) => {
-  const { reglas, instructBtn, moreInfoBtn } = useTextos();
+  const { reglas, instructBtn, moreInfoBtn, instructNav1, instructNav2 } =
+    useTextos();
   const [currentImage, setCurrentImage] = useState(0);
   const [currentRule, setCurrentRule] = useState(0);
   const [currentSection, setCurrentSection] = useState("reglasPiezas");
@@ -297,11 +334,24 @@ const InstruccionesModal = ({ closeInstructionsModal }) => {
   //   };
   // }, [currentRule, currentSection]);
 
-  const handleDotClick = (index) => {
-    setCurrentRule(index);
-    setCurrentImage(0);
+  const totalRules =
+    currentSection === "reglasPiezas"
+      ? reglas.reglasPiezas.length
+      : reglas.reglasJuego.length;
+
+  const handlePrevRule = () => {
+    if (currentRule > 0) {
+      setCurrentRule((prev) => prev - 1);
+      setCurrentImage(0);
+    }
   };
 
+  const handleNextRule = () => {
+    if (currentRule < totalRules - 1) {
+      setCurrentRule((prev) => prev + 1);
+      setCurrentImage(0);
+    }
+  };
   const handleNext = () => {
     setCurrentImage(0);
 
@@ -350,7 +400,22 @@ const InstruccionesModal = ({ closeInstructionsModal }) => {
         <div className="titles">
           <h1>{instructBtn.title}</h1>
         </div>
+        <NavigationContainer>
+          <ArrowButton onClick={handlePrevRule} disabled={currentRule === 0}>
+            {instructNav1}
+          </ArrowButton>
 
+          <Counter>
+            {currentRule + 1} / {totalRules}
+          </Counter>
+
+          <ArrowButton
+            onClick={handleNextRule}
+            disabled={currentRule === totalRules - 1}
+          >
+            {instructNav2}
+          </ArrowButton>
+        </NavigationContainer>
         <p className="landscape-message">{instructBtn.message}</p>
         <div className="container-info">
           <div className="image-box">
@@ -398,23 +463,7 @@ const InstruccionesModal = ({ closeInstructionsModal }) => {
             </div>
           </div>
         </div>
-        <DotsContainer>
-          {currentSection === "reglasPiezas"
-            ? reglas.reglasPiezas.map((_, index) => (
-                <Dot
-                  key={index}
-                  $active={currentRule === index}
-                  onClick={() => handleDotClick(index)}
-                />
-              ))
-            : reglas.reglasJuego.map((_, index) => (
-                <Dot
-                  key={index}
-                  $active={currentRule === index}
-                  onClick={() => handleDotClick(index)}
-                />
-              ))}
-        </DotsContainer>
+
         <button className="next-btn" onClick={handleNext}>
           {moreInfoBtn}
         </button>

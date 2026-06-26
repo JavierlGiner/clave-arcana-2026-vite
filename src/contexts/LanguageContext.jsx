@@ -456,7 +456,123 @@ export const TextosProvider = ({ children }) => {
       premium2: "订阅并解锁所有专属内容。",
     },
   };
+  const privacyPolicy = {
+    es: {
+      title: "Política de Privacidad",
+      updated: "Última actualización: Mayo 2026",
+      intro: "Clave Arcana respeta la privacidad de sus usuarios.",
+      p1: "Actualmente, el juego no requiere registro de cuentas, no solicita datos personales y no recopila información identificable del usuario.",
+      p2: "El juego puede utilizar tecnologías locales del navegador, como almacenamiento local (localStorage), caché o service workers, con el único propósito de mejorar la experiencia de juego y el funcionamiento de la aplicación.",
+      p3: "Clave Arcana no vende, comparte ni comercializa información de los usuarios.",
+      p4: "En futuras versiones, el juego podría incorporar herramientas de análisis, publicidad, cuentas de usuario u otras funcionalidades online. En caso de implementarse, esta política será actualizada para reflejar dichos cambios.",
+      p5: "Todos los contenidos del juego, incluyendo código, diseño, imágenes, interfaz, mecánicas y elementos visuales, son propiedad de sus respectivos autores y se encuentran protegidos por las leyes de propiedad intelectual.",
+      p6: "Para consultas relacionadas con esta política, puedes contactar al desarrollador mediante los canales oficiales del proyecto.",
+    },
 
+    en: {
+      title: "Privacy Policy",
+      updated: "Last updated: May 2026",
+      intro: "Clave Arcana respects the privacy of its users.",
+      p1: "Currently, the game does not require account registration, does not request personal data, and does not collect personally identifiable information.",
+      p2: "The game may use local browser technologies such as localStorage, cache, or service workers solely to improve gameplay experience and application performance.",
+      p3: "Clave Arcana does not sell, share, or commercialize user information.",
+      p4: "Future versions of the game may include analytics tools, advertising, user accounts, or other online features. If implemented, this policy will be updated accordingly.",
+      p5: "All game content, including code, design, images, interface, mechanics, and visual elements, is the property of their respective authors and is protected by intellectual property laws.",
+      p6: "For inquiries regarding this policy, you may contact the developer through the project's official channels.",
+    },
+
+    jap: {
+      title: "プライバシーポリシー",
+      updated: "最終更新日：2026年5月",
+      intro: "Clave Arcana はユーザーのプライバシーを尊重します。",
+      p1: "現在、このゲームではアカウント登録は不要であり、個人情報の入力や収集は行っていません。",
+      p2: "ゲーム体験やアプリの動作を向上させる目的で、localStorage、キャッシュ、Service Worker などのブラウザのローカル技術を使用する場合があります。",
+      p3: "Clave Arcana はユーザー情報を販売、共有、または商業利用することはありません。",
+      p4: "将来的に、分析ツール、広告、ユーザーアカウント、その他のオンライン機能が追加される可能性があります。その場合、本ポリシーは更新されます。",
+      p5: "コード、デザイン、画像、インターフェース、ゲームシステム、ビジュアル要素を含むすべてのコンテンツは、それぞれの権利者に帰属し、知的財産法によって保護されています。",
+      p6: "本ポリシーに関するお問い合わせは、プロジェクトの公式連絡手段をご利用ください。",
+    },
+
+    zh: {
+      title: "隐私政策",
+      updated: "最后更新：2026年5月",
+      intro: "Clave Arcana 尊重用户的隐私。",
+      p1: "目前，游戏无需注册账户，不会要求提供个人信息，也不会收集可识别用户身份的数据。",
+      p2: "游戏可能会使用浏览器本地技术，例如 localStorage、缓存或 Service Worker，仅用于提升游戏体验和应用性能。",
+      p3: "Clave Arcana 不会出售、共享或商业化用户信息。",
+      p4: "未来版本可能会加入数据分析工具、广告、用户账户或其他在线功能。如有相关变更，本政策将同步更新。",
+      p5: "游戏中的所有内容，包括代码、设计、图片、界面、机制和视觉元素，均归其版权所有者所有，并受知识产权法律保护。",
+      p6: "如对本政策有任何疑问，请通过项目官方渠道联系开发者。",
+    },
+  };
+  const termsConditions = {
+    es: {
+      title: "Términos y Condiciones",
+      updated: "Última actualización: Mayo 2026",
+      intro:
+        "Al acceder y utilizar Clave Arcana, aceptas los presentes Términos y Condiciones.",
+      p1: "Clave Arcana es un videojuego distribuido como aplicación web (PWA) con fines recreativos y de entretenimiento.",
+      p2: "El usuario se compromete a utilizar el juego de manera legal y respetuosa, evitando cualquier intento de:",
+      item1: "Modificar el funcionamiento del juego.",
+      item2: "Explotar errores o vulnerabilidades.",
+      item3: "Copiar o redistribuir contenido sin autorización.",
+      item4: "Interferir con la experiencia de otros usuarios.",
+      p3: "Todo el contenido presente en Clave Arcana, incluyendo código fuente, identidad visual, nombre, mecánicas, gráficos, textos y elementos audiovisuales, pertenece a sus autores y se encuentra protegido por derechos de propiedad intelectual.",
+      p4: "El desarrollador podrá actualizar, modificar o discontinuar funcionalidades del juego en cualquier momento y sin previo aviso.",
+      p5: "Clave Arcana se ofrece «tal como está», sin garantías explícitas sobre disponibilidad permanente, compatibilidad total o ausencia absoluta de errores técnicos.",
+      p6: "El uso del juego implica la aceptación de estos términos.",
+    },
+
+    en: {
+      title: "Terms and Conditions",
+      updated: "Last updated: May 2026",
+      intro:
+        "By accessing and using Clave Arcana, you agree to these Terms and Conditions.",
+      p1: "Clave Arcana is a web application (PWA) video game distributed for recreational and entertainment purposes.",
+      p2: "Users agree to use the game lawfully and respectfully, avoiding any attempt to:",
+      item1: "Modify the operation of the game.",
+      item2: "Exploit bugs or vulnerabilities.",
+      item3: "Copy or redistribute content without authorization.",
+      item4: "Interfere with the experience of other users.",
+      p3: "All content within Clave Arcana, including source code, visual identity, name, gameplay mechanics, graphics, text, and audiovisual elements, belongs to its respective authors and is protected by intellectual property laws.",
+      p4: "The developer may update, modify, or discontinue game features at any time without prior notice.",
+      p5: 'Clave Arcana is provided "as is," without explicit guarantees regarding permanent availability, full compatibility, or the complete absence of technical errors.',
+      p6: "Your use of the game constitutes acceptance of these terms.",
+    },
+
+    jap: {
+      title: "利用規約",
+      updated: "最終更新日：2026年5月",
+      intro:
+        "Clave Arcana にアクセスし利用することで、本利用規約に同意したものとみなされます。",
+      p1: "Clave Arcana は娯楽目的で提供される Web アプリ（PWA）ゲームです。",
+      p2: "ユーザーは以下の行為を行わないことに同意します。",
+      item1: "ゲームの動作を改変すること。",
+      item2: "バグや脆弱性を悪用すること。",
+      item3: "許可なくコンテンツをコピーまたは再配布すること。",
+      item4: "他のユーザーの体験を妨害すること。",
+      p3: "ソースコード、ビジュアルデザイン、名称、ゲームシステム、グラフィック、文章、映像・音声を含むすべてのコンテンツは権利者に帰属し、知的財産法により保護されています。",
+      p4: "開発者は事前の通知なくゲームの機能を更新、変更、または終了する場合があります。",
+      p5: "Clave Arcana は「現状のまま」提供され、継続的な提供、完全な互換性、技術的な不具合が存在しないことを保証するものではありません。",
+      p6: "ゲームを利用することで、本規約に同意したものとみなされます。",
+    },
+
+    zh: {
+      title: "使用条款",
+      updated: "最后更新：2026年5月",
+      intro: "访问和使用 Clave Arcana 即表示您同意本使用条款。",
+      p1: "Clave Arcana 是一款以娱乐为目的发布的网页应用（PWA）游戏。",
+      p2: "用户承诺合法、合理地使用本游戏，并避免以下行为：",
+      item1: "修改游戏的运行方式。",
+      item2: "利用漏洞或程序缺陷。",
+      item3: "未经授权复制或重新分发游戏内容。",
+      item4: "干扰其他用户的游戏体验。",
+      p3: "Clave Arcana 的所有内容，包括源代码、视觉设计、名称、游戏机制、图形、文本和视听元素，均归其版权所有者所有，并受知识产权法律保护。",
+      p4: "开发者可在任何时候更新、修改或终止游戏功能，恕不另行通知。",
+      p5: "Clave Arcana 按“现状”提供，不保证永久可用、完全兼容或绝对不存在技术错误。",
+      p6: "使用本游戏即表示您接受本条款。",
+    },
+  };
   const startGame = {
     es: {
       text1: "¡PREPÁRATE!",
@@ -527,6 +643,33 @@ export const TextosProvider = ({ children }) => {
     jap: "読み込み中...",
     zh: "加载中...",
   };
+
+  const footer = {
+    es: {
+      developed: "DESARROLLADO POR REINA JIRVEG | JUNÍN, BUENOS AIRES | 2026",
+      terms: "Términos y Condiciones",
+      privacy: "Política de Privacidad",
+    },
+
+    en: {
+      developed: "DEVELOPED BY REINA JIRVEG | JUNÍN, BUENOS AIRES | 2026",
+      terms: "Terms and Conditions",
+      privacy: "Privacy Policy",
+    },
+
+    jap: {
+      developed: "開発者：REINA JIRVEG | アルゼンチン・フニン | 2026",
+      terms: "利用規約",
+      privacy: "プライバシーポリシー",
+    },
+
+    zh: {
+      developed: "开发者：REINA JIRVEG | 阿根廷 布宜诺斯艾利斯省胡宁 | 2026",
+      terms: "使用条款",
+      privacy: "隐私政策",
+    },
+  };
+
   const installMessage = {
     es: {
       title: "Instalar la aplicación",
@@ -588,11 +731,14 @@ export const TextosProvider = ({ children }) => {
         normalBtn: normalBtn[idioma],
         playBtn: playBtn[idioma],
         exitBtn: exitBtn[idioma],
+        privacyPolicy: privacyPolicy[idioma],
+        termsConditions: termsConditions[idioma],
         campainBtn: campaignLabel[idioma],
         campainInfo: campainInfo[idioma],
         aboutText: aboutText[idioma],
         moreInfoBtn: moreInfoBtn[idioma],
         endGame: endGame[idioma],
+        footer: footer[idioma],
         startGame: startGame[idioma],
         startHardGame: startHardGame[idioma],
         scoreText: scoreText[idioma],

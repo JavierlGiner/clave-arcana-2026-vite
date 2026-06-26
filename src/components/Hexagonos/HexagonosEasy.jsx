@@ -119,7 +119,7 @@ const Hexagonos = ({ initCount }) => {
     if (!audio) return;
 
     audio.loop = true;
-    audio.volume = 0.7;
+    audio.volume = 0.6;
 
     if (isMuted) {
       audio.pause();

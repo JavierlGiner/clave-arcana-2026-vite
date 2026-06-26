@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import "../stylesBack.css";
+import "../styles.css";
+import { useTextos } from "../contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import PoliticayPrivacidad from "../screens/PoliticayPrivacidad";
 import TerminosCondiciones from "../screens/TerminosCondiciones";
@@ -44,12 +45,15 @@ const LinksContainer = styled.div`
 `;
 
 const Footer = () => {
+  const { footer } = useTextos();
+
   return (
     <StyledFooter>
-      <h4>DEVELOPED BY REINA JIRVEG | JUNIN, BUENOS AIRES | 2026</h4>
+      <h4>{footer.developed}</h4>
+
       <LinksContainer>
-        <Link to="/terms">Términos y Condiciones</Link>
-        <Link to="/privacy">Política de Privacidad</Link>
+        <Link to="/terms">{footer.terms}</Link>
+        <Link to="/privacy">{footer.privacy}</Link>
       </LinksContainer>
     </StyledFooter>
   );

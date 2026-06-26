@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import jirgev from "../images/youngJirveg.webp";
 import { useTextos } from "../contexts/LanguageContext";
 import styled from "styled-components";
@@ -15,7 +15,13 @@ const StartModal = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 99999;
+  opacity: ${({ opening, closing }) => {
+    if (closing) return 0;
+    return opening ? 0 : 1;
+  }};
+
+  transition: opacity 700ms ease;
 
   /* Cuando el dispositivo es móvil y está en orientación vertical */
   @media (max-width: 480px) and (orientation: portrait) {
@@ -44,12 +50,21 @@ const StartBtn = styled.button`
   height: 70px;
   font-weight: 600;
   cursor: pointer;
+  transform: ${({ opening, closing }) => {
+    if (closing) return "scale(.8)";
+
+    return opening ? "translateY(30px) scale(.8)" : "translateY(0) scale(1)";
+  }};
+
+  opacity: ${({ opening, closing }) => {
+    if (closing) return 0;
+
+    return opening ? 0 : 1;
+  }};
+
   transition:
-    background-color 0.3s,
-    color 0.3s,
-    border 0.3s;
-  opacity: 0;
-  animation: fadeIn 1s 2s forwards;
+    transform 0.5s ease 0.35s,
+    opacity 0.5s ease 0.35s;
 
   &:hover {
     background-color: var(--modal-bg);
@@ -70,15 +85,6 @@ const StartBtn = styled.button`
     height: 40px;
     font-size: 20px;
     padding: 6px;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
   }
 `;
 
@@ -105,8 +111,22 @@ const Modal = styled.div`
     width: 260px;
     height: 260px;
     border-radius: 8px;
-    opacity: 0;
-    animation: fadeIn 1s 0.5s forwards;
+
+    transform: ${({ opening, closing }) => {
+      if (closing) return "translateY(-15px)";
+
+      return opening ? "translateY(25px)" : "translateY(0)";
+    }};
+
+    opacity: ${({ opening, closing }) => {
+      if (closing) return 0;
+
+      return opening ? 0 : 1;
+    }};
+
+    transition:
+      transform 900ms ease,
+      opacity 900ms ease;
 
     img {
       height: 100%;
@@ -119,10 +139,24 @@ const Modal = styled.div`
     border-radius: 8px;
     width: 500px;
     height: 100px;
-    opacity: 0;
-    animation: fadeIn 1s 1s forwards;
     text-align: center;
     padding: 10px;
+
+    transform: ${({ opening, closing }) => {
+      if (closing) return "translateY(-20px)";
+
+      return opening ? "translateY(20px)" : "translateY(0)";
+    }};
+
+    opacity: ${({ opening, closing }) => {
+      if (closing) return 0;
+
+      return opening ? 0 : 1;
+    }};
+
+    transition:
+      transform 700ms ease,
+      opacity 700ms ease;
   }
 
   p {
@@ -135,6 +169,14 @@ const Modal = styled.div`
     animation:
       typing 3s steps(30) 1s forwards,
       blink 0.75s step-end infinite;
+    opacity: ${({ closing }) => (closing ? 0 : 1)};
+
+    transform: ${({ closing }) =>
+      closing ? "translateY(-15px)" : "translateY(0)"};
+
+    transition:
+      opacity 700ms ease,
+      transform 700ms ease;
   }
 
   .mobile-text {
@@ -210,35 +252,48 @@ const Modal = styled.div`
   }
 `;
 
-const StartGameModal = ({ setIsStartModalOpen }) => {
+const StartGameModal = ({ onStart }) => {
+  const [closing, setClosing] = useState(false);
+  const [opening, setOpening] = useState(true);
+
   const { startGame, playBtn, cambiarIdioma } = useTextos();
 
   useEffect(() => {
     const langSelected = localStorage.getItem("idioma");
-    if (langSelected) {
-      cambiarIdioma(langSelected);
-    }
+    if (langSelected) cambiarIdioma(langSelected);
   }, [cambiarIdioma]);
 
+  useEffect(() => {
+    const t = setTimeout(() => setOpening(false), 50);
+    return () => clearTimeout(t);
+  }, []);
+
   const handleStartGame = () => {
+    setClosing(true);
+
+    // dejamos que termine la animación visual del botón/modal
     setTimeout(() => {
-      setIsStartModalOpen(false);
-    }, 1500);
+      onStart(); // <- transición controlada desde el padre
+    }, 650);
   };
 
   return (
-    <StartModal>
-      <Modal>
+    <StartModal closing={closing} opening={opening}>
+      <Modal opening={opening} closing={closing}>
         <div className="container">
           <div className="img-box">
             <img src={jirgev} alt="heroImg" />
           </div>
+
           <div className="dialogue-box">
-            <span className="mobile-text ">{startGame.textMobile}</span>
+            <span className="mobile-text">{startGame.textMobile}</span>
             <p>{startGame.text1}</p>
           </div>
         </div>
-        <StartBtn onClick={handleStartGame}>{playBtn}</StartBtn>
+
+        <StartBtn closing={closing} onClick={handleStartGame}>
+          {playBtn}
+        </StartBtn>
       </Modal>
     </StartModal>
   );

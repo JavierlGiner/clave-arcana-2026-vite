@@ -263,21 +263,13 @@ const Modal = styled.div`
   }
 `;
 
-const StartHardGameModal = ({ setIsStartModalOpen }) => {
+const StartHardGameModal = ({ onStart }) => {
   const { startHardGame, playBtn, cambiarIdioma } = useTextos();
 
   useEffect(() => {
     const langSelected = localStorage.getItem("idioma");
-    if (langSelected) {
-      cambiarIdioma(langSelected);
-    }
+    if (langSelected) cambiarIdioma(langSelected);
   }, [cambiarIdioma]);
-
-  const handleStartGame = () => {
-    setTimeout(() => {
-      setIsStartModalOpen(false);
-    }, 1500);
-  };
 
   return (
     <StartHardModal>
@@ -285,15 +277,9 @@ const StartHardGameModal = ({ setIsStartModalOpen }) => {
         <div className="container">
           <div className="img-box">
             <img src={ficha8} alt="ficha" className="coin" />
-            <video
-              src={hardlvl}
-              alt="gif"
-              className="gif"
-              autoPlay
-              loop
-              muted
-            />
+            <video src={hardlvl} className="gif" autoPlay loop muted />
           </div>
+
           <div className="dialogue-box">
             <p>{startHardGame.text1}</p>
             <p>
@@ -304,7 +290,8 @@ const StartHardGameModal = ({ setIsStartModalOpen }) => {
             </p>
           </div>
         </div>
-        <StartBtn onClick={handleStartGame}>{playBtn}</StartBtn>
+
+        <StartBtn onClick={onStart}>{playBtn}</StartBtn>
       </Modal>
     </StartHardModal>
   );

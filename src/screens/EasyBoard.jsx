@@ -1,22 +1,46 @@
+import { useState } from "react";
+import styled from "styled-components";
+
 import { FichasProvider } from "../contexts/FichasContextEasy";
+import CountProvider from "../contexts/CountProvider";
 import Hexagonos from "../components/Hexagonos/HexagonosEasy";
 import StartGameModal from "../components/StartGameModal";
-import "../styles.css";
-import { useState } from "react";
-import CountProvider from "../contexts/CountProvider";
+
+const BoardWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: ${({ $visible }) => ($visible ? 1 : 0)};
+  visibility: ${({ $visible }) => ($visible ? "visible" : "hidden")};
+  transition: opacity 700ms ease;
+  width: 100%;
+  height: 100%;
+`;
 
 const EasyBoard = () => {
-  /*START GAME MODAL */
-  const [isStartModalOpen, setIsStartModalOpen] = useState(true);
+  // fases claras del juego
+  const [phase, setPhase] = useState("start");
+  // start → transition → playing
+
+  const handleStartGame = () => {
+    // 1. arranca salida del modal
+    setPhase("transition");
+
+    // 2. en el próximo frame activamos el tablero
+    requestAnimationFrame(() => {
+      setPhase("playing");
+    });
+  };
 
   return (
     <FichasProvider>
       <CountProvider>
         <div className="board-background">
-          {isStartModalOpen && (
-            <StartGameModal setIsStartModalOpen={setIsStartModalOpen} />
-          )}
-          <Hexagonos initCount={!isStartModalOpen} />
+          {phase !== "playing" && <StartGameModal onStart={handleStartGame} />}
+
+          <BoardWrapper $visible={phase === "playing"}>
+            <Hexagonos initCount={phase === "playing"} />
+          </BoardWrapper>
         </div>
       </CountProvider>
     </FichasProvider>
@@ -24,14 +48,3 @@ const EasyBoard = () => {
 };
 
 export default EasyBoard;
-/*
-los hexagonos deben numerarse con las fichas para que coincidan
-
-al inicio el array de fichas deben posicionarse de manera aleatoria
-
-las fichas deben tener una clase de css pasiva para cuando estan giradas, eso se deberia comprobar por un booleano
-cuando estan en false se ve la cara B
-
-condiciones:
-la cara de los hexagonos que mira al centro, llevara el mismo nombre de la ficha X.
-*/

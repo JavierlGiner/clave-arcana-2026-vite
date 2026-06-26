@@ -1,29 +1,51 @@
 import React from "react";
+import styled from "styled-components";
+import { useTextos } from "../contexts/LanguageContext";
+
+const Container = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #000000;
+  line-height: 1.7;
+
+  height: 100vh;
+  overflow-y: auto;
+`;
+
+const Title = styled.h1`
+  text-align: center;
+  margin-bottom: 1rem;
+`;
+
+const Updated = styled.p`
+  text-align: center;
+  font-style: italic;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+`;
+
+const Paragraph = styled.p`
+  margin-bottom: 1rem;
+`;
 
 const PoliticayPrivacidad = () => {
+  const { privacyPolicy } = useTextos();
+
   return (
-    <div>
-      <h1> Politica de Privacidad</h1>
-      <br />
-      <p>
-        Última actualización: Mayo 2026 Clave Arcana respeta la privacidad de
-        sus usuarios. Actualmente, el juego no requiere registro de cuentas, no
-        solicita datos personales y no recopila información identificable del
-        usuario. El juego puede utilizar tecnologías locales del navegador, como
-        almacenamiento local (localStorage), caché o service workers, con el
-        único propósito de mejorar la experiencia de juego y el funcionamiento
-        de la aplicación. Clave Arcana no vende, comparte ni comercializa
-        información de los usuarios. En futuras versiones, el juego podría
-        incorporar herramientas de análisis, publicidad, cuentas de usuario u
-        otras funcionalidades online. En caso de implementarse, esta política
-        será actualizada para reflejar dichos cambios. Todos los contenidos del
-        juego, incluyendo código, diseño, imágenes, interfaz, mecánicas y
-        elementos visuales, son propiedad de sus respectivos autores y se
-        encuentran protegidos por las leyes de propiedad intelectual. Para
-        consultas relacionadas con esta política, puedes contactar al
-        desarrollador mediante los canales oficiales del proyecto.
-      </p>
-    </div>
+    <Container>
+      <Title>{privacyPolicy.title}</Title>
+
+      <Updated>{privacyPolicy.updated}</Updated>
+
+      <Paragraph>{privacyPolicy.intro}</Paragraph>
+      <Paragraph>{privacyPolicy.p1}</Paragraph>
+      <Paragraph>{privacyPolicy.p2}</Paragraph>
+      <Paragraph>{privacyPolicy.p3}</Paragraph>
+      <Paragraph>{privacyPolicy.p4}</Paragraph>
+      <Paragraph>{privacyPolicy.p5}</Paragraph>
+      <Paragraph>{privacyPolicy.p6}</Paragraph>
+    </Container>
   );
 };
 

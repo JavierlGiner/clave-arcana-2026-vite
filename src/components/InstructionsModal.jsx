@@ -193,10 +193,7 @@ const InstructionsBox = styled.div`
       right: 15px;
       bottom: 7px;
     }
-    .close-button {
-      font-size: 16px;
-      padding: 4px;
-    }
+
     .landscape-message {
       display: none;
     }

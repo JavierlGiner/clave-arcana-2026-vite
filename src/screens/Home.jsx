@@ -5,6 +5,7 @@ import AboutModal from "../components/AboutModal";
 import ReinaTitle from "../components/ReinaTitle";
 import GameMenu from "../components/GameMenu";
 import Footer from "../components/Footer";
+import InstallPWAButton from "../components/InstallPWAButton";
 import "../styles.css";
 import { useNavigate } from "react-router-dom";
 import LangSwitchModal from "../components/LangSwitchModal";
@@ -166,28 +167,9 @@ const Home = () => {
   const closeInstructionsModal = () => {
     setIsInstructsModalOpen(false);
   };
-  /****PRECARGA DE IMAGENES*** */
-  // const [isImagesLoaded, setIsImagesLoaded] = useState(false);
-  // useEffect(() => {
-  //   const images = [reina, potion];
-  //   let loadedCount = 0;
-
-  //   images.forEach((src) => {
-  //     const img = new Image();
-  //     img.src = src;
-  //     img.onload = () => {
-  //       loadedCount++;
-  //       if (loadedCount === images.length) {
-  //         setIsImagesLoaded(true); // Solo cambia a `true` cuando TODAS las imágenes se cargaron
-  //       }
-  //     };
-  //   });
-  // }, []);
 
   return (
     <div className="home">
-      {/* {!isImagesLoaded && <Loader />} */}
-
       <>
         {isAboutModalOpen && (
           <AboutModal setIsAboutModalOpen={setIsAboutModalOpen} />
@@ -226,8 +208,8 @@ const Home = () => {
                 showPlayBtn={showPlayBtn}
               />
             )}
+            <InstallPWAButton />
           </Main>
-          {/* <Loader /> */}
           <Footer />
         </Container>
       </>

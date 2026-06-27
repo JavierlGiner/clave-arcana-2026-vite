@@ -672,42 +672,67 @@ export const TextosProvider = ({ children }) => {
 
   const installMessage = {
     es: {
-      title: "Instalar la aplicación",
-      body: "Instalá esta app en tu dispositivo para acceder más rápido y disfrutar de una experiencia completa.",
-      ios: "Para instalar esta app, tocá el botón Compartir y luego seleccioná “Agregar a pantalla de inicio”.",
+      title: "Instalar Arcane Code",
+      body: "Instalá el juego para disfrutar de la mejor experiencia.",
+      benefits: {
+        fullscreen: "Jugar en pantalla completa",
+        homescreen: "Acceso directo desde la pantalla de inicio",
+        offline: "Jugar sin conexión",
+        faster: "Inicio más rápido",
+      },
+      ios: "Para instalar Arcane Code, tocá el botón Compartir y luego seleccioná «Agregar a pantalla de inicio».",
       firefox:
-        "Podés instalar esta app desde el menú del navegador seleccionando “Instalar aplicación”.",
+        "La instalación como aplicación no está disponible en Firefox. Para una mejor experiencia, utilizá un navegador compatible como Chrome o Edge.",
       action: "Instalar ahora",
-      dismiss: "Continuar sin instalar",
+      dismiss: "Más tarde",
     },
 
     en: {
-      title: "Install the app",
-      body: "Install this app on your device for faster access and a full experience.",
-      ios: "To install this app, tap the Share button and select “Add to Home Screen”.",
+      title: "Install Arcane Code",
+      body: "Install the game for the best experience.",
+      benefits: {
+        fullscreen: "Play in fullscreen",
+        homescreen: "Launch from your Home Screen",
+        offline: "Play offline",
+        faster: "Faster startup",
+      },
+      ios: "To install Arcane Code, tap the Share button and then select 'Add to Home Screen'.",
       firefox:
-        "You can install this app from the browser menu by selecting “Install App”.",
-      action: "Install now",
-      dismiss: "Continue without installing",
+        "Installing as an app is not available in Firefox. For the best experience, use a supported browser such as Chrome or Edge.",
+      action: "Install Now",
+      dismiss: "Maybe Later",
     },
 
     jap: {
-      title: "アプリをインストール",
-      body: "このアプリをデバイスにインストールして、より快適で完全な体験をお楽しみください。",
-      ios: "このアプリをインストールするには、共有ボタンをタップして「ホーム画面に追加」を選択してください。",
+      title: "Arcane Code をインストール",
+      body: "最高の体験のためにゲームをインストールしてください。",
+      benefits: {
+        fullscreen: "全画面でプレイ",
+        homescreen: "ホーム画面からすぐに起動",
+        offline: "オフラインでプレイ",
+        faster: "より高速に起動",
+      },
+      ios: "Arcane Code をインストールするには、共有ボタンをタップして「ホーム画面に追加」を選択してください。",
       firefox:
-        "ブラウザのメニューから「アプリをインストール」を選択してインストールできます。",
+        "Firefoxではアプリとしてインストールできません。より快適にプレイするには、Chrome または Edge をご利用ください。",
       action: "今すぐインストール",
-      dismiss: "インストールせずに続行",
+      dismiss: "後で",
     },
 
     zh: {
-      title: "安装应用",
-      body: "将此应用安装到您的设备上，以获得更快捷的访问和完整的体验。",
-      ios: "要安装此应用，请点击共享按钮，然后选择“添加到主屏幕”。",
-      firefox: "您可以从浏览器菜单中选择“安装应用”来安装此应用。",
+      title: "安装 Arcane Code",
+      body: "安装游戏，获得最佳体验。",
+      benefits: {
+        fullscreen: "全屏游戏",
+        homescreen: "从主屏幕快速启动",
+        offline: "离线游玩",
+        faster: "启动速度更快",
+      },
+      ios: "要安装 Arcane Code，请点击“共享”按钮，然后选择“添加到主屏幕”。",
+      firefox:
+        "Firefox 暂不支持将此游戏安装为应用。为了获得最佳体验，建议使用 Chrome 或 Edge。",
       action: "立即安装",
-      dismiss: "暂不安装，继续",
+      dismiss: "稍后",
     },
   };
 

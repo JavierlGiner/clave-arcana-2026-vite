@@ -45,7 +45,7 @@ const Main = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  padding: 30px;
+
   height: 100%;
   padding-bottom: 30px;
 `;

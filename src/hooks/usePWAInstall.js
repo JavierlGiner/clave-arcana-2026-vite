@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 export function usePWAInstall() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-
   const [isInstallable, setIsInstallable] = useState(false);
 
   const [isInstalled, setIsInstalled] = useState(() => {
@@ -10,6 +9,10 @@ export function usePWAInstall() {
       window.matchMedia("(display-mode: standalone)").matches ||
       window.navigator.standalone === true
     );
+  });
+
+  const [sessionDismissed, setSessionDismissed] = useState(() => {
+    return sessionStorage.getItem("pwa_dismissed") === "true";
   });
 
   const ua = navigator.userAgent.toLowerCase();
@@ -34,7 +37,6 @@ export function usePWAInstall() {
     };
 
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-
     window.addEventListener("appinstalled", handleInstalled);
 
     return () => {
@@ -52,14 +54,22 @@ export function usePWAInstall() {
 
     deferredPrompt.prompt();
 
-    await deferredPrompt.userChoice;
+    const result = await deferredPrompt.userChoice;
 
-    setDeferredPrompt(null);
-    setIsInstallable(false);
+    if (result.outcome === "accepted") {
+      setDeferredPrompt(null);
+      setIsInstallable(false);
+      sessionStorage.removeItem("pwa_dismissed");
+    } else {
+      // 👇 SOLO sesión actual
+      sessionStorage.setItem("pwa_dismissed", "true");
+      setSessionDismissed(true);
+      setDeferredPrompt(null);
+    }
   };
 
   return {
-    isInstallable,
+    isInstallable: isInstallable && !sessionDismissed,
     isInstalled,
     installApp,
     platform,

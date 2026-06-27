@@ -99,7 +99,7 @@ const InstallLink = styled.button`
 
   color: var(--second-color);
 
-  font-family: var(--font);
+  font-family: "Aubrey", serif;
   font-weight: 700;
   letter-spacing: 1px;
 
@@ -118,18 +118,11 @@ const InstallLink = styled.button`
     color: white;
   }
 
-  @keyframes pulseInstall {
-    0% {
-      box-shadow: 0 0 0 rgba(113, 135, 198, 0);
-    }
-
-    50% {
-      box-shadow: 0 0 12px rgba(113, 135, 198, 0.25);
-    }
-
-    100% {
-      box-shadow: 0 0 0 rgba(113, 135, 198, 0);
-    }
+  @media (max-width: 480px) {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.9rem;
+    padding: 10px 12px;
   }
 `;
 
@@ -156,24 +149,18 @@ const Overlay = styled.div`
 
 const Modal = styled.div`
   position: relative;
-
   width: min(500px, 92vw);
 
   background: var(--instruction-bg);
-
   border: 2px solid var(--second-color);
-
   border-radius: 12px;
 
   padding: 30px;
-
   color: var(--second-color);
 
   font-family: var(--font);
-
   display: flex;
   flex-direction: column;
-
   gap: 22px;
 
   animation: modalAppear 0.25s ease;
@@ -181,36 +168,47 @@ const Modal = styled.div`
   @keyframes modalAppear {
     from {
       opacity: 0;
-
       transform: translateY(20px);
     }
-
     to {
       opacity: 1;
-
       transform: none;
     }
   }
+
+  /* 📱 MOBILE */
+  @media (max-width: 480px) {
+    padding: 18px;
+    gap: 14px;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 360px) {
+    padding: 14px;
+    gap: 12px;
+  }
 `;
 
-const CloseButton = styled.button`
-  margin-top: 20px;
-
-  padding: 10px 20px;
-
-  cursor: pointer;
-`;
 const Title = styled.h2`
   text-align: center;
   font-family: var(--retro-font);
   font-size: 1rem;
   color: var(--second-color);
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;
 const Body = styled.p`
   text-align: center;
   line-height: 1.7;
   color: white;
   font-size: 1rem;
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
 `;
 
 const ButtonGroup = styled.div`
@@ -238,21 +236,22 @@ const PrimaryButton = styled.button`
     background: var(--second-color);
     transform: translateY(-2px);
   }
+
+  @media (max-width: 480px) {
+    height: 44px;
+    font-size: 0.95rem;
+  }
 `;
 
 const SecondaryButton = styled.button`
   height: 42px;
-
   background: transparent;
 
   border: 2px solid var(--second-color);
-
   border-radius: 8px;
 
   color: var(--second-color);
-
   font-family: var(--font);
-
   cursor: pointer;
 
   transition: 0.2s;
@@ -261,22 +260,35 @@ const SecondaryButton = styled.button`
     background: rgba(255, 255, 255, 0.06);
     color: white;
   }
+
+  @media (max-width: 480px) {
+    height: 40px;
+    font-size: 0.9rem;
+  }
 `;
 
 const BenefitList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 14px;
-
   padding: 8px 0;
+
+  @media (max-width: 480px) {
+    gap: 10px;
+    padding: 4px 0;
+  }
 `;
 
 const Benefit = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-
   color: white;
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    gap: 8px;
+  }
 `;
 
 const CloseIcon = styled.button`
@@ -288,15 +300,19 @@ const CloseIcon = styled.button`
   border: none;
 
   color: var(--second-color);
-
   font-size: 24px;
 
   cursor: pointer;
-
   transition: 0.2s;
 
   &:hover {
     transform: rotate(90deg);
     color: white;
+  }
+
+  @media (max-width: 480px) {
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
   }
 `;

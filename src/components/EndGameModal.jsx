@@ -492,8 +492,8 @@ const Modal = styled.div`
     }
   }
   @media (max-width: 1024px) and (max-height: 480px) and (orientation: landscape) {
-    max-width: 520px;
-    padding: 4px;
+    width: 550px;
+    padding: 6px;
     gap: 4px;
     .title {
       font-size: 22px;
@@ -637,11 +637,6 @@ const StyledButton = styled.button`
     height: 35px;
     width: 110px;
     font-size: 18px;
-  }
-  @media (max-width: 1024px) and (max-height: 480px) and (orientation: landscape) {
-    height: 26px;
-    width: 54px;
-    font-size: 16px;
   }
 
   @media (max-width: 720px) {

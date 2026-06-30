@@ -163,6 +163,37 @@ const CampaignButtonWrapper = styled.div`
     z-index: 10;
   }
 `;
+const BackButton = styled.button`
+  background: none;
+  border: none;
+  color: var(--second-color);
+  cursor: pointer;
+  font-size: 2rem;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 50%;
+  justify-content: center;
+
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+
+  &:hover {
+    transform: translateX(-4px);
+    opacity: 0.8;
+  }
+  @media (max-width: 720px) {
+    margin-bottom: 0px;
+    width: 25px;
+    height: 25px;
+  }
+`;
 
 const GameMenu = ({
   handleHardBtn,
@@ -175,6 +206,9 @@ const GameMenu = ({
 
   const handlePlayClick = () => {
     setShowOptions(true);
+  };
+  const handleBackClick = () => {
+    setShowOptions(false);
   };
 
   return (
@@ -190,9 +224,17 @@ const GameMenu = ({
         )}
         {showOptions && (
           <>
+            <BackButton
+              onClick={handleBackClick}
+              aria-label="Volver"
+              title="Volver"
+            >
+              ←
+            </BackButton>
+
             <CustomButton onClick={handleNormalBtn} label={normalBtn} />
             <CustomButton onClick={handleHardBtn} label={hardBtn} />
-            {/* 🔒 Botón Campaña bloqueado */}
+
             <CampaignButtonWrapper>
               <CustomButton label={campainBtn} disabled className="customBtn" />
               <div className="tooltip">{campainInfo}</div>

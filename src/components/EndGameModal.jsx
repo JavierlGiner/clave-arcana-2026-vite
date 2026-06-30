@@ -111,77 +111,104 @@ const Modal = styled.div`
     }
   }
   .score-container-2 {
+    width: 96%;
+    min-height: 210px;
+    padding: 10px;
+    border: 4px solid black;
+    border-radius: 8px;
+    background-color: var(--instruction-bg);
     display: flex;
     flex-direction: column;
-    border-radius: 8px;
-    border-style: double;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .final-step-content {
+    width: 100%;
+    min-height: 165px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    border: 4px solid black;
-    padding: 6px;
-    height: auto;
-    width: 96%;
-    background-color: var(--instruction-bg);
-    gap: 15px;
+  }
 
-    p {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-radius: 6px;
-      background-color: var(--button-bg-hover);
-      height: auto;
-      padding: 8px;
-      text-align: justify;
-      align-items: center;
-      text-transform: uppercase;
-      font-weight: 600;
-      width: 100%;
-    }
+  .links-msg,
+  .premium-container {
+    width: 100%;
+    min-height: 165px;
+    padding: 12px;
+    border-radius: 6px;
+    background-color: var(--button-bg-hover);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .links-msg {
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 18px;
-      text-align: center;
-      height: auto;
-      width: 100%;
-    }
-    .premium-container {
-      height: auto;
-      background-color: var(--button-bg-hover);
-      border-radius: 6px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      p {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        border-radius: 6px;
-        background-color: var(--button-bg-hover);
-        text-align: justify;
-      }
-    }
-    .donation-text {
-      font-size: 16px;
-    }
-    .donation-title {
-      font-size: 18px;
-    }
+  .links-msg p,
+  .premium-container p {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    text-align: center;
+    width: 100%;
+  }
 
-    .donationBtn {
-      background-color: #c017a4;
-      color: white;
-      padding: 10px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 12px;
-      text-decoration: none;
-      width: auto;
-      margin-bottom: 8px;
-    }
+  .links-msg p {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .redes-container {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 18px;
+  }
+
+  .redes-container img {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .donation-title {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .donation-text {
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  .donationBtn {
+    margin-top: 14px;
+  }
+
+  .slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .dot {
+    width: 11px;
+    height: 11px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background: #777;
+    cursor: pointer;
+  }
+
+  .dot.active {
+    background: white;
+    transform: scale(1.25);
   }
   .image-container {
     border-radius: 8px;
@@ -570,39 +597,45 @@ const Modal = styled.div`
     }
 
     .score-container-2 {
-      padding: 6px;
-      background-color: var(--instruction-bg);
-      gap: 10px;
-      height: auto;
+      width: 100%;
+      min-height: 190px;
+      padding: 8px;
+    }
 
-      p {
-        height: 100%;
-        padding: 8px;
-        width: 100%;
-      }
-      .redes-container img {
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-      }
-      .redes-container {
-        display: flex;
-        width: 150px;
-        align-items: center;
-        margin-top: 5px;
+    .final-step-content,
+    .links-msg,
+    .premium-container {
+      min-height: 145px;
+    }
 
-        justify-content: space-between;
-      }
-      .donation-text {
-        font-size: 12px;
-      }
-      .donation-title {
-        padding-bottom: 0;
-        font-size: 16px;
-      }
-      .links-msg {
-        font-size: 12px;
-      }
+    .links-msg p {
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .redes-container {
+      gap: 24px;
+      margin-top: 14px;
+    }
+
+    .redes-container img {
+      width: 54px;
+      height: 54px;
+    }
+
+    .donation-title {
+      font-size: 15px;
+    }
+
+    .donation-text {
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .donationBtn {
+      font-size: 10px;
+      padding: 8px;
+      margin-top: 10px;
     }
   }
 `;
@@ -698,10 +731,12 @@ const StyledButton = styled.button`
 
 const EndGameModal = ({ formattedTempo }) => {
   // const [showBlackScreen, setShowBlackScreen] = useState(false);
-  const { endGame, playBtn, exitBtn, aboutText } = useTextos();
+  const [page, setPage] = useState(0);
+  const { endGame, playBtn, exitBtn, aboutText, instructNav2 } = useTextos();
   const [showFinalStep, setShowFinalStep] = useState(false);
 
   const handleContinue = () => {
+    setPage(0);
     setShowFinalStep(true);
   };
   const navigate = useNavigate();
@@ -742,40 +777,64 @@ const EndGameModal = ({ formattedTempo }) => {
             ) : (
               <>
                 <div className="score-container-2">
-                  <div className="links-msg">
-                    <p>
-                      {endGame.text2}
-                      <div className="redes-container">
+                  <div className="final-step-content">
+                    {page === 0 ? (
+                      <div className="links-msg">
+                        <p>{endGame.text2}</p>
+
+                        <div className="redes-container">
+                          <a
+                            href="https://www.instagram.com/reinajirveg"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="logo"
+                          >
+                            <img src={reina} alt="logo" />
+                          </a>
+
+                          <a
+                            href="https://www.instagram.com/pink.potion.argentina"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="logo"
+                          >
+                            <img src={potion} alt="logo" />
+                          </a>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="premium-container">
+                        <p className="donation-title">
+                          {aboutText.donationTitle}
+                        </p>
+                        <p className="donation-text">
+                          {aboutText.donationText}
+                        </p>
+
                         <a
-                          href="https://www.instagram.com/reinajirveg"
+                          href="https://reinajirveg.itch.io/arcane-code"
                           target="_blank"
                           rel="noreferrer"
-                          className="logo"
+                          className="donationBtn"
                         >
-                          <img src={reina} alt="logo" />
-                        </a>
-                        <a
-                          href="https://www.instagram.com/pink.potion.argentina"
-                          target="_blank"
-                          rel="noreferrer"
-                          className="logo"
-                        >
-                          <img src={potion} alt="logo" />
+                          ☕ {aboutText.donationBtn}
                         </a>
                       </div>
-                    </p>
+                    )}
                   </div>
-                  <div className="premium-container">
-                    <p className="donation-title">{aboutText.donationTitle}</p>
-                    <p className="donation-text"> {aboutText.donationText}</p>
-                    <a
-                      href="https://reinajirveg.itch.io/arcane-code"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="donationBtn"
-                    >
-                      ☕ {aboutText.donationBtn}
-                    </a>
+
+                  <div className="slider-dots">
+                    <button
+                      type="button"
+                      className={page === 0 ? "dot active" : "dot"}
+                      onClick={() => setPage(0)}
+                    />
+
+                    <button
+                      type="button"
+                      className={page === 1 ? "dot active" : "dot"}
+                      onClick={() => setPage(1)}
+                    />
                   </div>
                 </div>
               </>
@@ -793,9 +852,16 @@ const EndGameModal = ({ formattedTempo }) => {
             <>
               <div className="buttons-container">
                 <StyledButton onClick={handleBtnClick}>{exitBtn}</StyledButton>
-                <StyledButton onClick={handleRestartBtnClick}>
-                  {playBtn}
-                </StyledButton>
+
+                {page === 0 ? (
+                  <StyledButton onClick={() => setPage(1)}>
+                    {instructNav2}
+                  </StyledButton>
+                ) : (
+                  <StyledButton onClick={handleRestartBtnClick}>
+                    {playBtn}
+                  </StyledButton>
+                )}
               </div>
             </>
           )}

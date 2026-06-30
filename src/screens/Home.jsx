@@ -36,7 +36,7 @@ const Container = styled.div`
 
   /* Estilos para tablets */
   @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
-    padding: 20px;
+    padding: 10px;
   }
 `;
 const Main = styled.div`
@@ -45,9 +45,11 @@ const Main = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 100%;
-
   height: 100%;
   padding-bottom: 30px;
+  @media (max-width: 480px) {
+    padding: 10px;
+  }
 `;
 
 const Home = () => {

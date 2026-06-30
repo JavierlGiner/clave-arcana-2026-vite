@@ -14,7 +14,7 @@ const StyledFooter = styled.footer`
   color: var(--second-color);
   background-color: var(--first-color);
   width: 100%;
-  height: 4rem;
+  height: 2rem;
   font-size: 12px;
 
   @media (min-width: 1500px) {

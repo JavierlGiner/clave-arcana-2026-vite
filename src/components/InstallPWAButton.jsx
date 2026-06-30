@@ -124,6 +124,9 @@ const InstallLink = styled.button`
     font-size: 0.9rem;
     padding: 10px 12px;
   }
+  @media (max-width: 950px) and (max-width: 480px) and (orientation: landscape) {
+    display: none;
+  }
 `;
 
 const Overlay = styled.div`

@@ -5,7 +5,9 @@ import AboutModal from "../components/AboutModal";
 import ReinaTitle from "../components/ReinaTitle";
 import GameMenu from "../components/GameMenu";
 import Footer from "../components/Footer";
-import InstallPWAButton from "../components/InstallPWAButton";
+import InstallIntroCard from "../components/InstallIntroCard";
+import { usePWAInstall } from "../hooks/usePWAInstall";
+import { useTextos } from "../contexts/LanguageContext";
 import "../styles.css";
 import { useNavigate } from "react-router-dom";
 import LangSwitchModal from "../components/LangSwitchModal";
@@ -31,7 +33,7 @@ const Container = styled.div`
 
   /* Estilos para dispositivos móviles */
   @media (max-width: 480px) {
-    padding: 20px;
+    padding: 14px;
   }
 
   /* Estilos para tablets */
@@ -47,6 +49,10 @@ const Main = styled.div`
   width: 100%;
   height: 100%;
   padding-bottom: 30px;
+
+  @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
+    padding-bottom: 10px;
+  }
   @media (max-width: 480px) {
     padding: 10px;
   }
@@ -54,21 +60,35 @@ const Main = styled.div`
 
 const Home = () => {
   const navigate = useNavigate();
-  // const [isLoading, setIsLoading] = useState(true);
 
-  /****EFECTO LOADER */
-  // useEffect(() => {
-  //   const handleLoad = () => setIsLoading(false);
+  const { installGate } = useTextos();
+  const { isInstallable, installApp, isInstalled, platform } = usePWAInstall();
 
-  //   // Si la página ya cargó antes de que el efecto corra
-  //   if (document.readyState === "complete") {
-  //     setIsLoading(false);
-  //   } else {
-  //     window.addEventListener("load", handleLoad);
-  //   }
+  const [showInstallIntro, setShowInstallIntro] = useState(() => {
+    return sessionStorage.getItem("skipInstallIntro") !== "true";
+  });
 
-  //   return () => window.removeEventListener("load", handleLoad);
-  // }, []);
+  const [showInstallSteps, setShowInstallSteps] = useState(false);
+
+  const isIOS = platform === "ios";
+  const isManualInstall = isIOS || platform === "firefox" || !isInstallable;
+
+  const handleInstallIntroPrimary = async () => {
+    if (isManualInstall) {
+      setShowInstallSteps(true);
+      return;
+    }
+
+    await installApp();
+    setShowInstallIntro(false);
+  };
+
+  const handleInstallIntroContinue = () => {
+    sessionStorage.setItem("skipInstallIntro", "true");
+    setShowInstallIntro(false);
+  };
+
+  const shouldShowInstallIntro = showInstallIntro && !isInstalled;
 
   /*MOSTRAR EL LOGO DE TOTEM */
   const [showReinaTitle, setShowReinaTitle] = useState(true);
@@ -108,13 +128,19 @@ const Home = () => {
   const playGameSound = () => playSoundEffect(playAudioRef);
   const playInstruSound = () => playSoundEffect(instruAudioRef);
   const playLangSound = () => playSoundEffect(langAudioRef);
+
   //EFECTO DE TRANSICION INICIO
   useEffect(() => {
+    if (shouldShowInstallIntro) return;
+
+    setShowReinaTitle(true);
+
     const timeOut = setTimeout(() => {
       setShowReinaTitle(false);
     }, 8000);
+
     return () => clearTimeout(timeOut);
-  }, []);
+  }, [shouldShowInstallIntro]);
 
   //ABRIR MODAL LENGUAJE
   const handleLangBtnClick = () => {
@@ -195,22 +221,44 @@ const Home = () => {
           />
 
           <Main>
-            {showReinaTitle && <ReinaTitle />}
-            {!showReinaTitle && (
-              <GameMenu
-                handlePlayClick={handlePlayClick}
-                handleNormalBtn={handleNormalBtn}
-                handleHardBtn={handleHardBtn}
-                showHardBtn={showHardBtn}
-                showNormalBtn={showNormalBtn}
-                showInstructionBtn={showInstructionBtn}
-                handleInstructionClick={handleInstructionClick}
-                handleContinueFromPrompt={handleContinueFromPrompt}
-                handleCancelPrompt={handleCancelPrompt}
-                showPlayBtn={showPlayBtn}
+            {shouldShowInstallIntro ? (
+              <InstallIntroCard
+                title={installGate.title}
+                body={installGate.body}
+                body2={installGate.body2}
+                primaryLabel={installGate.primary}
+                secondaryLabel={installGate.continue}
+                showSteps={showInstallSteps}
+                stepsTitle={
+                  isIOS ? installGate.iosTitle : installGate.manualTitle
+                }
+                steps={isIOS ? installGate.iosSteps : installGate.manualSteps}
+                doneLabel={installGate.done}
+                backLabel={installGate.back}
+                onPrimaryClick={handleInstallIntroPrimary}
+                onSecondaryClick={handleInstallIntroContinue}
+                onBackClick={() => setShowInstallSteps(false)}
               />
+            ) : (
+              <>
+                {showReinaTitle && <ReinaTitle />}
+
+                {!showReinaTitle && (
+                  <GameMenu
+                    handlePlayClick={handlePlayClick}
+                    handleNormalBtn={handleNormalBtn}
+                    handleHardBtn={handleHardBtn}
+                    showHardBtn={showHardBtn}
+                    showNormalBtn={showNormalBtn}
+                    showInstructionBtn={showInstructionBtn}
+                    handleInstructionClick={handleInstructionClick}
+                    handleContinueFromPrompt={handleContinueFromPrompt}
+                    handleCancelPrompt={handleCancelPrompt}
+                    showPlayBtn={showPlayBtn}
+                  />
+                )}
+              </>
             )}
-            <InstallPWAButton />
           </Main>
           <Footer />
         </Container>

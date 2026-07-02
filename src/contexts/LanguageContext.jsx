@@ -17,6 +17,127 @@ const TextosContext = createContext();
 export const TextosProvider = ({ children }) => {
   const [idioma, setIdioma] = useState("en"); // es por defecto, puede ser "en" para inglés
 
+  const installGate = {
+    es: {
+      title: "✦ PREPARA TU VIAJE ✦",
+      body: "Arcane Code fue concebido para jugarse a pantalla completa.",
+      body2:
+        "La versión instalada ofrece la experiencia para la que el juego fue diseñado.",
+      primary: "Activar pantalla completa",
+      continue: "Continuar en navegador",
+      iosTitle: "Para activar la pantalla completa en iPhone o iPad:",
+      iosSteps: [
+        "Abrí Arcane Code desde Safari.",
+        "Tocá el botón Compartir.",
+        "Elegí «Agregar a pantalla de inicio».",
+        "Abrí el juego desde el nuevo ícono.",
+      ],
+      manualTitle: "Instalación manual:",
+      manualSteps: [
+        "Abrí el menú del navegador.",
+        "Seleccioná «Instalar aplicación» o «Agregar a pantalla de inicio».",
+        "Iniciá Arcane Code desde el nuevo ícono.",
+      ],
+      done: "Entendido",
+      back: "Volver",
+    },
+
+    en: {
+      title: "✦ PREPARE YOUR JOURNEY ✦",
+      body: "Arcane Code was designed to be played in fullscreen.",
+      body2:
+        "The installed version provides the experience the game was designed for.",
+      primary: "Enable Fullscreen",
+      continue: "Continue in Browser",
+      iosTitle: "To enable fullscreen on iPhone or iPad:",
+      iosSteps: [
+        "Open Arcane Code in Safari.",
+        "Tap the Share button.",
+        "Choose 'Add to Home Screen'.",
+        "Launch the game from the new icon.",
+      ],
+      manualTitle: "Manual installation:",
+      manualSteps: [
+        "Open your browser menu.",
+        "Select 'Install App' or 'Add to Home Screen'.",
+        "Launch Arcane Code from the new icon.",
+      ],
+      done: "Got it",
+      back: "Back",
+    },
+
+    jap: {
+      title: "✦ 旅立ちの準備 ✦",
+      body: "Arcane Code は全画面でプレイすることを前提に設計されています。",
+      body2: "インストール版では、本来のゲーム体験をお楽しみいただけます。",
+      primary: "全画面を有効にする",
+      continue: "ブラウザで続ける",
+      iosTitle: "iPhone / iPad で全画面表示にする方法:",
+      iosSteps: [
+        "Safari で Arcane Code を開きます。",
+        "共有ボタンをタップします。",
+        "「ホーム画面に追加」を選択します。",
+        "追加されたアイコンからゲームを起動します。",
+      ],
+      manualTitle: "手動インストール:",
+      manualSteps: [
+        "ブラウザのメニューを開きます。",
+        "「アプリをインストール」または「ホーム画面に追加」を選択します。",
+        "追加されたアイコンから Arcane Code を起動します。",
+      ],
+      done: "了解",
+      back: "戻る",
+    },
+
+    zh: {
+      title: "✦ 准备启程 ✦",
+      body: "Arcane Code 专为全屏游玩而设计。",
+      body2: "安装后的版本能够提供游戏原本设计的完整体验。",
+      primary: "启用全屏模式",
+      continue: "继续在浏览器中游玩",
+      iosTitle: "在 iPhone 或 iPad 上启用全屏：",
+      iosSteps: [
+        "使用 Safari 打开 Arcane Code。",
+        "点击“分享”按钮。",
+        "选择“添加到主屏幕”。",
+        "从新创建的图标启动游戏。",
+      ],
+      manualTitle: "手动安装：",
+      manualSteps: [
+        "打开浏览器菜单。",
+        "选择“安装应用”或“添加到主屏幕”。",
+        "从新图标启动 Arcane Code。",
+      ],
+      done: "知道了",
+      back: "返回",
+    },
+  };
+  const unsupportedScreen = {
+    es: {
+      title: "PANTALLA NO COMPATIBLE",
+      text1:
+        "Arcane Code necesita más espacio para mostrar el tablero correctamente.",
+      text2:
+        "Activá la pantalla completa, instalá la app o usá un dispositivo con mayor resolución.",
+    },
+    en: {
+      title: "UNSUPPORTED SCREEN",
+      text1: "Arcane Code needs more space to display the board correctly.",
+      text2:
+        "Enable fullscreen, install the app, or use a device with a larger resolution.",
+    },
+    jap: {
+      title: "非対応の画面",
+      text1: "Arcane Code を正しく表示するには、より広い画面領域が必要です。",
+      text2:
+        "全画面を有効にするか、アプリをインストールするか、より高い解像度の端末をご利用ください。",
+    },
+    zh: {
+      title: "不支持的屏幕",
+      text1: "Arcane Code 需要更多屏幕空间才能正确显示棋盘。",
+      text2: "请启用全屏、安装应用，或使用分辨率更高的设备。",
+    },
+  };
   const textos = {
     es: {
       reglasPiezas: [
@@ -752,6 +873,8 @@ export const TextosProvider = ({ children }) => {
         instructNav1: instructNav1[idioma],
         instructNav2: instructNav2[idioma],
         installMessage: installMessage[idioma],
+        installGate: installGate[idioma],
+        unsupportedScreen: unsupportedScreen[idioma],
         hardBtn: hardBtn[idioma],
         normalBtn: normalBtn[idioma],
         playBtn: playBtn[idioma],

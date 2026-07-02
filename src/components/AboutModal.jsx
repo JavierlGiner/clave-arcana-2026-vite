@@ -137,7 +137,6 @@ const StyledAbout = styled.div`
     margin-bottom: 4px;
     text-align: center;
     font-size: 22px;
-    font-weight: bold;
   }
   .donationBtn {
     margin-top: 6px;
@@ -150,7 +149,7 @@ const StyledAbout = styled.div`
     padding: 8px;
     border-radius: 8px;
     font-size: 12px;
-    font-weight: bold;
+
     text-decoration: none;
   }
 
@@ -173,6 +172,7 @@ const StyledAbout = styled.div`
       height: auto;
       font-size: 13px;
       gap: 5px;
+      padding: 8px;
     }
     .donation-title {
       font-size: 14px;
@@ -215,7 +215,7 @@ const StyledAbout = styled.div`
     .modal-content {
       width: 600px;
       height: 340px;
-      padding: 8px;
+      padding: 5px;
       font-size: 15px;
     }
     .redes {
@@ -298,7 +298,7 @@ const AboutModal = ({ setIsAboutModalOpen }) => {
 
             {/* Sección de donaciones */}
             <div className="separador" />
-            <div className="donation-container  ">
+            <div className="donation-container goldman-regular ">
               <p className="donation-title">
                 {aboutText.donationTitle}
                 <br />

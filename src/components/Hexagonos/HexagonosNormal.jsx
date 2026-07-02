@@ -10,6 +10,7 @@ import "../../styles.css";
 // import SaveScoreModal from "../SaveScoreModal";
 import { useNavigate } from "react-router-dom";
 import EndGameModal from "../EndGameModal";
+import UnsupportedScreen from "../UnsupportedScreen";
 
 //BOTON RESTART ESTILOS
 const StyledButton = styled.button`
@@ -131,6 +132,7 @@ const Hexagonos = ({ initCount }) => {
 
   return (
     <div className="tablero">
+      <UnsupportedScreen onExit={handleRestartBtnClick} />
       <div className="piezas">
         <Contador initCount={initCount} gameOver={gameOver} />
         <div className="contenido-hexagono1">

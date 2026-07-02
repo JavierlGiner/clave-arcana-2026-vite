@@ -63,7 +63,17 @@ a:hover,
   font-weight: normal;
   font-style: normal;
 }
+.goldman-regular {
+  font-family: "Goldman", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
+.goldman-bold {
+  font-family: "Goldman", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
 /* .macondo-regular {
   font-family: "Macondo", cursive;
   font-weight: 600;
@@ -73,7 +83,7 @@ a:hover,
 
 .aubrey-regular {
   font-family: "Aubrey", system-ui;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -1252,7 +1262,7 @@ a:hover,
     bottom: 8%;
   }
 }
-@media (max-width: 720px) and (max-height: 520px) {
+@media (max-width: 720px) and (max-height: 520px) and (orientation: landscape) {
   .reset-btn {
     bottom: 15px;
     left: unset;
@@ -1550,5 +1560,11 @@ a:hover,
   .cara10 .ficha {
     left: -22%;
     bottom: 10%;
+  }
+}
+@media (max-width: 480px) and (max-height: 520px) and (orientation: portrait),
+  (max-width: 720px) and (max-height: 335px) and (orientation: landscape) {
+  .piezas {
+    display: none !important;
   }
 }

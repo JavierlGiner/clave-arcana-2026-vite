@@ -10,6 +10,7 @@ import EndGameModal from "../EndGameModal";
 import "../../styles.css";
 // import Loader from "../Loader";
 import arcanemusic from "../../assets/arcanegame.mp3";
+import UnsupportedScreen from "../UnsupportedScreen";
 
 // import SaveScoreModal from "../SaveScoreModal";
 
@@ -142,6 +143,7 @@ const Hexagonos = ({ initCount }) => {
 
   return (
     <div className="tablero">
+      <UnsupportedScreen onExit={handleRestartBtnClick} />
       <div className="piezas">
         {/* {loading ? (
           <Loader />

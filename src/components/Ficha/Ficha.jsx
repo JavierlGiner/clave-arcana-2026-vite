@@ -12,9 +12,12 @@ const Ficha = ({ ficha, handleFichaClick, endGameAnimation }) => {
     <button
       key={ficha.id}
       id={ficha.id}
-      className={`ficha ficha${ficha.id} ${ficha.isSelected ? "selected" : ""}${
-        endGameAnimation ? "endgame" : ""
-      }${ficha.isLocked ? "locked" : ""}`}
+      className={`ficha ficha${ficha.id} 
+  ${ficha.isSelected ? "selected" : ""}
+  ${ficha.isInvalidMove ? "invalid-move" : ""}
+  ${endGameAnimation ? "endgame" : ""}
+  ${ficha.isLocked ? "locked" : ""}
+`}
       onClick={() => {
         handleFichaClick(ficha);
         console.log("Ficha seleccionada:", ficha);

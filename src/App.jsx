@@ -13,39 +13,6 @@ import PoliticayPrivacidad from "./screens/PoliticayPrivacidad";
 import TerminosCondiciones from "./screens/TerminosCondiciones";
 
 function App() {
-  // const [langSelected, setLangSelected] = useState(() => {
-  //   return !!localStorage.getItem("idioma");
-  // });
-
-  // const [pwaAccepted, setPwaAccepted] = useState(() => {
-  //   return localStorage.getItem("pwa-gate") === "ok";
-  // });
-
-  // if (!langSelected) {
-  //   return (
-  //     <TextosProvider>
-  //       <LangSwitchModal
-  //         closeLangModalOpen={() => {
-  //           setLangSelected(true);
-  //         }}
-  //       />
-  //     </TextosProvider>
-  //   );
-  // } else {
-  //   if (!pwaAccepted) {
-  //     return (
-  //       <TextosProvider>
-  //         <InstallButton
-  //           onContinue={() => {
-  //             localStorage.setItem("pwa-gate", "ok");
-  //             setPwaAccepted(true);
-  //           }}
-  //         />
-  //       </TextosProvider>
-  //     );
-  //   }
-  // }
-
   return (
     <TextosProvider>
       <Router>

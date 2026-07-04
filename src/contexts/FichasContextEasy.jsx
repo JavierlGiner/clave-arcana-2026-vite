@@ -12,6 +12,30 @@ const FichasProvider = ({ children }) => {
   const selectAudioRef = useRef(new Audio(selectSound));
   const swapAudioRef = useRef(new Audio(swapSound));
 
+  const invalidMoveTimeoutRef = useRef(null);
+
+  const markInvalidMove = (fichaValue) => {
+    if (invalidMoveTimeoutRef.current) {
+      clearTimeout(invalidMoveTimeoutRef.current);
+    }
+
+    setFichas((prevFichas) =>
+      prevFichas.map((f) => ({
+        ...f,
+        isInvalidMove: f.value === fichaValue,
+      })),
+    );
+
+    invalidMoveTimeoutRef.current = setTimeout(() => {
+      setFichas((prevFichas) =>
+        prevFichas.map((f) => ({
+          ...f,
+          isInvalidMove: false,
+        })),
+      );
+    }, 500);
+  };
+
   const playSelectSound = () => {
     if (isMuted) return;
 
@@ -48,6 +72,7 @@ const FichasProvider = ({ children }) => {
       value: index,
       boolean: Math.random() < 0.5,
       isSelected: false,
+      isInvalidMove: false,
     }));
 
     console.log(initialFichas, "fichas con su value original");
@@ -198,6 +223,8 @@ const FichasProvider = ({ children }) => {
 
               return updatedFichas;
             });
+          } else {
+            markInvalidMove(ficha.value);
           }
         } else {
           // Verificar si se pueden intercambiar las fichas comunes
@@ -246,13 +273,22 @@ const FichasProvider = ({ children }) => {
               playSwapSound();
               return updatedFichas;
             });
+          } else {
+            markInvalidMove(ficha.value);
           }
         }
       } else {
-        // Si la ficha seleccionada es la misma o no cumple las condiciones, deseleccionamos todo
-        setFichas((prevFichas) =>
-          prevFichas.map((f) => ({ ...f, isSelected: false })),
-        );
+        if (selectedFicha.value === ficha.value) {
+          setFichas((prevFichas) =>
+            prevFichas.map((f) => ({
+              ...f,
+              isSelected: false,
+              isInvalidMove: false,
+            })),
+          );
+        } else {
+          markInvalidMove(ficha.value);
+        }
       }
     }
   };

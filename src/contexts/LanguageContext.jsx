@@ -767,25 +767,28 @@ export const TextosProvider = ({ children }) => {
 
   const footer = {
     es: {
-      developed: "DESARROLLADO POR REINA JIRVEG | JUNÍN, BUENOS AIRES | 2026",
+      developed:
+        "DESARROLLADO POR REINA JIRVEG v1.0.0 | JUNÍN, BUENOS AIRES | 2026",
       terms: "Términos y Condiciones",
       privacy: "Política de Privacidad",
     },
 
     en: {
-      developed: "DEVELOPED BY REINA JIRVEG | JUNÍN, BUENOS AIRES | 2026",
+      developed:
+        "DEVELOPED BY REINA JIRVEG v1.0.0 | JUNÍN, BUENOS AIRES | 2026",
       terms: "Terms and Conditions",
       privacy: "Privacy Policy",
     },
 
     jap: {
-      developed: "開発者：REINA JIRVEG | アルゼンチン・フニン | 2026",
+      developed: "開発者：REINA JIRVEG v1.0.0 | アルゼンチン・フニン | 2026",
       terms: "利用規約",
       privacy: "プライバシーポリシー",
     },
 
     zh: {
-      developed: "开发者：REINA JIRVEG | 阿根廷 布宜诺斯艾利斯省胡宁 | 2026",
+      developed:
+        "开发者：REINA JIRVEG v1.0.0 | 阿根廷 布宜诺斯艾利斯省胡宁 | 2026",
       terms: "使用条款",
       privacy: "隐私政策",
     },

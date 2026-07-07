@@ -124,19 +124,18 @@ const StyledAbout = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 22px;
     padding: 0 10px;
   }
 
   .donation-text {
-    font-size: 16px;
+    font-size: 12px;
     margin: 10px 0;
     text-align: justify;
   }
   .donation-title {
     margin-bottom: 4px;
     text-align: center;
-    font-size: 22px;
+    font-size: 18px;
   }
   .donationBtn {
     margin-top: 6px;
@@ -170,16 +169,16 @@ const StyledAbout = styled.div`
     .modal-content {
       width: 350px;
       height: auto;
-      font-size: 13px;
+
       gap: 5px;
       padding: 8px;
     }
     .donation-title {
-      font-size: 14px;
+      font-size: 12px;
     }
 
     .donation-text {
-      font-size: 14px;
+      font-size: 10px;
     }
     .donationBtn {
       font-size: 12px;
@@ -232,15 +231,14 @@ const StyledAbout = styled.div`
     }
 
     .donation-container {
-      font-size: 15px;
     }
 
     .donation-text {
-      font-size: 11px;
+      font-size: 10px;
       margin: 2px 0;
     }
     .donation-title {
-      font-size: 15px;
+      font-size: 12px;
     }
 
     .donationBtn {

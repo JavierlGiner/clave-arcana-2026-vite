@@ -36,11 +36,16 @@ const LinksContainer = styled.div`
   a {
     color: var(--second-color);
     text-decoration: none;
-    font-size: 10px;
+    font-size: 11px;
   }
 
   a:hover {
     text-decoration: underline;
+  }
+  @media (min-width: 1024px) {
+    a {
+      font-size: 14px;
+    }
   }
 `;
 

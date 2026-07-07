@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTextos } from "../contexts/LanguageContext";
 import styled from "styled-components";
-import "../stylesBack.css";
+import "../styles.css";
 // import Loader from "./Loader";
 
 const Container = styled.div`
@@ -49,7 +49,7 @@ const ArrowButton = styled.button`
     cursor: default;
   }
   @media (max-width: 760px) {
-    font-size: 12px;
+    font-size: 10px;
   }
 `;
 
@@ -57,6 +57,9 @@ const Counter = styled.span`
   font-size: 16px;
   font-weight: 600;
   color: var(--second-color);
+  @media (max-width: 760px) {
+    font-size: 12px;
+  }
 `;
 const InstructionsBox = styled.div`
   display: flex;
@@ -127,8 +130,7 @@ const InstructionsBox = styled.div`
 
     p {
       padding: 8px;
-      font-size: 20px;
-      font-weight: 600;
+      font-size: 18px;
       text-align: left;
       line-height: 24px;
     }
@@ -137,8 +139,8 @@ const InstructionsBox = styled.div`
     position: absolute;
     right: 20px;
     bottom: 5px;
-    font-weight: 700;
-    font-size: 18px;
+
+    font-size: 15px;
     background-color: transparent;
     border: none;
     color: var(--second-color);
@@ -146,6 +148,62 @@ const InstructionsBox = styled.div`
   }
   .landscape-message {
     display: none;
+  }
+
+  @media (min-width: 761px) and (max-width: 1100px),
+    (min-width: 761px) and (max-height: 760px) {
+    width: min(720px, 86vw);
+    height: min(560px, 82dvh);
+    padding: 18px 24px;
+    gap: 8px;
+
+    .titles {
+      padding-top: 0;
+    }
+
+    h1 {
+      font-size: 26px;
+    }
+
+    .container-info {
+      gap: 12px;
+    }
+
+    .image-box {
+      height: 195px;
+
+      img {
+        height: 185px;
+        width: auto;
+      }
+    }
+
+    .rules-box {
+      height: 190px;
+      margin: 6px 0 22px;
+      padding: 8px 0;
+
+      h2 {
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 21px;
+        padding: 8px 10px;
+      }
+    }
+
+    .next-btn {
+      right: 18px;
+      bottom: 5px;
+      font-size: 16px;
+    }
+
+    .close-button {
+      width: 26px;
+      height: 26px;
+    }
   }
   /* Estilos para dispositivos móviles */
   @media (max-width: 760px) {
@@ -172,7 +230,8 @@ const InstructionsBox = styled.div`
       scrollbar-width: auto;
 
       p {
-        font-size: 16px;
+        width: 100%;
+        font-size: 14px;
         line-height: 20px;
       }
       h2 {
@@ -189,7 +248,7 @@ const InstructionsBox = styled.div`
       }
     }
     .next-btn {
-      font-size: 12px;
+      font-size: 10px;
       right: 15px;
       bottom: 7px;
     }
@@ -391,30 +450,40 @@ const InstruccionesModal = ({ closeInstructionsModal }) => {
   return (
     <Container>
       <InstructionsBox>
-        <button className="close-button" onClick={closeInstructionsModal}>
+        <button
+          className="close-button goldman-regular"
+          onClick={closeInstructionsModal}
+        >
           X
         </button>
-        <div className="titles">
+        <div className="titles goldman-bold">
           <h1>{instructBtn.title}</h1>
         </div>
         <NavigationContainer>
-          <ArrowButton onClick={handlePrevRule} disabled={currentRule === 0}>
+          <ArrowButton
+            className="goldman-regular"
+            onClick={handlePrevRule}
+            disabled={currentRule === 0}
+          >
             {instructNav1}
           </ArrowButton>
 
-          <Counter>
+          <Counter className="goldman-regular">
             {currentRule + 1} / {totalRules}
           </Counter>
 
           <ArrowButton
             onClick={handleNextRule}
+            className="goldman-regular"
             disabled={currentRule === totalRules - 1}
           >
             {instructNav2}
           </ArrowButton>
         </NavigationContainer>
-        <p className="landscape-message">{instructBtn.message}</p>
-        <div className="container-info">
+        <p className="landscape-message goldman-regular">
+          {instructBtn.message}
+        </p>
+        <div className="container-info goldman-regular">
           <div className="image-box">
             {window.innerWidth <= 760 ? (
               <img
@@ -461,7 +530,7 @@ const InstruccionesModal = ({ closeInstructionsModal }) => {
           </div>
         </div>
 
-        <button className="next-btn" onClick={handleNext}>
+        <button className="next-btn goldman-regular" onClick={handleNext}>
           {moreInfoBtn}
         </button>
       </InstructionsBox>

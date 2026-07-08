@@ -15,7 +15,7 @@ const TextosContext = createContext();
 
 // Proveer el contexto
 export const TextosProvider = ({ children }) => {
-  const [idioma, setIdioma] = useState("en"); // es por defecto, puede ser "en" para inglés
+  const [idioma, setIdioma] = useState("en");
 
   const installGate = {
     es: {
@@ -859,7 +859,12 @@ export const TextosProvider = ({ children }) => {
       dismiss: "稍后",
     },
   };
-
+  const supportBtn = {
+    es: "Comentarios y soporte",
+    en: "Feedback & Support",
+    jap: "ご意見・サポート",
+    zh: "反馈与支持",
+  };
   // Cambiar el idioma
   const cambiarIdioma = (nuevoIdioma) => {
     setIdioma(nuevoIdioma);
@@ -894,6 +899,10 @@ export const TextosProvider = ({ children }) => {
         startHardGame: startHardGame[idioma],
         scoreText: scoreText[idioma],
         loading: loading[idioma],
+        supportBtn: supportBtn[idioma],
+
+        idioma,
+
         cambiarIdioma,
       }}
     >

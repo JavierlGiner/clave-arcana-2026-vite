@@ -57,13 +57,13 @@ const ModalContainer = styled.div`
     h3 {
       margin: 0;
       color: var(--first-color-beta);
-      font-size: 1.8rem;
+      font-size: 1.4rem;
     }
 
     p {
       margin: 0;
       line-height: 1.5;
-      font-size: 1rem;
+      font-size: 0.75rem;
     }
   }
 
@@ -92,7 +92,6 @@ const ModalContainer = styled.div`
 
     color: var(--first-color-beta);
 
-    font-family: var(--font);
     font-size: 16px;
     font-weight: 700;
 
@@ -119,6 +118,7 @@ const ModalContainer = styled.div`
         font-size: 0.95rem;
       }
     }
+
     .close-button {
       width: 25px;
       height: 25px;
@@ -139,6 +139,7 @@ const ModalContainer = styled.div`
     }
   }
 `;
+
 const StyledButton = styled.button`
   width: 230px;
   height: 55px;
@@ -175,13 +176,29 @@ const StyledButton = styled.button`
 `;
 
 const InstructionsPromptModal = ({ onContinue, onClose }) => {
-  const { instructPrompt } = useTextos();
+  const { instructPrompt, idioma } = useTextos();
+
+  const spanishVideo = "https://www.youtube.com/watch?v=p_GXOmm7zjw";
+  const englishVideo = "https://www.youtube.com/watch?v=LSmSKIg1QoQ";
+
+  const tutorialVideos = {
+    es: spanishVideo,
+    en: englishVideo,
+    jap: englishVideo,
+    zh: englishVideo,
+  };
+
+  const tutorialVideo = tutorialVideos[idioma] ?? englishVideo;
+
+  const handleOpenTutorial = () => {
+    window.open(tutorialVideo, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <ModalBackground onClick={onClose}>
-      <ModalContainer>
+      <ModalContainer onClick={(e) => e.stopPropagation()}>
         <div className="header">
-          <div className="titles">
+          <div className="titles goldman-regular">
             <h3>{instructPrompt.title}</h3>
             <p>{instructPrompt.text1}</p>
           </div>
@@ -190,16 +207,17 @@ const InstructionsPromptModal = ({ onContinue, onClose }) => {
             ✕
           </button>
         </div>
-        <div className="info-box">
-          <StyledButton
-            onClick={() =>
-              window.open("https://youtu.be/p_GXOmm7zjw", "_blank")
-            }
-          >
+
+        <div className="info-box goldman-regular">
+          <StyledButton onClick={handleOpenTutorial}>
             ▶ {instructPrompt.text3}
           </StyledButton>
         </div>
-        <button className="continue-button" onClick={onContinue}>
+
+        <button
+          className="continue-button goldman-regular"
+          onClick={onContinue}
+        >
           {instructPrompt.text2}
         </button>
       </ModalContainer>

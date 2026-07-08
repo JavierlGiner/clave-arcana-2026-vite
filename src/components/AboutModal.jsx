@@ -2,6 +2,7 @@ import styled from "styled-components";
 import reina from "../images/reina Jirgev.webp";
 import pink from "../images/pink potion logo-1.webp";
 import { useTextos } from "../contexts/LanguageContext";
+import { MdEmail } from "react-icons/md";
 import "../styles.css";
 
 const StyledAbout = styled.div`
@@ -29,15 +30,18 @@ const StyledAbout = styled.div`
   ========================== */
   .modal-content {
     position: relative;
-    width: 600px;
-    height: 550px;
-    padding: 30px;
+    width: min(600px, 92vw);
+    max-height: min(550px, 88dvh);
+    padding: 28px;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
+
+    overflow-y: auto;
+    scrollbar-width: none;
+
     background-color: var(--modal-bg);
     color: var(--first-color);
     font-size: 20px;
@@ -47,6 +51,14 @@ const StyledAbout = styled.div`
     border-radius: 8px;
     border: 4px solid var(--second-color);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .modal-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
 
   /* =========================
@@ -70,17 +82,42 @@ const StyledAbout = styled.div`
   /* =========================
      CONTENT
   ========================== */
-  .modal-info {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 
   .author-box {
     text-align: justify;
     font-family: "Aubrey", serif;
     font-size: 26px;
+  }
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-width: 170px;
+    padding: 8px 12px;
+
+    background-color: var(--first-color);
+    color: var(--second-color);
+    border: 2px solid var(--second-color);
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .contact-link svg {
+    flex-shrink: 0;
+    font-size: 15px;
+  }
+
+  .contact-link:hover {
+    background-color: var(--third-color);
+    color: white;
+    transform: translateY(-2px);
   }
 
   /* =========================
@@ -90,7 +127,7 @@ const StyledAbout = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 18px;
 
     width: 100%;
     height: 80px;
@@ -167,12 +204,21 @@ const StyledAbout = styled.div`
   ========================== */
   @media (max-width: 720px) {
     .modal-content {
-      width: 350px;
-      height: auto;
-
-      gap: 5px;
-      padding: 8px;
+      width: min(350px, 92vw);
+      max-height: 88dvh;
+      padding: 12px;
+      gap: 8px;
     }
+
+    .modal-info {
+      gap: 8px;
+    }
+
+    .contact-link {
+      font-size: 11px;
+      padding: 7px 10px;
+    }
+
     .donation-title {
       font-size: 12px;
     }
@@ -258,7 +304,7 @@ const StyledAbout = styled.div`
 `;
 
 const AboutModal = ({ setIsAboutModalOpen }) => {
-  const { aboutText } = useTextos();
+  const { aboutText, supportBtn } = useTextos();
 
   return (
     <StyledAbout>
@@ -293,7 +339,13 @@ const AboutModal = ({ setIsAboutModalOpen }) => {
                 <img src={pink} alt="redes" />
               </a>
             </div>
-
+            <a
+              href="mailto:jlginer@hotmail.com?subject=Arcane%20Code%20Feedback"
+              className="contact-link"
+            >
+              <MdEmail />
+              <span>{supportBtn}</span>
+            </a>
             {/* Sección de donaciones */}
             <div className="separador" />
             <div className="donation-container goldman-regular ">

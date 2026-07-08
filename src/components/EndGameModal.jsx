@@ -735,6 +735,10 @@ const EndGameModal = ({ formattedTempo }) => {
   const { endGame, playBtn, exitBtn, aboutText, instructNav2 } = useTextos();
   const [showFinalStep, setShowFinalStep] = useState(false);
 
+  const isItchIo =
+    typeof window !== "undefined" &&
+    window.location.hostname.endsWith(".itch.io");
+
   const handleContinue = () => {
     setPage(0);
     setShowFinalStep(true);
@@ -804,21 +808,36 @@ const EndGameModal = ({ formattedTempo }) => {
                       </div>
                     ) : (
                       <div className="premium-container">
-                        <p className="donation-title">
-                          {aboutText.donationTitle}
-                        </p>
-                        <p className="donation-text">
-                          {aboutText.donationText}
-                        </p>
+                        {isItchIo ? (
+                          <>
+                            <p className="donation-title">
+                              {endGame.thanksTitle}
+                            </p>
 
-                        <a
-                          href="https://reinajirveg.itch.io/arcane-code"
-                          target="_blank"
-                          rel="noreferrer"
-                          className="donationBtn"
-                        >
-                          ☕ {aboutText.donationBtn}
-                        </a>
+                            <p className="donation-text">
+                              {endGame.thanksText}
+                            </p>
+                          </>
+                        ) : (
+                          <>
+                            <p className="donation-title">
+                              {aboutText.donationTitle}
+                            </p>
+
+                            <p className="donation-text">
+                              {aboutText.donationText}
+                            </p>
+
+                            <a
+                              href="https://reinajirveg.itch.io/arcane-code"
+                              target="_blank"
+                              rel="noreferrer"
+                              className="donationBtn"
+                            >
+                              ☕ {aboutText.donationBtn}
+                            </a>
+                          </>
+                        )}
                       </div>
                     )}
                   </div>

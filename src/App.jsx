@@ -1,12 +1,9 @@
-// import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./screens/Home";
 import NormalBoard from "./screens/NormalBoard";
 import EasyBoard from "./screens/EasyBoard";
 
-import LangSwitchModal from "./components/LangSwitchModal";
-import InstallButton from "./components/InstallPWAButton";
 import "./styles.css";
 import { TextosProvider } from "./contexts/LanguageContext";
 import PoliticayPrivacidad from "./screens/PoliticayPrivacidad";

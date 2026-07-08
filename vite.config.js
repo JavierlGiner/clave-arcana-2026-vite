@@ -3,6 +3,8 @@ import react from "@vitejs/plugin-react-swc";
 import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
+  base: "./",
+
   plugins: [
     react(),
     VitePWA({
@@ -20,6 +22,7 @@ export default defineConfig({
         "pwa-512x512.png",
         "pwa-512x512-maskable.png",
       ],
+
       manifest: {
         name: "ARCANE CODE",
         short_name: "ARCANE CODE",
@@ -27,22 +30,22 @@ export default defineConfig({
         theme_color: "#000000",
         background_color: "#000000",
         display: "standalone",
-        start_url: "/",
-        scope: "/",
-        id: "/",
+        start_url: "./",
+        scope: "./",
+        id: "./",
         icons: [
           {
-            src: "/pwa-192x192.png",
+            src: "./pwa-192x192.png",
             sizes: "192x192",
             type: "image/png",
           },
           {
-            src: "/pwa-512x512.png",
+            src: "./pwa-512x512.png",
             sizes: "512x512",
             type: "image/png",
           },
           {
-            src: "/pwa-512x512-maskable.png",
+            src: "./pwa-512x512-maskable.png",
             sizes: "512x512",
             type: "image/png",
             purpose: "maskable",

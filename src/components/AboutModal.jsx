@@ -306,6 +306,10 @@ const StyledAbout = styled.div`
 const AboutModal = ({ setIsAboutModalOpen }) => {
   const { aboutText, supportBtn } = useTextos();
 
+  const isItchIo =
+    typeof window !== "undefined" &&
+    window.location.hostname.endsWith(".itch.io");
+
   return (
     <StyledAbout>
       <div className="modal">
@@ -347,22 +351,30 @@ const AboutModal = ({ setIsAboutModalOpen }) => {
               <span>{supportBtn}</span>
             </a>
             {/* Sección de donaciones */}
-            <div className="separador" />
-            <div className="donation-container goldman-regular ">
-              <p className="donation-title">
-                {aboutText.donationTitle}
-                <br />
-              </p>
-              <p className="donation-text"> {aboutText.donationText}</p>
-              <a
-                href="https://reinajirveg.itch.io/arcane-code"
-                target="_blank"
-                rel="noreferrer"
-                className="donationBtn"
-              >
-                ☕ {aboutText.donationBtn}
-              </a>
-            </div>
+
+            {!isItchIo && (
+              <>
+                <div className="separador" />
+
+                <div className="donation-container goldman-regular">
+                  <p className="donation-title">
+                    {aboutText.donationTitle}
+                    <br />
+                  </p>
+
+                  <p className="donation-text">{aboutText.donationText}</p>
+
+                  <a
+                    href="https://reinajirveg.itch.io/arcane-code"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="donationBtn"
+                  >
+                    ☕ {aboutText.donationBtn}
+                  </a>
+                </div>
+              </>
+            )}
             <p className="legal-info">
               <br /> <br />
               {aboutText.legal}

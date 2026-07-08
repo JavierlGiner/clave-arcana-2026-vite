@@ -73,6 +73,12 @@ const Home = () => {
   const isIOS = platform === "ios";
   const isManualInstall = isIOS || platform === "firefox" || !isInstallable;
 
+  const isItchIo =
+    typeof window !== "undefined" &&
+    window.location.hostname.endsWith(".itch.io");
+
+  const shouldShowInstallIntro = showInstallIntro && !isInstalled && !isItchIo;
+
   const handleInstallIntroPrimary = async () => {
     if (isManualInstall) {
       setShowInstallSteps(true);
@@ -87,8 +93,6 @@ const Home = () => {
     sessionStorage.setItem("skipInstallIntro", "true");
     setShowInstallIntro(false);
   };
-
-  const shouldShowInstallIntro = showInstallIntro && !isInstalled;
 
   /*MOSTRAR EL LOGO DE TOTEM */
   const [showReinaTitle, setShowReinaTitle] = useState(true);

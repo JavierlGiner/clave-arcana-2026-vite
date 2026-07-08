@@ -550,6 +550,9 @@ export const TextosProvider = ({ children }) => {
       btn: "CONTINUAR",
       premium1: "¿QUERÉS ACCEDER A LA VERSIÓN COMPLETA DEL JUEGO?",
       premium2: "SUSCRIBITE Y DESBLOQUEÁ TODO EL CONTENIDO EXCLUSIVO.",
+      thanksTitle: "¡Gracias por jugar Arcane Code!",
+      thanksText:
+        "Tu apoyo, tus comentarios y el simple hecho de jugar ayudan a que el proyecto siga creciendo.",
     },
     en: {
       title: "YOU WIN!",
@@ -558,6 +561,9 @@ export const TextosProvider = ({ children }) => {
       btn: "CONTINUE",
       premium1: "WANT TO UNLOCK THE FULL VERSION OF THE GAME?",
       premium2: "SUBSCRIBE AND UNLOCK ALL THE EXCLUSIVE CONTENT.",
+      thanksTitle: "Thank you for playing Arcane Code!",
+      thanksText:
+        "Your support, feedback and simply playing the game help this project continue to grow.",
     },
     jap: {
       title: "勝利",
@@ -567,6 +573,9 @@ export const TextosProvider = ({ children }) => {
       btn: "つづける",
       premium1: "ゲームの完全版にアクセスしたいですか？",
       premium2: "登録して、すべての限定コンテンツをアンロックしましょう。",
+      thanksTitle: "Arcane Code を遊んでいただきありがとうございます！",
+      thanksText:
+        "皆さまの応援やご意見、そしてプレイしていただけることが、このプロジェクトの成長につながります。",
     },
     zh: {
       title: "你赢了",
@@ -575,6 +584,8 @@ export const TextosProvider = ({ children }) => {
       btn: "继续",
       premium1: "想要访问完整版本的游戏吗？",
       premium2: "订阅并解锁所有专属内容。",
+      thanksTitle: "感谢游玩 Arcane Code！",
+      thanksText: "您的支持、反馈以及游玩本身，都是推动本项目持续发展的动力。",
     },
   };
   const privacyPolicy = {

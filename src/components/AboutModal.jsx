@@ -3,6 +3,7 @@ import reina from "../images/reina Jirgev.webp";
 import pink from "../images/pink potion logo-1.webp";
 import { useTextos } from "../contexts/LanguageContext";
 import { MdEmail } from "react-icons/md";
+import { isRunningOnItchIo } from "../utils/isItchIo";
 import "../styles.css";
 
 const StyledAbout = styled.div`
@@ -306,9 +307,7 @@ const StyledAbout = styled.div`
 const AboutModal = ({ setIsAboutModalOpen }) => {
   const { aboutText, supportBtn } = useTextos();
 
-  const isItchIo =
-    typeof window !== "undefined" &&
-    window.location.hostname.endsWith(".itch.io");
+  const isItchIo = isRunningOnItchIo();
 
   return (
     <StyledAbout>

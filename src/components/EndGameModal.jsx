@@ -7,6 +7,7 @@ import "../styles.css";
 import { useNavigate } from "react-router-dom";
 import { useTextos } from "../contexts/LanguageContext";
 import { useState } from "react";
+import { isRunningOnItchIo } from "../utils/isItchIo";
 
 const StyledContainer = styled.div`
   /* VENTANA MODAL DE ABOUT */
@@ -735,9 +736,7 @@ const EndGameModal = ({ formattedTempo }) => {
   const { endGame, playBtn, exitBtn, aboutText, instructNav2 } = useTextos();
   const [showFinalStep, setShowFinalStep] = useState(false);
 
-  const isItchIo =
-    typeof window !== "undefined" &&
-    window.location.hostname.endsWith(".itch.io");
+  const isItchIo = isRunningOnItchIo();
 
   const handleContinue = () => {
     setPage(0);

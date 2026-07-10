@@ -23,14 +23,23 @@ const Container = styled.div`
 `;
 const NavigationContainer = styled.div`
   position: absolute;
+  left: 50%;
   bottom: 5px;
+  transform: translateX(-50%);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   gap: 20px;
-  width: 100%;
+  width: max-content;
+  z-index: 4;
+
+  @media (max-width: 950px) and (max-height: 500px) and (orientation: landscape) {
+    bottom: 4px;
+    gap: 12px;
+  }
+
   @media (max-width: 760px) {
     gap: 10px;
   }
@@ -110,9 +119,20 @@ const InstructionsBox = styled.div`
     height: 250px;
     width: 100%;
     border-radius: 8px;
+    overflow: hidden;
+    gap: 12px;
+    padding: 8px;
+
     img {
-      height: 240px;
+      display: block;
+      height: 230px;
       width: auto;
+      max-width: calc(50% - 12px);
+      object-fit: contain;
+    }
+
+    img:only-child {
+      max-width: 100%;
     }
   }
   .rules-box {
@@ -145,6 +165,9 @@ const InstructionsBox = styled.div`
     border: none;
     color: var(--second-color);
     margin: 0;
+    padding: 4px 6px;
+    cursor: pointer;
+    z-index: 6;
   }
   .landscape-message {
     display: none;
@@ -171,10 +194,18 @@ const InstructionsBox = styled.div`
 
     .image-box {
       height: 195px;
+      gap: 8px;
 
       img {
-        height: 185px;
+        display: block;
+        height: 175px;
         width: auto;
+        max-width: calc(50% - 8px);
+        object-fit: contain;
+      }
+
+      img:only-child {
+        max-width: 100%;
       }
     }
 
@@ -242,9 +273,18 @@ const InstructionsBox = styled.div`
       position: relative;
       overflow: hidden;
       height: 200px;
+      padding: 6px;
+
       img {
+        display: none;
         height: 125px;
         width: auto;
+        max-width: 100%;
+        object-fit: contain;
+      }
+
+      img.active-image {
+        display: block;
       }
     }
     .next-btn {
@@ -259,41 +299,78 @@ const InstructionsBox = styled.div`
   }
 
   @media (max-width: 950px) and (max-height: 500px) and (orientation: landscape) {
-    position: relative;
-    align-items: center;
-    /* justify-content: center; */
-    height: 170px;
-    padding: 5px 15px;
-    width: 400px;
-    h1 {
-      font-size: 22px;
-      padding-top: 0;
-    }
+    width: min(92vw, 820px);
+    height: min(90dvh, 390px);
+    padding: 8px 12px 26px;
+    gap: 6px;
+    justify-content: center;
+
     .container-info {
-      display: none;
+      display: grid;
+      grid-template-columns: 38% 62%;
+      align-items: stretch;
+      gap: 8px;
+      width: 100%;
+      height: calc(100% - 54px);
+      min-height: 0;
     }
-    .next-btn {
-      display: none;
+
+    .image-box {
+      height: calc(100% - 18px);
+      width: 100%;
+      overflow: hidden;
+      padding: 6px;
     }
-    .landscape-message {
+
+    .image-box img {
+      display: none;
+      height: 100%;
+      width: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .image-box img.active-image {
       display: block;
-      justify-content: center;
-      text-align: center;
-      width: 340px;
-      height: 80px;
-      color: var(--modal-bg);
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 20px;
     }
-    .close-button {
-      width: 20px;
-      height: 20px;
+
+    .rules-box {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 8px 8px 28px;
+      overflow-y: auto;
+      scrollbar-width: auto;
+    }
+
+    .rules-box h2 {
       font-size: 14px;
-      padding-bottom: 4px;
+      margin: 0 0 6px;
+    }
+
+    .rules-box p {
+      font-size: 11px;
+      line-height: 15px;
+      padding: 0;
+    }
+
+    .next-btn {
+      right: 14px;
+      bottom: 5px;
+      font-size: 10px;
+      z-index: 6;
+      pointer-events: auto;
     }
   }
+`;
+const ImageColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  min-height: 0;
 `;
 
 const DotsContainer = styled.div`
@@ -306,7 +383,8 @@ const DotsContainer = styled.div`
   height: 40px;
 
   @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
-    display: none;
+    height: 18px;
+    bottom: 2px;
   }
   @media (max-width: 480px) {
     height: 20px;
@@ -331,13 +409,15 @@ const Dot = styled.div`
     height: 12px;
   }
   @media (max-width: 950px) and (max-height: 480px) and (orientation: landscape) {
-    display: none;
+    width: 9px;
+    height: 9px;
   }
 `;
 const ImageDotsContainer = styled.div`
   display: none;
 
-  @media (max-width: 760px) {
+  @media (max-width: 760px),
+    (max-width: 950px) and (max-height: 500px) and (orientation: landscape) {
     display: flex;
     justify-content: center;
     gap: 6px;
@@ -484,36 +564,37 @@ const InstruccionesModal = ({ closeInstructionsModal }) => {
           {instructBtn.message}
         </p>
         <div className="container-info goldman-regular">
-          <div className="image-box">
-            {window.innerWidth <= 760 ? (
-              <img
-                src={images[currentImage]}
-                alt={`instruction-${currentImage}`}
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
-              />
-            ) : (
-              images.map((image, index) => (
+          <ImageColumn>
+            <div
+              className="image-box"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
+              {images.map((image, index) => (
                 <img
-                  src={images[currentImage]}
-                  alt={`instruction-${currentImage}`}
-                  onTouchStart={handleTouchStart}
-                  onTouchEnd={handleTouchEnd}
-                />
-              ))
-            )}
-          </div>
-          {images.length > 1 && (
-            <ImageDotsContainer>
-              {images.map((_, index) => (
-                <ImageDot
-                  key={index}
-                  $active={currentImage === index}
-                  onClick={() => setCurrentImage(index)}
+                  key={`${currentSection}-${currentRule}-${index}`}
+                  src={image}
+                  alt={`instruction-${currentRule}-${index + 1}`}
+                  className={
+                    currentImage === index ? "active-image" : "inactive-image"
+                  }
+                  draggable="false"
                 />
               ))}
-            </ImageDotsContainer>
-          )}
+            </div>
+
+            {images.length > 1 && (
+              <ImageDotsContainer>
+                {images.map((_, index) => (
+                  <ImageDot
+                    key={index}
+                    $active={currentImage === index}
+                    onClick={() => setCurrentImage(index)}
+                  />
+                ))}
+              </ImageDotsContainer>
+            )}
+          </ImageColumn>
           <div className="rules-box">
             <div>
               <h2>

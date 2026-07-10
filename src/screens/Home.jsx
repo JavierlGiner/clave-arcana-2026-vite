@@ -75,7 +75,9 @@ const Home = () => {
 
   const isItchIo =
     typeof window !== "undefined" &&
-    window.location.hostname.endsWith(".itch.io");
+    (window.location.hostname.includes("itch.io") ||
+      window.location.hostname.includes("itch.zone") ||
+      document.referrer.includes("itch.io"));
 
   const shouldShowInstallIntro = showInstallIntro && !isInstalled && !isItchIo;
 

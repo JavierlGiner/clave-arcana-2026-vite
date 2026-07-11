@@ -179,7 +179,7 @@ const InstructionsPromptModal = ({ onContinue, onClose }) => {
   const { instructPrompt, idioma } = useTextos();
 
   const spanishVideo = "https://www.youtube.com/watch?v=p_GXOmm7zjw";
-  const englishVideo = "https://www.youtube.com/watch?v=LSmSKIg1QoQ";
+  const englishVideo = "https://youtu.be/x6_lTACpXx8";
 
   const tutorialVideos = {
     es: spanishVideo,

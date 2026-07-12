@@ -298,7 +298,7 @@ const InstructionsBox = styled.div`
     }
   }
 
-  @media (max-width: 950px) and (max-height: 500px) and (orientation: landscape) {
+  @media (max-width: 1024px) and (max-height: 500px) and (orientation: landscape) {
     width: min(92vw, 820px);
     height: min(90dvh, 390px);
     padding: 8px 12px 26px;
